@@ -15,7 +15,7 @@ namespace Administracion_Consorcio_AdminFairy
         }
         private void txtDni_TextChanged(object sender, EventArgs e)
         {
-           
+
         }
 
         //public bool validarDatos(string dni, string claveIngresado)
@@ -63,7 +63,7 @@ namespace Administracion_Consorcio_AdminFairy
         private void btnIniciarSesion_Click(object sender, EventArgs e)
         {
             string dni = this.txtDni.Text;
-            string clave =this.txtClave.Text;
+            string clave = this.txtClave.Text;
 
             if (dni == "a" && clave == "a")
             {
@@ -85,5 +85,9 @@ namespace Administracion_Consorcio_AdminFairy
         {
 
         }
+
+        private void lblRegistro_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
     }
 }
