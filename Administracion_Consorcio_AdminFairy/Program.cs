@@ -1,6 +1,9 @@
+using Entidades;
+
+
 namespace Administracion_Consorcio_AdminFairy
 {
-    internal static class Program
+    public static class Program
     {
         /// <summary>
         ///  The main entry point for the application.
@@ -12,6 +15,8 @@ namespace Administracion_Consorcio_AdminFairy
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             Application.Run(new FrmLogin());
+
+            Usuario usuario = new Usuario("Emilia", 41958704, "hola", "charcas 2594");
         }
     }
 }
