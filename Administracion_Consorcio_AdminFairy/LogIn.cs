@@ -68,17 +68,21 @@ namespace Administracion_Consorcio_AdminFairy
             if (dni == "a" && clave == "a")
             {
                 MessageBox.Show("Ingreso Exitoso!", "Bienvenida/o!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
             }
             else
             {
                 MessageBox.Show("Los datos ingresados no corresponden a un usuario registrado.\tVuelva a intentarlo", "ERROR!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
             }
+
 
         }
 
         private void btnAutocompletar_Click(object sender, EventArgs e)
         {
-
+            SeleccionarUsuario su = new SeleccionarUsuario(); // Se instanció el formulario del autocompletar. 
+            su.ShowDialog();  // no se va a cerrar a menos que se termine de interactuar con este (en este caso por ahora con el btn cancelar o cerrandolo)
         }
 
         private void FrmLogin_Load(object sender, EventArgs e)
