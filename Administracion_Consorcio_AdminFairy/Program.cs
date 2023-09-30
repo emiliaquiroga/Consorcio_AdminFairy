@@ -16,7 +16,7 @@ namespace Administracion_Consorcio_AdminFairy
             ApplicationConfiguration.Initialize();
             Application.Run(new FrmLogin());
 
-            Usuario usuario = new Usuario("Emilia", 41958704, "hola", "charcas 2594");
+            Usuario usuario = new Usuario("Emilia", "41958704", "hola", "charcas 2594");
         }
     }
 }

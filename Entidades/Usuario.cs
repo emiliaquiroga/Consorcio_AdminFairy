@@ -4,9 +4,9 @@
     {
         // tiene que tener: dni, contraserña, Ese dni tiene que estar en el XML con un nombre, apellido y un numero de depto (1°B)
         protected string nombre;
-        private string dni;
-        private string clave;
-        private string direccion;
+        public string dni;
+        public string clave;
+        protected string direccion;
 
         public Usuario()
         {

@@ -5,7 +5,6 @@ namespace Administracion_Consorcio_AdminFairy
 {
     public partial class FrmLogin : Form
     {
-        Usuario usuario;
         string dni;
         string claveIngresado;
 
@@ -16,32 +15,32 @@ namespace Administracion_Consorcio_AdminFairy
         }
         private void txtDni_TextChanged(object sender, EventArgs e)
         {
-            dni = txtDni.Text;
+           
         }
 
-        public bool validarDatos()
-        {
+        //public bool validarDatos(string dni, string claveIngresado)
+        //{
 
-            try 
-            {
-                if (dni == Usuario.dni && ClaveIngresado == Usuario.Clave)
-                {
-                    return true;
+        //    try 
+        //    {
+        //        if (dni == txtDni.Text && claveIngresado == usuario.Clave)
+        //        {
+        //            return true;
 
-                }
-                else
-                {
-                    MessageBox.Show("ERROR!", "Los datos ingresados no corresponden a un usuario registrado.\tVuelva a intentarlo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return false;
-                }
+        //        }
+        //        else
+        //        {
+        //            MessageBox.Show("ERROR!", "Los datos ingresados no corresponden a un usuario registrado.\tVuelva a intentarlo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //            return false;
+        //        }
 
-            }
-            catch {
-                Console.WriteLine("Error en VALIDAR DATOS");
-                return false;
-            }
+        //    }
+        //    catch {
+        //        Console.WriteLine("Error en VALIDAR DATOS");
+        //        return false;
+        //    }
 
-        }
+        //}
 
         private void txtClave_TextChanged(object sender, EventArgs e)
         {
@@ -63,7 +62,10 @@ namespace Administracion_Consorcio_AdminFairy
 
         private void btnIniciarSesion_Click(object sender, EventArgs e)
         {
-            if (validarDatos())
+            string dni = this.txtDni.Text;
+            string clave =this.txtClave.Text;
+
+            if (dni == "a" && clave == "a")
             {
                 MessageBox.Show("Ingreso Exitoso!", "Bienvenida/o!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
