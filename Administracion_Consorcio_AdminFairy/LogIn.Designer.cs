@@ -36,6 +36,7 @@
             btnIniciarSesion = new Button();
             btnAutocompletar = new Button();
             pictureBox1 = new PictureBox();
+            lblRegistro = new LinkLabel();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -45,7 +46,7 @@
             txtDni.Location = new Point(68, 220);
             txtDni.Name = "txtDni";
             txtDni.PlaceholderText = "Ingrese su D.N.I";
-            txtDni.Size = new Size(296, 20);
+            txtDni.Size = new Size(296, 30);
             txtDni.TabIndex = 0;
             txtDni.TextChanged += txtDni_TextChanged;
             // 
@@ -55,7 +56,7 @@
             txtClave.Location = new Point(68, 258);
             txtClave.Name = "txtClave";
             txtClave.PlaceholderText = "Ingrese su Clave";
-            txtClave.Size = new Size(296, 20);
+            txtClave.Size = new Size(296, 30);
             txtClave.TabIndex = 1;
             txtClave.UseSystemPasswordChar = true;
             txtClave.TextChanged += txtClave_TextChanged;
@@ -64,9 +65,9 @@
             // 
             lblMarca.AutoSize = true;
             lblMarca.BackColor = Color.FromArgb(168, 183, 204);
-            lblMarca.Location = new Point(89, 143);
+            lblMarca.Location = new Point(12, 140);
             lblMarca.Name = "lblMarca";
-            lblMarca.Size = new Size(257, 42);
+            lblMarca.Size = new Size(391, 60);
             lblMarca.TabIndex = 2;
             lblMarca.Text = "·AdminFairy· \r\nComplete sus datos para Iniciar";
             lblMarca.TextAlign = ContentAlignment.MiddleCenter;
@@ -78,7 +79,7 @@
             chkMostrarClave.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point);
             chkMostrarClave.Location = new Point(68, 284);
             chkMostrarClave.Name = "chkMostrarClave";
-            chkMostrarClave.Size = new Size(110, 21);
+            chkMostrarClave.Size = new Size(156, 25);
             chkMostrarClave.TabIndex = 3;
             chkMostrarClave.Text = "Mostrar clave";
             chkMostrarClave.UseVisualStyleBackColor = false;
@@ -86,7 +87,7 @@
             // 
             // btnIniciarSesion
             // 
-            btnIniciarSesion.Location = new Point(89, 458);
+            btnIniciarSesion.Location = new Point(89, 449);
             btnIniciarSesion.Name = "btnIniciarSesion";
             btnIniciarSesion.Size = new Size(257, 58);
             btnIniciarSesion.TabIndex = 5;
@@ -117,12 +118,25 @@
             pictureBox1.TabIndex = 7;
             pictureBox1.TabStop = false;
             // 
+            // lblRegistro
+            // 
+            lblRegistro.AutoSize = true;
+            lblRegistro.Font = new Font("Century Gothic", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            lblRegistro.Location = new Point(110, 519);
+            lblRegistro.Name = "lblRegistro";
+            lblRegistro.Size = new Size(204, 23);
+            lblRegistro.TabIndex = 8;
+            lblRegistro.TabStop = true;
+            lblRegistro.Text = "¡Quiero Registrarme!";
+            lblRegistro.LinkClicked += lblRegistro_LinkClicked_1;
+            // 
             // FrmLogin
             // 
-            AutoScaleDimensions = new SizeF(10F, 21F);
+            AutoScaleDimensions = new SizeF(14F, 30F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(116, 140, 171);
             ClientSize = new Size(431, 549);
+            Controls.Add(lblRegistro);
             Controls.Add(btnAutocompletar);
             Controls.Add(btnIniciarSesion);
             Controls.Add(chkMostrarClave);
@@ -151,5 +165,6 @@
         private Button btnIniciarSesion;
         private Button btnAutocompletar;
         private PictureBox pictureBox1;
+        private LinkLabel lblRegistro;
     }
 }

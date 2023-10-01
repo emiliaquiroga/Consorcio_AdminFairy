@@ -90,8 +90,10 @@ namespace Administracion_Consorcio_AdminFairy
 
         }
 
-        private void lblRegistro_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void lblRegistro_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)
         {
-
+            Registro registro = new Registro(this);
+            registro.Show();
+        }
     }
 }

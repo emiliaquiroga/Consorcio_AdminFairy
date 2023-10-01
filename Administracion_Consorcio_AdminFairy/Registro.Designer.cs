@@ -29,18 +29,7 @@
         private void InitializeComponent()
         {
             lblTitulo = new Label();
-            txtNombre = new TextBox();
-            txtApellido = new TextBox();
-            txtDocumento = new TextBox();
             txtDireccion = new TextBox();
-            grpDatos = new GroupBox();
-            lblFechaNac = new Label();
-            dtpFechaNac = new DateTimePicker();
-            radDuenio = new RadioButton();
-            radInquilino = new RadioButton();
-            txtConfirmeClave = new TextBox();
-            txtEmail = new TextBox();
-            txtClaveReg = new TextBox();
             lstCiudad = new ListBox();
             txtPiso = new TextBox();
             txtDepto = new TextBox();
@@ -49,8 +38,20 @@
             btnSalir = new Button();
             btnBorrarInfo = new Button();
             lblInicio = new LinkLabel();
-            grpDatos.SuspendLayout();
+            txtNombre = new TextBox();
+            txtApellido = new TextBox();
+            txtDocumento = new TextBox();
+            txtClaveReg = new TextBox();
+            txtEmail = new TextBox();
+            txtConfirmeClave = new TextBox();
+            radInquilino = new RadioButton();
+            radDuenio = new RadioButton();
+            lblError = new Label();
+            grpDatos = new GroupBox();
+            grpSituacion = new GroupBox();
             grpDepto.SuspendLayout();
+            grpDatos.SuspendLayout();
+            grpSituacion.SuspendLayout();
             SuspendLayout();
             // 
             // lblTitulo
@@ -63,33 +64,6 @@
             lblTitulo.TabIndex = 0;
             lblTitulo.Text = "Completá los siguientes datos:";
             // 
-            // txtNombre
-            // 
-            txtNombre.Location = new Point(20, 87);
-            txtNombre.Name = "txtNombre";
-            txtNombre.PlaceholderText = "Nombre";
-            txtNombre.Size = new Size(309, 31);
-            txtNombre.TabIndex = 1;
-            txtNombre.TextChanged += txtNombre_TextChanged;
-            // 
-            // txtApellido
-            // 
-            txtApellido.Location = new Point(20, 137);
-            txtApellido.Name = "txtApellido";
-            txtApellido.PlaceholderText = "Apellido";
-            txtApellido.Size = new Size(309, 31);
-            txtApellido.TabIndex = 2;
-            txtApellido.TextChanged += txtApellido_TextChanged;
-            // 
-            // txtDocumento
-            // 
-            txtDocumento.Location = new Point(20, 229);
-            txtDocumento.Name = "txtDocumento";
-            txtDocumento.PlaceholderText = "D.N.I";
-            txtDocumento.Size = new Size(309, 31);
-            txtDocumento.TabIndex = 3;
-            txtDocumento.TextChanged += txtDocumento_TextChanged;
-            // 
             // txtDireccion
             // 
             txtDireccion.Location = new Point(19, 87);
@@ -99,97 +73,12 @@
             txtDireccion.TabIndex = 4;
             txtDireccion.TextChanged += txtDireccion_TextChanged;
             // 
-            // grpDatos
-            // 
-            grpDatos.Controls.Add(lblFechaNac);
-            grpDatos.Controls.Add(dtpFechaNac);
-            grpDatos.Controls.Add(radDuenio);
-            grpDatos.Controls.Add(radInquilino);
-            grpDatos.Controls.Add(txtConfirmeClave);
-            grpDatos.Controls.Add(txtEmail);
-            grpDatos.Controls.Add(txtClaveReg);
-            grpDatos.Controls.Add(txtDocumento);
-            grpDatos.Controls.Add(txtApellido);
-            grpDatos.Controls.Add(txtNombre);
-            grpDatos.Location = new Point(43, 94);
-            grpDatos.Name = "grpDatos";
-            grpDatos.Size = new Size(342, 445);
-            grpDatos.TabIndex = 5;
-            grpDatos.TabStop = false;
-            grpDatos.Text = "Datos Personales";
-            // 
-            // lblFechaNac
-            // 
-            lblFechaNac.AutoSize = true;
-            lblFechaNac.Location = new Point(20, 361);
-            lblFechaNac.Name = "lblFechaNac";
-            lblFechaNac.Size = new Size(177, 25);
-            lblFechaNac.TabIndex = 15;
-            lblFechaNac.Text = "Fecha de Nacimiento";
-            // 
-            // dtpFechaNac
-            // 
-            dtpFechaNac.Location = new Point(20, 389);
-            dtpFechaNac.Name = "dtpFechaNac";
-            dtpFechaNac.Size = new Size(309, 31);
-            dtpFechaNac.TabIndex = 14;
-            dtpFechaNac.ValueChanged += dtpFechaNac_ValueChanged;
-            // 
-            // radDuenio
-            // 
-            radDuenio.AutoSize = true;
-            radDuenio.Location = new Point(204, 43);
-            radDuenio.Name = "radDuenio";
-            radDuenio.Size = new Size(125, 29);
-            radDuenio.TabIndex = 13;
-            radDuenio.TabStop = true;
-            radDuenio.Text = "Soy Dueño";
-            radDuenio.UseVisualStyleBackColor = true;
-            // 
-            // radInquilino
-            // 
-            radInquilino.AutoSize = true;
-            radInquilino.Location = new Point(20, 43);
-            radInquilino.Name = "radInquilino";
-            radInquilino.Size = new Size(141, 29);
-            radInquilino.TabIndex = 12;
-            radInquilino.TabStop = true;
-            radInquilino.Text = "Soy Inquilino";
-            radInquilino.UseVisualStyleBackColor = true;
-            // 
-            // txtConfirmeClave
-            // 
-            txtConfirmeClave.Location = new Point(20, 326);
-            txtConfirmeClave.Name = "txtConfirmeClave";
-            txtConfirmeClave.PlaceholderText = "Confirme su clave";
-            txtConfirmeClave.Size = new Size(309, 31);
-            txtConfirmeClave.TabIndex = 11;
-            txtConfirmeClave.TextChanged += textBox1_TextChanged;
-            // 
-            // txtEmail
-            // 
-            txtEmail.Location = new Point(20, 183);
-            txtEmail.Name = "txtEmail";
-            txtEmail.PlaceholderText = "Correo Electrónico";
-            txtEmail.Size = new Size(309, 31);
-            txtEmail.TabIndex = 4;
-            txtEmail.TextChanged += txtEmail_TextChanged;
-            // 
-            // txtClaveReg
-            // 
-            txtClaveReg.Location = new Point(20, 276);
-            txtClaveReg.Name = "txtClaveReg";
-            txtClaveReg.PlaceholderText = "Clave";
-            txtClaveReg.Size = new Size(309, 31);
-            txtClaveReg.TabIndex = 10;
-            txtClaveReg.TextChanged += txtClaveReg_TextChanged;
-            // 
             // lstCiudad
             // 
             lstCiudad.FormattingEnabled = true;
             lstCiudad.ItemHeight = 25;
             lstCiudad.Items.AddRange(new object[] { "Ciudad Autónoma de Buenos Aires", "La Plata", "Córdoba", "Santa Fé ", "Rosario", "Posadas", "Paraná", "Formosa", "Mendoza", "Santiago del Estero", "San Luis", "Salta", "San Fernando del Valle de Catamarca", "San Salvador de Jujuy", "San Miguel de Tucumán" });
-            lstCiudad.Location = new Point(19, 43);
+            lstCiudad.Location = new Point(19, 41);
             lstCiudad.Name = "lstCiudad";
             lstCiudad.Size = new Size(309, 29);
             lstCiudad.TabIndex = 6;
@@ -267,6 +156,125 @@
             lblInicio.Text = "Volver a Inicio";
             lblInicio.LinkClicked += lblInicio_LinkClicked;
             // 
+            // txtNombre
+            // 
+            txtNombre.Location = new Point(20, 102);
+            txtNombre.Name = "txtNombre";
+            txtNombre.PlaceholderText = "Nombre";
+            txtNombre.Size = new Size(309, 31);
+            txtNombre.TabIndex = 1;
+            txtNombre.TextChanged += txtNombre_TextChanged;
+            // 
+            // txtApellido
+            // 
+            txtApellido.Location = new Point(20, 153);
+            txtApellido.Name = "txtApellido";
+            txtApellido.PlaceholderText = "Apellido";
+            txtApellido.Size = new Size(309, 31);
+            txtApellido.TabIndex = 2;
+            txtApellido.TextChanged += txtApellido_TextChanged;
+            // 
+            // txtDocumento
+            // 
+            txtDocumento.Location = new Point(20, 255);
+            txtDocumento.Name = "txtDocumento";
+            txtDocumento.PlaceholderText = "D.N.I";
+            txtDocumento.Size = new Size(309, 31);
+            txtDocumento.TabIndex = 3;
+            txtDocumento.TextChanged += txtDocumento_TextChanged;
+            // 
+            // txtClaveReg
+            // 
+            txtClaveReg.Location = new Point(20, 308);
+            txtClaveReg.Name = "txtClaveReg";
+            txtClaveReg.PlaceholderText = "Clave";
+            txtClaveReg.Size = new Size(309, 31);
+            txtClaveReg.TabIndex = 10;
+            txtClaveReg.UseSystemPasswordChar = true;
+            txtClaveReg.TextChanged += txtClaveReg_TextChanged;
+            // 
+            // txtEmail
+            // 
+            txtEmail.Location = new Point(20, 206);
+            txtEmail.Name = "txtEmail";
+            txtEmail.PlaceholderText = "Correo Electrónico";
+            txtEmail.Size = new Size(309, 31);
+            txtEmail.TabIndex = 4;
+            txtEmail.TextChanged += txtEmail_TextChanged;
+            // 
+            // txtConfirmeClave
+            // 
+            txtConfirmeClave.Location = new Point(20, 355);
+            txtConfirmeClave.Name = "txtConfirmeClave";
+            txtConfirmeClave.PasswordChar = '*';
+            txtConfirmeClave.PlaceholderText = "Confirme su clave";
+            txtConfirmeClave.Size = new Size(309, 31);
+            txtConfirmeClave.TabIndex = 11;
+            txtConfirmeClave.UseSystemPasswordChar = true;
+            txtConfirmeClave.TextChanged += textBox1_TextChanged;
+            // 
+            // radInquilino
+            // 
+            radInquilino.AutoSize = true;
+            radInquilino.Location = new Point(6, 24);
+            radInquilino.Name = "radInquilino";
+            radInquilino.Size = new Size(141, 29);
+            radInquilino.TabIndex = 12;
+            radInquilino.TabStop = true;
+            radInquilino.Text = "Soy Inquilino";
+            radInquilino.UseVisualStyleBackColor = true;
+            radInquilino.CheckedChanged += radInquilino_CheckedChanged;
+            // 
+            // radDuenio
+            // 
+            radDuenio.AutoSize = true;
+            radDuenio.Location = new Point(166, 24);
+            radDuenio.Name = "radDuenio";
+            radDuenio.Size = new Size(125, 29);
+            radDuenio.TabIndex = 13;
+            radDuenio.TabStop = true;
+            radDuenio.Text = "Soy Dueño";
+            radDuenio.UseVisualStyleBackColor = true;
+            // 
+            // lblError
+            // 
+            lblError.AutoSize = true;
+            lblError.ForeColor = Color.Red;
+            lblError.Location = new Point(20, 395);
+            lblError.Name = "lblError";
+            lblError.Size = new Size(50, 25);
+            lblError.TabIndex = 14;
+            lblError.Text = "Error";
+            // 
+            // grpDatos
+            // 
+            grpDatos.Controls.Add(grpSituacion);
+            grpDatos.Controls.Add(lblError);
+            grpDatos.Controls.Add(txtConfirmeClave);
+            grpDatos.Controls.Add(txtEmail);
+            grpDatos.Controls.Add(txtClaveReg);
+            grpDatos.Controls.Add(txtDocumento);
+            grpDatos.Controls.Add(txtApellido);
+            grpDatos.Controls.Add(txtNombre);
+            grpDatos.Location = new Point(42, 94);
+            grpDatos.Name = "grpDatos";
+            grpDatos.Size = new Size(342, 463);
+            grpDatos.TabIndex = 5;
+            grpDatos.TabStop = false;
+            grpDatos.Text = "Datos Personales";
+            // 
+            // grpSituacion
+            // 
+            grpSituacion.Controls.Add(radInquilino);
+            grpSituacion.Controls.Add(radDuenio);
+            grpSituacion.Cursor = Cursors.Hand;
+            grpSituacion.FlatStyle = FlatStyle.Popup;
+            grpSituacion.Location = new Point(20, 30);
+            grpSituacion.Name = "grpSituacion";
+            grpSituacion.Size = new Size(309, 59);
+            grpSituacion.TabIndex = 14;
+            grpSituacion.TabStop = false;
+            // 
             // Registro
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -282,10 +290,12 @@
             Name = "Registro";
             Text = "Registro";
             Load += Registro_Load;
-            grpDatos.ResumeLayout(false);
-            grpDatos.PerformLayout();
             grpDepto.ResumeLayout(false);
             grpDepto.PerformLayout();
+            grpDatos.ResumeLayout(false);
+            grpDatos.PerformLayout();
+            grpSituacion.ResumeLayout(false);
+            grpSituacion.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -293,25 +303,25 @@
         #endregion
 
         private Label lblTitulo;
-        private TextBox txtNombre;
-        private TextBox txtApellido;
-        private TextBox txtDocumento;
         private TextBox txtDireccion;
-        private GroupBox grpDatos;
         private ListBox lstCiudad;
-        private TextBox txtEmail;
         private TextBox txtPiso;
         private TextBox txtDepto;
         private GroupBox grpDepto;
-        private TextBox txtClaveReg;
-        private TextBox txtConfirmeClave;
-        private RadioButton radDuenio;
-        private RadioButton radInquilino;
         private Button btnRegistro;
-        private Label lblFechaNac;
-        private DateTimePicker dtpFechaNac;
         private Button btnSalir;
         private Button btnBorrarInfo;
         private LinkLabel lblInicio;
+        private TextBox txtNombre;
+        private TextBox txtApellido;
+        private TextBox txtDocumento;
+        private TextBox txtClaveReg;
+        private TextBox txtEmail;
+        private TextBox txtConfirmeClave;
+        private RadioButton radInquilino;
+        private RadioButton radDuenio;
+        private Label lblError;
+        private GroupBox grpDatos;
+        private GroupBox grpSituacion;
     }
 }
