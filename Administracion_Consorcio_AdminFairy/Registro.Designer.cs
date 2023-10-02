@@ -71,7 +71,7 @@
             txtDireccion.PlaceholderText = "Ingrese calle y numeración";
             txtDireccion.Size = new Size(309, 31);
             txtDireccion.TabIndex = 4;
-            txtDireccion.TextChanged += txtDireccion_TextChanged;
+
             // 
             // lstCiudad
             // 
@@ -82,7 +82,7 @@
             lstCiudad.Name = "lstCiudad";
             lstCiudad.Size = new Size(309, 29);
             lstCiudad.TabIndex = 6;
-            lstCiudad.SelectedIndexChanged += lstCiudad_SelectedIndexChanged;
+
             // 
             // txtPiso
             // 
@@ -91,7 +91,7 @@
             txtPiso.PlaceholderText = "N° Piso";
             txtPiso.Size = new Size(125, 31);
             txtPiso.TabIndex = 7;
-            txtPiso.TextChanged += txtPiso_TextChanged;
+
             // 
             // txtDepto
             // 
@@ -100,7 +100,7 @@
             txtDepto.PlaceholderText = "Departamento";
             txtDepto.Size = new Size(125, 31);
             txtDepto.TabIndex = 8;
-            txtDepto.TextChanged += txtDepto_TextChanged;
+
             // 
             // grpDepto
             // 
@@ -163,7 +163,7 @@
             txtNombre.PlaceholderText = "Nombre";
             txtNombre.Size = new Size(309, 31);
             txtNombre.TabIndex = 1;
-            txtNombre.TextChanged += txtNombre_TextChanged;
+
             // 
             // txtApellido
             // 
@@ -172,7 +172,7 @@
             txtApellido.PlaceholderText = "Apellido";
             txtApellido.Size = new Size(309, 31);
             txtApellido.TabIndex = 2;
-            txtApellido.TextChanged += txtApellido_TextChanged;
+
             // 
             // txtDocumento
             // 
@@ -181,7 +181,7 @@
             txtDocumento.PlaceholderText = "D.N.I";
             txtDocumento.Size = new Size(309, 31);
             txtDocumento.TabIndex = 3;
-            txtDocumento.TextChanged += txtDocumento_TextChanged;
+
             // 
             // txtClaveReg
             // 
@@ -191,7 +191,7 @@
             txtClaveReg.Size = new Size(309, 31);
             txtClaveReg.TabIndex = 10;
             txtClaveReg.UseSystemPasswordChar = true;
-            txtClaveReg.TextChanged += txtClaveReg_TextChanged;
+
             // 
             // txtEmail
             // 
@@ -200,7 +200,7 @@
             txtEmail.PlaceholderText = "Correo Electrónico";
             txtEmail.Size = new Size(309, 31);
             txtEmail.TabIndex = 4;
-            txtEmail.TextChanged += txtEmail_TextChanged;
+
             // 
             // txtConfirmeClave
             // 
@@ -211,7 +211,7 @@
             txtConfirmeClave.Size = new Size(309, 31);
             txtConfirmeClave.TabIndex = 11;
             txtConfirmeClave.UseSystemPasswordChar = true;
-            txtConfirmeClave.TextChanged += textBox1_TextChanged;
+
             // 
             // radInquilino
             // 
@@ -223,7 +223,7 @@
             radInquilino.TabStop = true;
             radInquilino.Text = "Soy Inquilino";
             radInquilino.UseVisualStyleBackColor = true;
-            radInquilino.CheckedChanged += radInquilino_CheckedChanged;
+
             // 
             // radDuenio
             // 

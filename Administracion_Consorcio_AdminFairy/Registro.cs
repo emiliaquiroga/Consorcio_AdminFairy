@@ -27,40 +27,7 @@ namespace Administracion_Consorcio_AdminFairy
 
         }
 
-        private void txtNombre_TextChanged(object sender, EventArgs e)
-        {
 
-
-        }
-
-        private void txtApellido_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-        private void txtEmail_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lstCiudad_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtDireccion_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtPiso_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtDepto_TextChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnRegistro_Click(object sender, EventArgs e)
         {
@@ -141,20 +108,6 @@ namespace Administracion_Consorcio_AdminFairy
             login.Show();
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtClaveReg_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtDocumento_TextChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void lblInicio_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
@@ -162,9 +115,6 @@ namespace Administracion_Consorcio_AdminFairy
             login.Show();
         }
 
-        private void radInquilino_CheckedChanged(object sender, EventArgs e)
-        {
 
-        }
     }
 }
