@@ -23,8 +23,6 @@ namespace Administracion_Consorcio_AdminFairy
         private void Registro_Load(object sender, EventArgs e)
         {
             lblError.Visible = false;
-            
-
         }
 
 
@@ -99,7 +97,7 @@ namespace Administracion_Consorcio_AdminFairy
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-
+    
         }
 
         private void btnSalir_Click(object sender, EventArgs e)

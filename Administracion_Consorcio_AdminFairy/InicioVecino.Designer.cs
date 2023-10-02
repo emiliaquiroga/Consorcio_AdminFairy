@@ -32,9 +32,10 @@
             // 
             // InicioVecino
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1203, 652);
+            ClientSize = new Size(860, 413);
+            Margin = new Padding(2, 2, 2, 2);
             Name = "InicioVecino";
             Text = "InicioVecino";
             ResumeLayout(false);
