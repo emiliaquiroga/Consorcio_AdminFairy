@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             lblTitulo = new Label();
-            txtDireccion = new TextBox();
             lstCiudad = new ListBox();
-            txtPiso = new TextBox();
-            txtDepto = new TextBox();
             grpDepto = new GroupBox();
+            dmUpDownUnidad = new DomainUpDown();
+            dmUpDownPiso = new DomainUpDown();
+            lstTorre = new ListBox();
             btnRegistro = new Button();
             btnSalir = new Button();
             btnBorrarInfo = new Button();
@@ -64,56 +64,72 @@
             lblTitulo.TabIndex = 0;
             lblTitulo.Text = "Completá los siguientes datos:";
             // 
-            // txtDireccion
-            // 
-            txtDireccion.Location = new Point(19, 87);
-            txtDireccion.Name = "txtDireccion";
-            txtDireccion.PlaceholderText = "Ingrese calle y numeración";
-            txtDireccion.Size = new Size(309, 31);
-            txtDireccion.TabIndex = 4;
-            txtDireccion.TextChanged += txtDireccion_TextChanged;
-            // 
             // lstCiudad
             // 
+            lstCiudad.AllowDrop = true;
             lstCiudad.FormattingEnabled = true;
             lstCiudad.ItemHeight = 25;
-            lstCiudad.Items.AddRange(new object[] { "Ciudad Autónoma de Buenos Aires", "La Plata", "Córdoba", "Santa Fé ", "Rosario", "Posadas", "Paraná", "Formosa", "Mendoza", "Santiago del Estero", "San Luis", "Salta", "San Fernando del Valle de Catamarca", "San Salvador de Jujuy", "San Miguel de Tucumán" });
+            lstCiudad.Items.AddRange(new object[] { "Ciudad Autónoma de Buenos Aires", "La Plata", "Córdoba", "Santa Fé " });
             lstCiudad.Location = new Point(19, 41);
             lstCiudad.Name = "lstCiudad";
             lstCiudad.Size = new Size(309, 29);
             lstCiudad.TabIndex = 6;
-            lstCiudad.SelectedIndexChanged += lstCiudad_SelectedIndexChanged;
-            // 
-            // txtPiso
-            // 
-            txtPiso.Location = new Point(19, 137);
-            txtPiso.Name = "txtPiso";
-            txtPiso.PlaceholderText = "N° Piso";
-            txtPiso.Size = new Size(125, 31);
-            txtPiso.TabIndex = 7;
-            txtPiso.TextChanged += txtPiso_TextChanged;
-            // 
-            // txtDepto
-            // 
-            txtDepto.Location = new Point(203, 137);
-            txtDepto.Name = "txtDepto";
-            txtDepto.PlaceholderText = "Departamento";
-            txtDepto.Size = new Size(125, 31);
-            txtDepto.TabIndex = 8;
-            txtDepto.TextChanged += txtDepto_TextChanged;
+            lstCiudad.SelectedIndexChanged += lstCiudades_SelectedIndexChanged;
             // 
             // grpDepto
             // 
-            grpDepto.Controls.Add(txtDepto);
-            grpDepto.Controls.Add(txtPiso);
+            grpDepto.Controls.Add(dmUpDownUnidad);
+            grpDepto.Controls.Add(dmUpDownPiso);
+            grpDepto.Controls.Add(lstTorre);
             grpDepto.Controls.Add(lstCiudad);
-            grpDepto.Controls.Add(txtDireccion);
             grpDepto.Location = new Point(420, 94);
             grpDepto.Name = "grpDepto";
             grpDepto.Size = new Size(348, 184);
             grpDepto.TabIndex = 9;
             grpDepto.TabStop = false;
             grpDepto.Text = "Datos de la Vivienda";
+            // 
+            // dmUpDownUnidad
+            // 
+            dmUpDownUnidad.AllowDrop = true;
+            dmUpDownUnidad.Items.Add("A");
+            dmUpDownUnidad.Items.Add("B");
+            dmUpDownUnidad.Items.Add("C");
+            dmUpDownUnidad.Items.Add("D");
+            dmUpDownUnidad.Location = new Point(207, 147);
+            dmUpDownUnidad.Name = "dmUpDownUnidad";
+            dmUpDownUnidad.Size = new Size(121, 31);
+            dmUpDownUnidad.TabIndex = 10;
+            dmUpDownUnidad.Text = "Unidad";
+            // 
+            // dmUpDownPiso
+            // 
+            dmUpDownPiso.AllowDrop = true;
+            dmUpDownPiso.Items.Add("PB");
+            dmUpDownPiso.Items.Add("1");
+            dmUpDownPiso.Items.Add("2");
+            dmUpDownPiso.Items.Add("3");
+            dmUpDownPiso.Items.Add("4");
+            dmUpDownPiso.Items.Add("5");
+            dmUpDownPiso.Items.Add("6");
+            dmUpDownPiso.Items.Add("7");
+            dmUpDownPiso.Items.Add("8");
+            dmUpDownPiso.Items.Add("9");
+            dmUpDownPiso.Items.Add("10");
+            dmUpDownPiso.Location = new Point(19, 147);
+            dmUpDownPiso.Name = "dmUpDownPiso";
+            dmUpDownPiso.Size = new Size(121, 31);
+            dmUpDownPiso.TabIndex = 9;
+            dmUpDownPiso.Text = "N° Piso";
+            // 
+            // lstTorre
+            // 
+            lstTorre.FormattingEnabled = true;
+            lstTorre.ItemHeight = 25;
+            lstTorre.Location = new Point(19, 91);
+            lstTorre.Name = "lstTorre";
+            lstTorre.Size = new Size(309, 29);
+            lstTorre.TabIndex = 7;
             // 
             // btnRegistro
             // 
@@ -143,7 +159,7 @@
             btnBorrarInfo.TabIndex = 12;
             btnBorrarInfo.Text = "BORRAR TODO";
             btnBorrarInfo.UseVisualStyleBackColor = true;
-            btnBorrarInfo.Click += btnCancelar_Click;
+            btnBorrarInfo.Click += btnBorrarInfo_Click_1;
             // 
             // lblInicio
             // 
@@ -163,7 +179,6 @@
             txtNombre.PlaceholderText = "Nombre";
             txtNombre.Size = new Size(309, 31);
             txtNombre.TabIndex = 1;
-            txtNombre.TextChanged += txtNombre_TextChanged;
             // 
             // txtApellido
             // 
@@ -172,7 +187,6 @@
             txtApellido.PlaceholderText = "Apellido";
             txtApellido.Size = new Size(309, 31);
             txtApellido.TabIndex = 2;
-            txtApellido.TextChanged += txtApellido_TextChanged;
             // 
             // txtDocumento
             // 
@@ -181,7 +195,6 @@
             txtDocumento.PlaceholderText = "D.N.I";
             txtDocumento.Size = new Size(309, 31);
             txtDocumento.TabIndex = 3;
-            txtDocumento.TextChanged += txtDocumento_TextChanged;
             // 
             // txtClaveReg
             // 
@@ -191,7 +204,6 @@
             txtClaveReg.Size = new Size(309, 31);
             txtClaveReg.TabIndex = 10;
             txtClaveReg.UseSystemPasswordChar = true;
-            txtClaveReg.TextChanged += txtClaveReg_TextChanged;
             // 
             // txtEmail
             // 
@@ -200,7 +212,6 @@
             txtEmail.PlaceholderText = "Correo Electrónico";
             txtEmail.Size = new Size(309, 31);
             txtEmail.TabIndex = 4;
-            txtEmail.TextChanged += txtEmail_TextChanged;
             // 
             // txtConfirmeClave
             // 
@@ -211,7 +222,6 @@
             txtConfirmeClave.Size = new Size(309, 31);
             txtConfirmeClave.TabIndex = 11;
             txtConfirmeClave.UseSystemPasswordChar = true;
-            txtConfirmeClave.TextChanged += textBox1_TextChanged;
             // 
             // radInquilino
             // 
@@ -223,7 +233,6 @@
             radInquilino.TabStop = true;
             radInquilino.Text = "Soy Inquilino";
             radInquilino.UseVisualStyleBackColor = true;
-            radInquilino.CheckedChanged += radInquilino_CheckedChanged;
             // 
             // radDuenio
             // 
@@ -291,7 +300,6 @@
             Text = "Registro";
             Load += Registro_Load;
             grpDepto.ResumeLayout(false);
-            grpDepto.PerformLayout();
             grpDatos.ResumeLayout(false);
             grpDatos.PerformLayout();
             grpSituacion.ResumeLayout(false);
@@ -303,10 +311,7 @@
         #endregion
 
         private Label lblTitulo;
-        private TextBox txtDireccion;
         private ListBox lstCiudad;
-        private TextBox txtPiso;
-        private TextBox txtDepto;
         private GroupBox grpDepto;
         private Button btnRegistro;
         private Button btnSalir;
@@ -323,5 +328,8 @@
         private Label lblError;
         private GroupBox grpDatos;
         private GroupBox grpSituacion;
+        private ListBox lstTorre;
+        private DomainUpDown dmUpDownUnidad;
+        private DomainUpDown dmUpDownPiso;
     }
 }
