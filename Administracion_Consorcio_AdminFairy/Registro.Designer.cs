@@ -64,8 +64,7 @@
             lblTitulo.TabIndex = 0;
             lblTitulo.Text = "Completá los siguientes datos:";
             // 
-<<<<<<< HEAD
-=======
+
             // txtDireccion
             // 
             txtDireccion.Location = new Point(19, 87);
@@ -74,8 +73,7 @@
             txtDireccion.Size = new Size(309, 31);
             txtDireccion.TabIndex = 4;
 
-            // 
->>>>>>> aea0c95f95a4e2efa396e6b7795191a9b945e3ca
+
             // lstCiudad
             // 
             lstCiudad.AllowDrop = true;
@@ -86,9 +84,9 @@
             lstCiudad.Name = "lstCiudad";
             lstCiudad.Size = new Size(309, 29);
             lstCiudad.TabIndex = 6;
-<<<<<<< HEAD
+
             lstCiudad.SelectedIndexChanged += lstCiudades_SelectedIndexChanged;
-=======
+
 
             // 
             // txtPiso
@@ -108,7 +106,7 @@
             txtDepto.Size = new Size(125, 31);
             txtDepto.TabIndex = 8;
 
->>>>>>> aea0c95f95a4e2efa396e6b7795191a9b945e3ca
+
             // 
             // grpDepto
             // 
@@ -250,10 +248,7 @@
             txtClaveReg.Size = new Size(309, 31);
             txtClaveReg.TabIndex = 10;
             txtClaveReg.UseSystemPasswordChar = true;
-<<<<<<< HEAD
-=======
 
->>>>>>> aea0c95f95a4e2efa396e6b7795191a9b945e3ca
             // 
             // txtEmail
             // 
@@ -262,10 +257,7 @@
             txtEmail.PlaceholderText = "Correo Electrónico";
             txtEmail.Size = new Size(309, 31);
             txtEmail.TabIndex = 4;
-<<<<<<< HEAD
-=======
 
->>>>>>> aea0c95f95a4e2efa396e6b7795191a9b945e3ca
             // 
             // txtConfirmeClave
             // 
@@ -276,10 +268,7 @@
             txtConfirmeClave.Size = new Size(309, 31);
             txtConfirmeClave.TabIndex = 11;
             txtConfirmeClave.UseSystemPasswordChar = true;
-<<<<<<< HEAD
-=======
 
->>>>>>> aea0c95f95a4e2efa396e6b7795191a9b945e3ca
             // 
             // radInquilino
             // 
@@ -291,10 +280,7 @@
             radInquilino.TabStop = true;
             radInquilino.Text = "Soy Inquilino";
             radInquilino.UseVisualStyleBackColor = true;
-<<<<<<< HEAD
-=======
 
->>>>>>> aea0c95f95a4e2efa396e6b7795191a9b945e3ca
             // 
             // radDuenio
             // 

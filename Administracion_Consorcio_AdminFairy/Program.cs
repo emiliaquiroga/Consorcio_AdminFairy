@@ -18,6 +18,8 @@ namespace Administracion_Consorcio_AdminFairy
 
             Usuario usuario = new Usuario("Emilia", "41958704", "hola", "charcas 2594");
 
+            Console.WriteLine("Cambio para Jaz");
+
         }
     }
 }
