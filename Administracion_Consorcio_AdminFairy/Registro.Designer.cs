@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Registro));
             lblTitulo = new Label();
             lstCiudad = new ListBox();
             grpDepto = new GroupBox();
@@ -57,6 +58,7 @@
             // lblTitulo
             // 
             lblTitulo.AutoSize = true;
+            lblTitulo.BackColor = Color.Transparent;
             lblTitulo.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point);
             lblTitulo.Location = new Point(172, 18);
             lblTitulo.Name = "lblTitulo";
@@ -64,16 +66,6 @@
             lblTitulo.TabIndex = 0;
             lblTitulo.Text = "Completá los siguientes datos:";
             // 
-
-            // txtDireccion
-            // 
-            txtDireccion.Location = new Point(19, 87);
-            txtDireccion.Name = "txtDireccion";
-            txtDireccion.PlaceholderText = "Ingrese calle y numeración";
-            txtDireccion.Size = new Size(309, 31);
-            txtDireccion.TabIndex = 4;
-
-
             // lstCiudad
             // 
             lstCiudad.AllowDrop = true;
@@ -84,36 +76,17 @@
             lstCiudad.Name = "lstCiudad";
             lstCiudad.Size = new Size(309, 29);
             lstCiudad.TabIndex = 6;
-
             lstCiudad.SelectedIndexChanged += lstCiudades_SelectedIndexChanged;
-
-
-            // 
-            // txtPiso
-            // 
-            txtPiso.Location = new Point(19, 137);
-            txtPiso.Name = "txtPiso";
-            txtPiso.PlaceholderText = "N° Piso";
-            txtPiso.Size = new Size(125, 31);
-            txtPiso.TabIndex = 7;
-
-            // 
-            // txtDepto
-            // 
-            txtDepto.Location = new Point(203, 137);
-            txtDepto.Name = "txtDepto";
-            txtDepto.PlaceholderText = "Departamento";
-            txtDepto.Size = new Size(125, 31);
-            txtDepto.TabIndex = 8;
-
-
             // 
             // grpDepto
             // 
+            grpDepto.BackColor = Color.Transparent;
             grpDepto.Controls.Add(dmUpDownUnidad);
             grpDepto.Controls.Add(dmUpDownPiso);
             grpDepto.Controls.Add(lstTorre);
             grpDepto.Controls.Add(lstCiudad);
+            grpDepto.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            grpDepto.ForeColor = Color.Black;
             grpDepto.Location = new Point(420, 94);
             grpDepto.Name = "grpDepto";
             grpDepto.Size = new Size(348, 184);
@@ -165,6 +138,7 @@
             // 
             // btnRegistro
             // 
+            btnRegistro.BackgroundImage = (Image)resources.GetObject("btnRegistro.BackgroundImage");
             btnRegistro.Location = new Point(420, 327);
             btnRegistro.Name = "btnRegistro";
             btnRegistro.Size = new Size(348, 74);
@@ -175,6 +149,7 @@
             // 
             // btnSalir
             // 
+            btnSalir.BackgroundImage = (Image)resources.GetObject("btnSalir.BackgroundImage");
             btnSalir.Location = new Point(603, 420);
             btnSalir.Name = "btnSalir";
             btnSalir.Size = new Size(165, 60);
@@ -185,6 +160,7 @@
             // 
             // btnBorrarInfo
             // 
+            btnBorrarInfo.BackgroundImage = (Image)resources.GetObject("btnBorrarInfo.BackgroundImage");
             btnBorrarInfo.Location = new Point(420, 420);
             btnBorrarInfo.Name = "btnBorrarInfo";
             btnBorrarInfo.Size = new Size(165, 60);
@@ -196,6 +172,7 @@
             // lblInicio
             // 
             lblInicio.AutoSize = true;
+            lblInicio.BackColor = Color.Transparent;
             lblInicio.Location = new Point(646, 514);
             lblInicio.Name = "lblInicio";
             lblInicio.Size = new Size(122, 25);
@@ -211,10 +188,6 @@
             txtNombre.PlaceholderText = "Nombre";
             txtNombre.Size = new Size(309, 31);
             txtNombre.TabIndex = 1;
-<<<<<<< HEAD
-=======
-
->>>>>>> aea0c95f95a4e2efa396e6b7795191a9b945e3ca
             // 
             // txtApellido
             // 
@@ -223,10 +196,6 @@
             txtApellido.PlaceholderText = "Apellido";
             txtApellido.Size = new Size(309, 31);
             txtApellido.TabIndex = 2;
-<<<<<<< HEAD
-=======
-
->>>>>>> aea0c95f95a4e2efa396e6b7795191a9b945e3ca
             // 
             // txtDocumento
             // 
@@ -235,10 +204,6 @@
             txtDocumento.PlaceholderText = "D.N.I";
             txtDocumento.Size = new Size(309, 31);
             txtDocumento.TabIndex = 3;
-<<<<<<< HEAD
-=======
-
->>>>>>> aea0c95f95a4e2efa396e6b7795191a9b945e3ca
             // 
             // txtClaveReg
             // 
@@ -248,7 +213,6 @@
             txtClaveReg.Size = new Size(309, 31);
             txtClaveReg.TabIndex = 10;
             txtClaveReg.UseSystemPasswordChar = true;
-
             // 
             // txtEmail
             // 
@@ -257,7 +221,6 @@
             txtEmail.PlaceholderText = "Correo Electrónico";
             txtEmail.Size = new Size(309, 31);
             txtEmail.TabIndex = 4;
-
             // 
             // txtConfirmeClave
             // 
@@ -268,7 +231,6 @@
             txtConfirmeClave.Size = new Size(309, 31);
             txtConfirmeClave.TabIndex = 11;
             txtConfirmeClave.UseSystemPasswordChar = true;
-
             // 
             // radInquilino
             // 
@@ -280,7 +242,6 @@
             radInquilino.TabStop = true;
             radInquilino.Text = "Soy Inquilino";
             radInquilino.UseVisualStyleBackColor = true;
-
             // 
             // radDuenio
             // 
@@ -305,6 +266,7 @@
             // 
             // grpDatos
             // 
+            grpDatos.BackColor = Color.Transparent;
             grpDatos.Controls.Add(grpSituacion);
             grpDatos.Controls.Add(lblError);
             grpDatos.Controls.Add(txtConfirmeClave);
@@ -313,6 +275,7 @@
             grpDatos.Controls.Add(txtDocumento);
             grpDatos.Controls.Add(txtApellido);
             grpDatos.Controls.Add(txtNombre);
+            grpDatos.ForeColor = Color.Black;
             grpDatos.Location = new Point(42, 94);
             grpDatos.Name = "grpDatos";
             grpDatos.Size = new Size(342, 463);
@@ -336,6 +299,7 @@
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(794, 569);
             Controls.Add(lblInicio);
             Controls.Add(btnBorrarInfo);
@@ -345,6 +309,7 @@
             Controls.Add(grpDatos);
             Controls.Add(lblTitulo);
             Name = "Registro";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Registro";
             Load += Registro_Load;
             grpDepto.ResumeLayout(false);
