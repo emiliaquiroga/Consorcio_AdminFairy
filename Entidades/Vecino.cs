@@ -8,21 +8,42 @@ namespace Entidades
 {
     public class Vecino : Usuario
     {
-        private string email;
-        private string unidadVivienda;
-        private int pisoVivienda;
+        
+        public string _email;
+        public string edificio;
+        public string ciudad;
+        public string _unidadVivienda;
+        public string _pisoVivienda;
+        public EstadoExpensas expensas;
+        public EstadoVecino estadoVecino;
 
-        public Vecino(string nombre, string apellido, string dni, string clave, string email, string unidadVivienda, int pisoVivienda) : base(nombre, apellido, dni, clave)
+
+        public Vecino()
         {
-            this.email = email;
-            this.unidadVivienda = unidadVivienda;
-            this.pisoVivienda = pisoVivienda;
+            
+        }
+        public Vecino(string nombre, string apellido, string dni, string clave, string email, string unidadVivienda, string pisoVivienda):base(nombre,apellido,dni,clave)
+        {
+            
+            _email = email;
+            _unidadVivienda = unidadVivienda;
+            _pisoVivienda = pisoVivienda;
         }
 
-        public string Email { get => email; set => email = value; }
-        public string UnidadVivienda { get => unidadVivienda; set => unidadVivienda = value; }
-        public int PisoVivienda { get => pisoVivienda; set => pisoVivienda = value; }
-
+        #region Getters y Setters
+        public string Email { get => _email; set => _email = value; }
+        public string Edificio { get => edificio; set => edificio = value; }
+        public string Ciudad { get => ciudad; set => ciudad = value; }
+        public string UnidadVivienda { get => _unidadVivienda; set => _unidadVivienda = value; }
+        public string PisoVivienda { get => _pisoVivienda; set => _pisoVivienda = value; }
+        public EstadoExpensas Expensas { get => expensas; set => expensas = value; }
+        public EstadoVecino EstadoVecino { get => estadoVecino; set => estadoVecino = value; }
+        #endregion
+        
+        public override void MostrarDatos()
+        {
+            Console.WriteLine($"VECINO:\tNombre: {this._nombre}, Apellido {this._apellido}", nameof(_dni), this._dni);
+        }
         /*
         ver expensas
         hacer un reclamo

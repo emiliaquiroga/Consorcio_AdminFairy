@@ -11,14 +11,19 @@ namespace Administracion_Consorcio_AdminFairy
         [STAThread]
         static void Main()
         {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
+
             ApplicationConfiguration.Initialize();
             Application.Run(new FrmLogin());
 
-            Usuario usuario = new Usuario("Emilia", "41958704", "hola", "charcas 2594");
 
-            Console.WriteLine("Cambio para Jaz");
+            Administrador adminEmi = new Administrador("emilia","quiroga", "41958704", "hola" );
+
+            List<Usuario> listaUsuarios = new List<Usuario>();
+            listaUsuarios.Add( adminEmi );
+
+
+            // ARREGLAR
+            
 
         }
     }

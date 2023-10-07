@@ -68,6 +68,7 @@ namespace Administracion_Consorcio_AdminFairy
             if (dni == "a" && clave == "a")
             {
                 MessageBox.Show("Ingreso Exitoso!", "Bienvenida/o!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //ACÁ TIENE QUE ABRIR EL FORM DE INICIO VECINO!
 
             }
             else

@@ -308,6 +308,7 @@
             Controls.Add(grpDepto);
             Controls.Add(grpDatos);
             Controls.Add(lblTitulo);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Registro";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Registro";

@@ -24,6 +24,7 @@ namespace Administracion_Consorcio_AdminFairy
          */
         private void rdoAdmin_CheckedChanged(object sender, EventArgs e)
         {
+            
             this.Close();
         }
 
