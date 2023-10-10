@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
+    [Serializable]
     public class Vecino : Usuario
     {
         
@@ -40,9 +41,10 @@ namespace Entidades
         public EstadoVecino EstadoVecino { get => estadoVecino; set => estadoVecino = value; }
         #endregion
         
-        public override void MostrarDatos()
+        public override string MostrarDatos()
         {
-            Console.WriteLine($"VECINO:\tNombre: {this._nombre}, Apellido {this._apellido}", nameof(_dni), this._dni);
+           return $"VECINO:\tNombre: {this.Nombre},\nApellido: {this.Apellido},\nDNI: {this.Dni},\nClave: {this.Clave},\nCorreo Electrónico: {this.Email}," +
+                $"\nCiudad: {this.Ciudad},\nTorre: {this.Edificio},\nDepto.: {this.PisoVivienda}{this.UnidadVivienda},\nEstado de Expensas: {this.Expensas},\nEstado del vecino:{this.EstadoVecino}";
         }
         /*
         ver expensas

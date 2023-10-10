@@ -1,5 +1,6 @@
 ﻿using Entidades;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -36,9 +37,11 @@ namespace Administracion_Consorcio_AdminFairy
 
 
         #region Metodos y Validaciones
-        // metodo que valida los datos
+        
         private bool ValidarDatos(string nombre, string apellido, string email, string dniText, string unidad, string piso, string clave, string claveConfirm)
+        // metodo que valida los datos. CREO QUE DEBERIAMOS HACER TRY CATCH o crear excepciones propias para esto
         {
+            lblError.Visible = false;
             if (string.IsNullOrEmpty(nombre) || string.IsNullOrEmpty(apellido) || string.IsNullOrEmpty(email) ||
                 string.IsNullOrEmpty(dniText) || string.IsNullOrEmpty(unidad) || string.IsNullOrEmpty(piso) ||
                 string.IsNullOrEmpty(clave) || string.IsNullOrEmpty(claveConfirm))
@@ -75,7 +78,7 @@ namespace Administracion_Consorcio_AdminFairy
             if (string.IsNullOrEmpty(situacion))
             {
                 lblError.Visible = true;
-                lblError.Text = "ERROR: Debes seleccionar si eres Dueño o Inquilino";
+                lblError.Text = "ERROR: Debes seleccionar \n    si eres Dueño o Inquilino";
                 return false;
             }
             return true;
@@ -86,18 +89,37 @@ namespace Administracion_Consorcio_AdminFairy
         private void AsignarRegistro()//crea un nuevo vecino y le asigna los datos ingresados en el registro
         {
             
-            Vecino vecino = new Vecino();
-            vecino._nombre = txtNombre.Text;
-            vecino._apellido = txtApellido.Text;
-            vecino.Email = txtEmail.Text;
-            vecino.Dni = txtDocumento.Text;
-            vecino.Edificio = lstTorre.Text;
-            vecino.Ciudad = lstCiudad.Text;
-            vecino.PisoVivienda = dmUpDownPiso.Text;
-            vecino.UnidadVivienda = dmUpDownUnidad.Text;
+            Vecino vecinoNuevo = new Vecino();
+            vecinoNuevo.Nombre = txtNombre.Text;
+            vecinoNuevo.Apellido = txtApellido.Text;
+            vecinoNuevo.Email = txtEmail.Text;
+            vecinoNuevo.Dni = txtDocumento.Text;
+            vecinoNuevo.Edificio = lstTorre.Text;
+            vecinoNuevo.Ciudad = lstCiudad.Text;
+            vecinoNuevo.PisoVivienda = dmUpDownPiso.Text;
+            vecinoNuevo.UnidadVivienda = dmUpDownUnidad.Text;
+
+            string ruta = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            string nombre = @"\UsuariosRegistrados.xml";
+            string path = ruta + nombre;
+
+            try
+            {
+                Serializadora.AgregarUsuario(path, vecinoNuevo);
+
+                MessageBox.Show("Te has Registrado exitosamente!", "REGISTRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                this.Close();
+                login.Show();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+
+
         }
 
-        private string ObtenerSituacion()
+        private string ObtenerSituacion() // valida que al menos UN checkbox esté marcado.
         {
             foreach (Control opcion in grpSituacion.Controls)
             {
@@ -110,16 +132,16 @@ namespace Administracion_Consorcio_AdminFairy
         }
 
 
-        private bool EsDireccionCorreoValida(string email)
+        private bool EsDireccionCorreoValida(string email) // valida correo electronico ingresado
         {
-            // Expresión regular para validar una dirección de correo electrónico
+            // regEx para validar una dirección de correo electrónico
             string patronCorreo = @"^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$";
 
-            // Usar la expresión regular para verificar la dirección de correo electrónico
+            // Usar la regEx para verificar la dirección de correo electrónico
             return Regex.IsMatch(email, patronCorreo);
         }
 
-        private void ValidarSoloLetras(object sender, KeyPressEventArgs e)
+        private void ValidarSoloLetras(object sender, KeyPressEventArgs e) // valida que en nombre y apellido solo se ingresen letras y NO numeros o caract. especiales
         {
             if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar))
             {
@@ -139,12 +161,13 @@ namespace Administracion_Consorcio_AdminFairy
                 lstCiudad.Items.Add(ciudad);
             }
 
+            // inicializa el metodo de validacion para nombr ey apellido, para que no ingresen numeros ni carac teres especiales
             txtNombre.KeyPress += ValidarSoloLetras;
             txtApellido.KeyPress += ValidarSoloLetras;
         }
 
 
-        private void btnRegistro_Click(object sender, EventArgs e)
+        private void btnRegistro_Click(object sender, EventArgs e) // cuando se hace click en "Registrar", se hacen todas las validaciones
         {
             string nombre = txtNombre.Text;
             string apellido = txtApellido.Text;
@@ -162,11 +185,13 @@ namespace Administracion_Consorcio_AdminFairy
             if (ValidarDatos(nombre, apellido, email, dniText, unidad, piso, clave, claveConfirm))
             {
                 AsignarRegistro();
+
+                MessageBox.Show("Te has Registrado exitosamente!", "REGISTRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                this.Close();
+                login.Show();
             }
 
-            MessageBox.Show("Te has Registrado exitosamente!", "REGISTRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            this.Close();
-            login.Show();
+
         }
 
 
@@ -204,7 +229,8 @@ namespace Administracion_Consorcio_AdminFairy
             login.Show();
         }
 
-        private void btnBorrarInfo_Click_1(object sender, EventArgs e)
+        
+        private void btnBorrarInfo_Click_1(object sender, EventArgs e) // AUN NO FUNCIONA !!! should we give up?!#"$"#%(=#$&(?$#Utphjr-gpRF
         {
             // Recorre todos los controles en el formulario
             foreach (Control control in this.Controls)

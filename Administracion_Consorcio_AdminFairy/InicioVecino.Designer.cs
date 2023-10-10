@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InicioVecino));
             pnlMenu = new Panel();
             pnlSubMenu = new Panel();
             btnAcuerdoVecinos = new Button();
@@ -38,6 +39,7 @@
             btnMenu = new Button();
             pnlLogo = new Panel();
             label1 = new Label();
+            pnlPrincipal = new Panel();
             pnlMenu.SuspendLayout();
             pnlSubMenu.SuspendLayout();
             pnlLogo.SuspendLayout();
@@ -177,13 +179,22 @@
             label1.Size = new Size(160, 56);
             label1.TabIndex = 1;
             label1.Text = "(insertar icono \r\nde \"AdminFairy\")";
-
+            // 
+            // pnlPrincipal
+            // 
+            pnlPrincipal.BackgroundImage = (Image)resources.GetObject("pnlPrincipal.BackgroundImage");
+            pnlPrincipal.BorderStyle = BorderStyle.Fixed3D;
+            pnlPrincipal.Location = new Point(257, 12);
+            pnlPrincipal.Name = "pnlPrincipal";
+            pnlPrincipal.Size = new Size(820, 735);
+            pnlPrincipal.TabIndex = 1;
             // 
             // InicioVecino
             // 
             AutoScaleDimensions = new SizeF(11F, 28F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1389, 747);
+            Controls.Add(pnlPrincipal);
             Controls.Add(pnlMenu);
             Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
             ForeColor = SystemColors.ActiveCaptionText;
@@ -209,5 +220,6 @@
         private Button btnExpensas;
         private Button btnAcuerdoVecinos;
         private Label label1;
+        private Panel pnlPrincipal;
     }
 }

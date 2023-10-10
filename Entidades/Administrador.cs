@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
+    [Serializable]
     public class Administrador : Usuario
     {
-        
-
         public Administrador()
         {
             
@@ -23,9 +22,9 @@ namespace Entidades
             this.Clave = clave;
         }
 
-        public override void MostrarDatos()
+        public override string MostrarDatos()
         {
-            Console.WriteLine($"Nombre: {this._nombre}, Apellido {this._apellido}", nameof(_dni), this._dni);
+            return $"Nombre: {this._nombre},\nApellido {this._apellido},\nDNI: {this.Dni},\nClave: {this.Clave}";
         }
 
         private void EliminarUsuario()
@@ -48,8 +47,6 @@ namespace Entidades
             //    vecino.EstadoVecino = Sancionado;
             //}
         }
-
-
 
 
         /*
