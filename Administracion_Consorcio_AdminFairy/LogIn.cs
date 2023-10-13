@@ -7,14 +7,16 @@ namespace Administracion_Consorcio_AdminFairy
     {
         string dni;
         string claveIngresado;
+        string ruta; 
+        string nombre; 
+        public string path;
 
         public FrmLogin()
         {
-
             InitializeComponent();
-        }
-        private void txtDni_TextChanged(object sender, EventArgs e)
-        {
+            this.ruta = Environment.GetFolderPath(Environment.SpecialFolder.Desktop); // donde va a estar ubicado
+            this.nombre = @"\UsuariosRegistrados.xml"; // nombre del archivo
+            this.path = ruta + nombre;
 
         }
 
@@ -84,11 +86,6 @@ namespace Administracion_Consorcio_AdminFairy
         {
             SeleccionarUsuario su = new SeleccionarUsuario(); // Se instanció el formulario del autocompletar. 
             su.ShowDialog();  // no se va a cerrar a menos que se termine de interactuar con este (en este caso por ahora con el btn cancelar o cerrandolo)
-        }
-
-        private void FrmLogin_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void lblRegistro_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)

@@ -54,7 +54,7 @@ namespace Entidades
         eliminar/editar vecino
         suspender vecino
         app en mantenimiento (opcional)
-        modificar expensas/precios 
+        modificar expensas/precios // EN UN ARCHIVO
         modificar roles
         establecer reglas y normativas
         -muestra email support y contactos de emergencia (plomero, cerrajero y electricista)-
