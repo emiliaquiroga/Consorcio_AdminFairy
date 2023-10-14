@@ -103,7 +103,8 @@ namespace Administracion_Consorcio_AdminFairy
 
             try
             {
-                Serializadora.AgregarUsuario(path, vecinoNuevo);
+                Serializadora.EscribirXML(path, (Usuario)vecinoNuevo);
+                
 
                 MessageBox.Show("Te has Registrado exitosamente!", "REGISTRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 this.Close();
@@ -184,8 +185,6 @@ namespace Administracion_Consorcio_AdminFairy
             if (ValidarDatos(nombre, apellido, email, dniText, unidad, piso, clave, claveConfirm))
             {
                 AsignarRegistro(this.login.path);
-
-                MessageBox.Show("Te has Registrado exitosamente!", "REGISTRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 this.Close();
                 login.Show();
             }

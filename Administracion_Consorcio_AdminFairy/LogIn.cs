@@ -1,5 +1,6 @@
 using Entidades;
 using System.Runtime.CompilerServices;
+using Newtonsoft.Json;
 
 namespace Administracion_Consorcio_AdminFairy
 {
@@ -8,7 +9,9 @@ namespace Administracion_Consorcio_AdminFairy
         string dni;
         string claveIngresado;
         string ruta; 
-        string nombre; 
+        string nombre;
+        string nombreJson;
+        public string pathJson;
         public string path;
 
         public FrmLogin()
@@ -16,33 +19,46 @@ namespace Administracion_Consorcio_AdminFairy
             InitializeComponent();
             this.ruta = Environment.GetFolderPath(Environment.SpecialFolder.Desktop); // donde va a estar ubicado
             this.nombre = @"\UsuariosRegistrados.xml"; // nombre del archivo
+            this.nombreJson = @"\UsuariosRegistados.json";
+            this.pathJson = ruta + nombreJson;
             this.path = ruta + nombre;
+            
 
         }
 
-        //public bool validarDatos(string dni, string claveIngresado)
-        //{
+        public bool ValidarDatos(string dni, string claveIngresada)
+        {
+            try
+            {
+                List<Usuario> usuarios = Serializadora.LeerXML(path);
+                Serializadora.EscribirJson(pathJson, usuarios);
 
-        //    try 
-        //    {
-        //        if (dni == txtDni.Text && claveIngresado == usuario.Clave)
-        //        {
-        //            return true;
+                if (usuarios != null)
+                {
+                    Usuario usuarioEncontrado = usuarios.FirstOrDefault(u => u.Dni == dni && u.Clave == claveIngresada);
 
-        //        }
-        //        else
-        //        {
-        //            MessageBox.Show("ERROR!", "Los datos ingresados no corresponden a un usuario registrado.\tVuelva a intentarlo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //            return false;
-        //        }
+                    if (usuarioEncontrado != null)
+                    {
+                        return true;
+                    }
+                }
+            }
+            catch (FileNotFoundException ex)
+            {
+                Console.WriteLine("El archivo JSON no se encontró: " + ex.Message);
+            }
+            catch (JsonException ex)
+            {
+                Console.WriteLine("Error en la deserialización JSON: " + ex.Message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error desconocido al validar credenciales: " + ex.Message);
+            }
 
-        //    }
-        //    catch {
-        //        Console.WriteLine("Error en VALIDAR DATOS");
-        //        return false;
-        //    }
-
-        //}
+            MessageBox.Show("ERROR!", "Los datos ingresados no corresponden a un usuario registrado.\tVuelva a intentarlo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            return false;
+        }
 
         private void txtClave_TextChanged(object sender, EventArgs e)
         {
@@ -66,20 +82,25 @@ namespace Administracion_Consorcio_AdminFairy
         {
             string dni = this.txtDni.Text;
             string clave = this.txtClave.Text;
+ 
+            if (dni == "38500278" && clave == "admin")
+            {
+                InicioAdmin inicioAdmin = new InicioAdmin();
+                inicioAdmin.Show();
 
-            if (dni == "a" && clave == "a")
+            }
+
+            else if (ValidarDatos(dni, clave))
             {
                 MessageBox.Show("Ingreso Exitoso!", "Bienvenida/o!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                //ACÁ TIENE QUE ABRIR EL FORM DE INICIO VECINO!
-
+                InicioVecino inicio = new InicioVecino();
+                inicio.Show();
+                this.Hide();
             }
             else
             {
                 MessageBox.Show("Los datos ingresados no corresponden a un usuario registrado.\tVuelva a intentarlo", "ERROR!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
             }
-
-
         }
 
         private void btnAutocompletar_Click(object sender, EventArgs e)

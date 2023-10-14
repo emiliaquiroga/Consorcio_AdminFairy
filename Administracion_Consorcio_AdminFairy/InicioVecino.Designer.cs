@@ -76,7 +76,7 @@
             btnAcuerdoVecinos.Dock = DockStyle.Top;
             btnAcuerdoVecinos.FlatAppearance.BorderSize = 0;
             btnAcuerdoVecinos.FlatStyle = FlatStyle.Flat;
-            btnAcuerdoVecinos.Location = new Point(0, 180);
+            btnAcuerdoVecinos.Location = new Point(0, 135);
             btnAcuerdoVecinos.Name = "btnAcuerdoVecinos";
             btnAcuerdoVecinos.Padding = new Padding(38, 0, 0, 0);
             btnAcuerdoVecinos.Size = new Size(220, 46);
@@ -91,7 +91,7 @@
             btnNrosUtiles.Dock = DockStyle.Top;
             btnNrosUtiles.FlatAppearance.BorderSize = 0;
             btnNrosUtiles.FlatStyle = FlatStyle.Flat;
-            btnNrosUtiles.Location = new Point(0, 135);
+            btnNrosUtiles.Location = new Point(0, 90);
             btnNrosUtiles.Name = "btnNrosUtiles";
             btnNrosUtiles.Padding = new Padding(38, 0, 0, 0);
             btnNrosUtiles.Size = new Size(220, 45);
@@ -103,10 +103,10 @@
             // 
             // btnReclamo
             // 
-            btnReclamo.Dock = DockStyle.Top;
+            btnReclamo.Dock = DockStyle.Bottom;
             btnReclamo.FlatAppearance.BorderSize = 0;
             btnReclamo.FlatStyle = FlatStyle.Flat;
-            btnReclamo.Location = new Point(0, 90);
+            btnReclamo.Location = new Point(0, 180);
             btnReclamo.Name = "btnReclamo";
             btnReclamo.Padding = new Padding(38, 0, 0, 0);
             btnReclamo.Size = new Size(220, 45);

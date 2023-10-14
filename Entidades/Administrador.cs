@@ -21,6 +21,10 @@ namespace Entidades
             this.Dni = dni;
             this.Clave = clave;
         }
+        public string Nombre { get => _nombre; set => _nombre = value; }
+        public string Apellido { get => _apellido; set => _apellido = value; }
+        public string Dni { get => _dni; set => _dni = value; }
+        public string Clave { get => _clave; set => _clave = value; }
 
         public override string MostrarDatos()
         {

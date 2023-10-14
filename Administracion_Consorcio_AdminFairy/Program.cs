@@ -18,23 +18,24 @@ namespace Administracion_Consorcio_AdminFairy
             string path = ruta + nombre;
 
             // Crear un administrador y un vecino predeterminados
-            Administrador admin = new Administrador("Jazmin", "Mereles", "41958704", "claveAdmin");
+            //Administrador admin = new Administrador("Jazmin", "Mereles", "41958704", "claveAdmin");
             Vecino vecinoInicial = new Vecino("Emilia", "Quiroga", "41958704", "claveVecino", "emilia@vecina.com", "B", "1");
             
             //// Agregar los usuarios predeterminados al archivo XML
-            AgregarUsuarioPredeterminado(path, admin);
-            AgregarUsuarioPredeterminado(path, vecinoInicial);
+            //AgregarUsuarioPredeterminado(path, (Usuario)admin);
+            AgregarUsuarioPredeterminado(path, (Usuario)vecinoInicial);
         }
 
         private static void AgregarUsuarioPredeterminado(string path, Usuario usuario)
         {
             try
             {
-                Serializadora.AgregarUsuario(path, usuario);
+                
+                Serializadora.EscribirXML(path, (Usuario)usuario);
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.ToString());
+                Console.WriteLine("NO SE PUDO ESCRIBIR XML PREDETERMINADO");
             }
         }
     }

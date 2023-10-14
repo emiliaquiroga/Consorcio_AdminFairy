@@ -12,19 +12,20 @@ namespace Entidades
     {
 
 
-        public static void EscribirXML(string path, List<Usuario> lista)
+        public static void EscribirXML(string path, Usuario usuario)
         {
-            using (StreamWriter sw = new StreamWriter(path, true))
+            List<Usuario> lista = LeerXML(path);
+            lista.Add(usuario);
+            using (StreamWriter sw = new StreamWriter(path))
             {
                 XmlSerializer ser = new XmlSerializer(typeof(List<Usuario>));
                 ser.Serialize(sw, lista);
             }
-
         }
 
         public static List<Usuario> LeerXML(string path)
         {
-            List<Usuario> lista = null;
+            List<Usuario> lista ;
             using (StreamReader sr = new StreamReader(path))
             {
                 XmlSerializer des = new XmlSerializer(typeof(List<Usuario>));
@@ -34,13 +35,12 @@ namespace Entidades
             return lista;
         }
 
-        public static void AgregarUsuario(string path, Usuario usuario)
-        {
-            List<Usuario> listaUsuarios = LeerXML(path) ?? new List<Usuario>();
-            listaUsuarios.Add(usuario);
-            EscribirXML(path, listaUsuarios);
-        }
-
+        //public static void AgregarUsuario(string path, Usuario usuario)
+        //{
+        //    List<Usuario> listaUsuarios = LeerXML(path) ?? new List<Usuario>();
+        //    listaUsuarios.Add(usuario);
+        //    EscribirXML(path, listaUsuarios);
+        //}
 
 
         public static void EscribirJson(string path, List<Usuario> lista)
@@ -54,10 +54,10 @@ namespace Entidades
             {
                 Console.WriteLine(ex.ToString());
             }
-
         }
 
-        public static List<Usuario> LeerJson(string path)
+
+        public static List<Usuario> LeerJson(string path )
         {
             List<Usuario> lista = null;
             try
