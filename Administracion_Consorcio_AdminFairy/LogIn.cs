@@ -9,29 +9,28 @@ namespace Administracion_Consorcio_AdminFairy
         string dni;
         string claveIngresado;
         string ruta; 
-        string nombre;
+        string nombreXml;
         string nombreJson;
         public string pathJson;
-        public string path;
+        public string pathXml;
 
         public FrmLogin()
         {
             InitializeComponent();
             this.ruta = Environment.GetFolderPath(Environment.SpecialFolder.Desktop); // donde va a estar ubicado
-            this.nombre = @"\UsuariosRegistrados.xml"; // nombre del archivo
-            this.nombreJson = @"\UsuariosRegistados.json";
+            this.nombreXml = @"\UsuariosRegistrados.xml"; // nombre del archivo
+            this.nombreJson = @"\UsuariosRegistradosJson.json";
             this.pathJson = ruta + nombreJson;
-            this.path = ruta + nombre;
-            
-
+            this.pathXml = ruta + nombreXml;
+          
         }
 
         public bool ValidarDatos(string dni, string claveIngresada)
         {
             try
             {
-                List<Usuario> usuarios = Serializadora.LeerXML(path);
-                Serializadora.EscribirJson(pathJson, usuarios);
+                List<Vecino> usuarios = Serializadora.LeerJson(this.pathJson);
+                //Serializadora.EscribirJson(pathJson, usuarios);
 
                 if (usuarios != null)
                 {
@@ -56,7 +55,7 @@ namespace Administracion_Consorcio_AdminFairy
                 Console.WriteLine("Error desconocido al validar credenciales: " + ex.Message);
             }
 
-            MessageBox.Show("ERROR!", "Los datos ingresados no corresponden a un usuario registrado.\tVuelva a intentarlo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show("Los datos ingresados no corresponden a un usuario registrado.\nVuelva a intentarlo", "ERROR!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             return false;
         }
 
@@ -90,17 +89,14 @@ namespace Administracion_Consorcio_AdminFairy
 
             }
 
-            else if (ValidarDatos(dni, clave))
+            else if(ValidarDatos(dni, clave))
             {
                 MessageBox.Show("Ingreso Exitoso!", "Bienvenida/o!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 InicioVecino inicio = new InicioVecino();
                 inicio.Show();
                 this.Hide();
             }
-            else
-            {
-                MessageBox.Show("Los datos ingresados no corresponden a un usuario registrado.\tVuelva a intentarlo", "ERROR!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+
         }
 
         private void btnAutocompletar_Click(object sender, EventArgs e)

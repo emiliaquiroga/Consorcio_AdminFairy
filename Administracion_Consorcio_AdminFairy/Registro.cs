@@ -87,7 +87,7 @@ namespace Administracion_Consorcio_AdminFairy
         }
 
 
-        private void AsignarRegistro(string path)//crea un nuevo vecino y le asigna los datos ingresados en el registro
+        private void AsignarRegistro(string pathXML, string pathJson)//crea un nuevo vecino y le asigna los datos ingresados en el registro
         {
 
             Vecino vecinoNuevo = new Vecino();
@@ -103,7 +103,7 @@ namespace Administracion_Consorcio_AdminFairy
 
             try
             {
-                Serializadora.EscribirXML(path, (Usuario)vecinoNuevo);
+                Serializadora.EscribirArchivos(pathJson ,pathXML, vecinoNuevo);
                 
 
                 MessageBox.Show("Te has Registrado exitosamente!", "REGISTRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -184,12 +184,10 @@ namespace Administracion_Consorcio_AdminFairy
 
             if (ValidarDatos(nombre, apellido, email, dniText, unidad, piso, clave, claveConfirm))
             {
-                AsignarRegistro(this.login.path);
+                AsignarRegistro(this.login.pathXml, this.login.pathJson);
                 this.Close();
                 login.Show();
             }
-
-
         }
 
 

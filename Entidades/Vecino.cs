@@ -10,13 +10,13 @@ namespace Entidades
     public class Vecino : Usuario
     {
         
-        public string _email;
-        public string edificio;
-        public string ciudad;
-        public string _unidadVivienda;
-        public string _pisoVivienda;
-        public EstadoExpensas expensas;
-        public EstadoVecino estadoVecino;
+        private string _email;
+        private string edificio;
+        private string ciudad;
+        private string _unidadVivienda;
+        private string _pisoVivienda;
+        private EstadoExpensas expensas;
+        private EstadoVecino estadoVecino;
 
 
         public Vecino()
