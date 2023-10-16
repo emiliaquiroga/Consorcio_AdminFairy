@@ -95,6 +95,7 @@ namespace Administracion_Consorcio_AdminFairy
             vecinoNuevo.Apellido = txtApellido.Text;
             vecinoNuevo.Email = txtEmail.Text;
             vecinoNuevo.Dni = txtDocumento.Text;
+            vecinoNuevo.Clave = txtClaveReg.Text;
             vecinoNuevo.Edificio = lstTorre.Text;
             vecinoNuevo.Ciudad = lstCiudad.Text;
             vecinoNuevo.PisoVivienda = dmUpDownPiso.Text;
@@ -103,8 +104,8 @@ namespace Administracion_Consorcio_AdminFairy
 
             try
             {
-                Serializadora.EscribirArchivos(pathJson ,pathXML, vecinoNuevo);
-                
+                Serializadora.EscribirArchivos(pathJson, pathXML, vecinoNuevo);
+
 
                 MessageBox.Show("Te has Registrado exitosamente!", "REGISTRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 this.Close();
@@ -246,6 +247,7 @@ namespace Administracion_Consorcio_AdminFairy
             }
         }
         #endregion
+
 
 
     }

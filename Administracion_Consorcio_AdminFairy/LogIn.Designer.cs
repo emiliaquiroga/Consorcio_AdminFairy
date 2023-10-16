@@ -144,7 +144,8 @@
             Controls.Add(txtDni);
             Controls.Add(pictureBox1);
             Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            FormBorderStyle = FormBorderStyle.FixedToolWindow;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(4);
             Name = "FrmLogin";
             StartPosition = FormStartPosition.CenterScreen;

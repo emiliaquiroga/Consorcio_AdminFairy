@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SeleccionarUsuario));
             lblPreguntarUsuario = new Label();
             rdoAdmin = new RadioButton();
             rdoVecino = new RadioButton();
@@ -95,6 +96,7 @@
             Controls.Add(rdoAdmin);
             Controls.Add(lblPreguntarUsuario);
             FormBorderStyle = FormBorderStyle.None;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "SeleccionarUsuario";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Seleccionar Usuario";

@@ -24,7 +24,7 @@ namespace Administracion_Consorcio_AdminFairy
          */
         private void rdoAdmin_CheckedChanged(object sender, EventArgs e)
         {
-            
+
             this.Close();
         }
 
@@ -35,7 +35,7 @@ namespace Administracion_Consorcio_AdminFairy
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.DialogResult = DialogResult.Cancel; 
+            this.DialogResult = DialogResult.Cancel;
         }
     }
 }

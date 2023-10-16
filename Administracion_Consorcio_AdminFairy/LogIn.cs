@@ -8,7 +8,7 @@ namespace Administracion_Consorcio_AdminFairy
     {
         string dni;
         string claveIngresado;
-        string ruta; 
+        string ruta;
         string nombreXml;
         string nombreJson;
         public string pathJson;
@@ -22,7 +22,7 @@ namespace Administracion_Consorcio_AdminFairy
             this.nombreJson = @"\UsuariosRegistradosJson.json";
             this.pathJson = ruta + nombreJson;
             this.pathXml = ruta + nombreXml;
-          
+
         }
 
         public bool ValidarDatos(string dni, string claveIngresada)
@@ -30,7 +30,6 @@ namespace Administracion_Consorcio_AdminFairy
             try
             {
                 List<Vecino> usuarios = Serializadora.LeerJson(this.pathJson);
-                //Serializadora.EscribirJson(pathJson, usuarios);
 
                 if (usuarios != null)
                 {
@@ -81,7 +80,7 @@ namespace Administracion_Consorcio_AdminFairy
         {
             string dni = this.txtDni.Text;
             string clave = this.txtClave.Text;
- 
+
             if (dni == "38500278" && clave == "admin")
             {
                 InicioAdmin inicioAdmin = new InicioAdmin();
@@ -89,8 +88,9 @@ namespace Administracion_Consorcio_AdminFairy
 
             }
 
-            else if(ValidarDatos(dni, clave))
+            else if (ValidarDatos(dni, clave))
             {
+
                 MessageBox.Show("Ingreso Exitoso!", "Bienvenida/o!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 InicioVecino inicio = new InicioVecino();
                 inicio.Show();
