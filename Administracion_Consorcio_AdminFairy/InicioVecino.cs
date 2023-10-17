@@ -30,7 +30,7 @@ namespace Administracion_Consorcio_AdminFairy
 
         private void MostrarSubMenu(Panel subMenu)
         {
-                subMenu.Visible = true;
+            subMenu.Visible = true;
 
         }
         #endregion
@@ -46,33 +46,36 @@ namespace Administracion_Consorcio_AdminFairy
         private void btnExpensas_Click(object sender, EventArgs e)
         {
             //Muestro expensas
-            
+
         }
 
         private void btnComunicados_Click(object sender, EventArgs e)
         {
-            //Muestro comunicados
-            
+            FrmComunicados comunicados = new FrmComunicados();
+            comunicados.MdiParent = this;
+            comunicados.Show();
         }
 
         private void btnReclamo_Click(object sender, EventArgs e)
         {
-            
+
             //Muestro reclamos
-           
+
         }
 
         private void btnNrosUtiles_Click(object sender, EventArgs e)
         {
-            //Muestro Numeros de Plomero, Cerrajero, Urgencias Ascensor
-            
+            NumerosUtiles numeros = new NumerosUtiles();
+            numeros.MdiParent = this;
+            numeros.Show();
+
         }
 
         private void btnAcuerdoVecinos_Click(object sender, EventArgs e)
         {
             //Muestro un modelo de acuerdo de convivencia
 
-            
+
         }
 
 

@@ -13,6 +13,7 @@ namespace Administracion_Consorcio_AdminFairy
         string nombreJson;
         public string pathJson;
         public string pathXml;
+        Administrador admin;
 
         public FrmLogin()
         {
@@ -22,6 +23,7 @@ namespace Administracion_Consorcio_AdminFairy
             this.nombreJson = @"\UsuariosRegistradosJson.json";
             this.pathJson = ruta + nombreJson;
             this.pathXml = ruta + nombreXml;
+            admin = new Administrador("Admin", "AdminFairy", "87654321", "admin");
 
         }
 
@@ -81,7 +83,7 @@ namespace Administracion_Consorcio_AdminFairy
             string dni = this.txtDni.Text;
             string clave = this.txtClave.Text;
 
-            if (dni == "38500278" && clave == "admin")
+            if (dni == admin.Dni && clave == admin.Clave)
             {
                 InicioAdmin inicioAdmin = new InicioAdmin();
                 inicioAdmin.Show();
@@ -109,6 +111,7 @@ namespace Administracion_Consorcio_AdminFairy
         {
             SeleccionarUsuario su = new SeleccionarUsuario(); // Se instanció el formulario del autocompletar. 
             su.ShowDialog();  // no se va a cerrar a menos que se termine de interactuar con este (en este caso por ahora con el btn cancelar o cerrandolo)
+
         }
 
         private void lblRegistro_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)

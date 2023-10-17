@@ -19,7 +19,7 @@ namespace Entidades
         como Usuario es una clase de tipo Abstracta, esta no se puede instanciar. En fin, YA NOS PODEMOS REGISTRAR EXITOSAMENTE!!!
         pd: EscribirXMl funciona como EscribirArchivos, nomás dejo una indicación en la primera así te ubicas en pasos. Dsps documentamos bien
          */
-        public static void EscribirXML(string pathXML, Vecino usuario) // Pasamos como parámetro la ruta don de estará ubicado el archivo xml y al usuario a agregar de tipo vecino
+        public static void EscribirXML(string pathXML, Vecino usuario) // Pasamos como parámetro la ruta donde estará ubicado el archivo xml y al usuario a agregar de tipo vecino
         {
             try // Intentamos ejecutar el siguiente código: 
             {

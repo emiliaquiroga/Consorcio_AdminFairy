@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             dtgUsuariosRegistrados = new DataGridView();
             serializadoraBindingSource = new BindingSource(components);
             ((System.ComponentModel.ISupportInitialize)dtgUsuariosRegistrados).BeginInit();
@@ -37,14 +38,27 @@
             // 
             // dtgUsuariosRegistrados
             // 
+            dtgUsuariosRegistrados.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dtgUsuariosRegistrados.BackgroundColor = Color.FromArgb(255, 200, 221);
+            dtgUsuariosRegistrados.CellBorderStyle = DataGridViewCellBorderStyle.Raised;
             dtgUsuariosRegistrados.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dtgUsuariosRegistrados.Location = new Point(47, 12);
+            dtgUsuariosRegistrados.Dock = DockStyle.Fill;
+            dtgUsuariosRegistrados.GridColor = Color.FromArgb(255, 192, 192);
+            dtgUsuariosRegistrados.Location = new Point(0, 0);
             dtgUsuariosRegistrados.Name = "dtgUsuariosRegistrados";
+            dtgUsuariosRegistrados.ReadOnly = true;
             dtgUsuariosRegistrados.RowHeadersWidth = 62;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.TopLeft;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(255, 200, 221);
+            dataGridViewCellStyle1.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = Color.Black;
+            dataGridViewCellStyle1.NullValue = null;
+            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(255, 175, 204);
+            dataGridViewCellStyle1.SelectionForeColor = Color.Black;
+            dtgUsuariosRegistrados.RowsDefaultCellStyle = dataGridViewCellStyle1;
             dtgUsuariosRegistrados.RowTemplate.Height = 33;
-            dtgUsuariosRegistrados.Size = new Size(1179, 532);
+            dtgUsuariosRegistrados.Size = new Size(1266, 573);
             dtgUsuariosRegistrados.TabIndex = 0;
-            dtgUsuariosRegistrados.CellContentClick += dtgUsuariosRegistrados_CellContentClick;
             // 
             // serializadoraBindingSource
             // 
@@ -59,6 +73,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "FrmListadoUsuarios";
             Text = "ListadoUsuarios";
+            Load += FrmListadoUsuarios_Load;
             ((System.ComponentModel.ISupportInitialize)dtgUsuariosRegistrados).EndInit();
             ((System.ComponentModel.ISupportInitialize)serializadoraBindingSource).EndInit();
             ResumeLayout(false);

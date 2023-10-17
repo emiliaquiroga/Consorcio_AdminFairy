@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Entidades;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,17 +17,23 @@ namespace Administracion_Consorcio_AdminFairy
         string ruta;
         string nombre;
         string path;
+        List<Vecino> lista;
         public FrmListadoUsuarios()
         {
             InitializeComponent();
             this.ruta = Environment.GetFolderPath(Environment.SpecialFolder.Desktop); // donde va a estar ubicado
             this.nombre = @"\UsuariosRegistradosJson.json";
             this.path = ruta + nombre;
+            lista = new List<Vecino>();
+        }
+        private void FrmListadoUsuarios_Load(object sender, EventArgs e)
+        {
+            lista = Serializadora.LeerJson(path);
+            dtgUsuariosRegistrados.DataSource = null;
+            dtgUsuariosRegistrados.DataSource = lista;
         }
 
-        private void dtgUsuariosRegistrados_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            dtgUsuariosRegistrados.DataSource = path;
-        }
+
+
     }
 }

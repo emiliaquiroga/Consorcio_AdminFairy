@@ -12,7 +12,7 @@ namespace Administracion_Consorcio_AdminFairy
         {
             ApplicationConfiguration.Initialize();
             Application.Run(new FrmLogin());
-
+            
 
             
             

@@ -28,13 +28,35 @@
         /// </summary>
         private void InitializeComponent()
         {
+            rchtxtAdmi = new RichTextBox();
+            rchtxtComunicado = new RichTextBox();
             SuspendLayout();
+            // 
+            // rchtxtAdmi
+            // 
+            rchtxtAdmi.Location = new Point(12, 219);
+            rchtxtAdmi.Name = "rchtxtAdmi";
+            rchtxtAdmi.Size = new Size(352, 284);
+            rchtxtAdmi.TabIndex = 0;
+            rchtxtAdmi.Text = "";
+            // 
+            // rchtxtComunicado
+            // 
+            rchtxtComunicado.Location = new Point(434, 55);
+            rchtxtComunicado.Name = "rchtxtComunicado";
+            rchtxtComunicado.Size = new Size(479, 425);
+            rchtxtComunicado.TabIndex = 1;
+            rchtxtComunicado.Text = "";
             // 
             // FrmComunicados
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1040, 561);
+            BackgroundImage = Properties.Resources.Fondo_app;
+            BackgroundImageLayout = ImageLayout.Stretch;
+            ClientSize = new Size(956, 515);
+            Controls.Add(rchtxtComunicado);
+            Controls.Add(rchtxtAdmi);
             FormBorderStyle = FormBorderStyle.None;
             Name = "FrmComunicados";
             Text = "Comunicados";
@@ -42,5 +64,8 @@
         }
 
         #endregion
+
+        private RichTextBox rchtxtAdmi;
+        private RichTextBox rchtxtComunicado;
     }
 }
