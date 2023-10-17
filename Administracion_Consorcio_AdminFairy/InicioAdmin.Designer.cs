@@ -66,7 +66,7 @@
             pnlSubMenu.Controls.Add(btnComunicados);
             pnlSubMenu.Controls.Add(btnVerVecinos);
             pnlSubMenu.Dock = DockStyle.Top;
-            pnlSubMenu.Location = new Point(0, 209);
+            pnlSubMenu.Location = new Point(0, 205);
             pnlSubMenu.Margin = new Padding(2);
             pnlSubMenu.Name = "pnlSubMenu";
             pnlSubMenu.Size = new Size(220, 135);
@@ -74,14 +74,15 @@
             // 
             // btnAcuerdoVecinos
             // 
-            btnAcuerdoVecinos.Dock = DockStyle.Bottom;
+            btnAcuerdoVecinos.Dock = DockStyle.Top;
             btnAcuerdoVecinos.FlatAppearance.BorderSize = 0;
             btnAcuerdoVecinos.FlatStyle = FlatStyle.Flat;
-            btnAcuerdoVecinos.Location = new Point(0, 76);
+            btnAcuerdoVecinos.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            btnAcuerdoVecinos.Location = new Point(0, 84);
             btnAcuerdoVecinos.Margin = new Padding(2);
             btnAcuerdoVecinos.Name = "btnAcuerdoVecinos";
             btnAcuerdoVecinos.Padding = new Padding(27, 0, 0, 0);
-            btnAcuerdoVecinos.Size = new Size(220, 30);
+            btnAcuerdoVecinos.Size = new Size(220, 31);
             btnAcuerdoVecinos.TabIndex = 7;
             btnAcuerdoVecinos.Text = "Convivencia";
             btnAcuerdoVecinos.TextAlign = ContentAlignment.MiddleLeft;
@@ -92,7 +93,8 @@
             btnNrosUtiles.Dock = DockStyle.Top;
             btnNrosUtiles.FlatAppearance.BorderSize = 0;
             btnNrosUtiles.FlatStyle = FlatStyle.Flat;
-            btnNrosUtiles.Location = new Point(0, 52);
+            btnNrosUtiles.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            btnNrosUtiles.Location = new Point(0, 57);
             btnNrosUtiles.Margin = new Padding(2);
             btnNrosUtiles.Name = "btnNrosUtiles";
             btnNrosUtiles.Padding = new Padding(27, 0, 0, 0);
@@ -107,11 +109,12 @@
             btnReclamo.Dock = DockStyle.Bottom;
             btnReclamo.FlatAppearance.BorderSize = 0;
             btnReclamo.FlatStyle = FlatStyle.Flat;
-            btnReclamo.Location = new Point(0, 106);
+            btnReclamo.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            btnReclamo.Location = new Point(0, 108);
             btnReclamo.Margin = new Padding(2);
             btnReclamo.Name = "btnReclamo";
             btnReclamo.Padding = new Padding(27, 0, 0, 0);
-            btnReclamo.Size = new Size(220, 29);
+            btnReclamo.Size = new Size(220, 27);
             btnReclamo.TabIndex = 5;
             btnReclamo.Text = "Iniciar Reclamo";
             btnReclamo.TextAlign = ContentAlignment.MiddleLeft;
@@ -122,7 +125,8 @@
             btnComunicados.Dock = DockStyle.Top;
             btnComunicados.FlatAppearance.BorderSize = 0;
             btnComunicados.FlatStyle = FlatStyle.Flat;
-            btnComunicados.Location = new Point(0, 23);
+            btnComunicados.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            btnComunicados.Location = new Point(0, 28);
             btnComunicados.Margin = new Padding(2);
             btnComunicados.Name = "btnComunicados";
             btnComunicados.Padding = new Padding(27, 0, 0, 0);
@@ -138,11 +142,12 @@
             btnVerVecinos.Dock = DockStyle.Top;
             btnVerVecinos.FlatAppearance.BorderSize = 0;
             btnVerVecinos.FlatStyle = FlatStyle.Flat;
+            btnVerVecinos.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             btnVerVecinos.Location = new Point(0, 0);
             btnVerVecinos.Margin = new Padding(2);
             btnVerVecinos.Name = "btnVerVecinos";
             btnVerVecinos.Padding = new Padding(27, 0, 0, 0);
-            btnVerVecinos.Size = new Size(220, 23);
+            btnVerVecinos.Size = new Size(220, 28);
             btnVerVecinos.TabIndex = 3;
             btnVerVecinos.Text = "Listado Vecinos";
             btnVerVecinos.TextAlign = ContentAlignment.MiddleLeft;
@@ -159,7 +164,7 @@
             btnMenu.Margin = new Padding(2);
             btnMenu.Name = "btnMenu";
             btnMenu.Padding = new Padding(8, 0, 0, 0);
-            btnMenu.Size = new Size(220, 45);
+            btnMenu.Size = new Size(220, 41);
             btnMenu.TabIndex = 1;
             btnMenu.Text = "Menú";
             btnMenu.TextAlign = ContentAlignment.MiddleLeft;

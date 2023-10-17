@@ -45,13 +45,18 @@ namespace Administracion_Consorcio_AdminFairy
 
         private void btnExpensas_Click(object sender, EventArgs e)
         {
-            //Muestro expensas
+            this.pnlPrincipal.Visible = false;
+            FrmExpensas fe = new FrmExpensas();
+            fe.MdiParent = this;
+            fe.Show();
+            fe.rtbExpensas.ReadOnly = false;
+            
 
         }
 
         private void btnComunicados_Click(object sender, EventArgs e)
         {
-            //Muestro comunicados
+            
 
         }
 

@@ -81,7 +81,7 @@
             btnAcuerdoVecinos.Padding = new Padding(38, 0, 0, 0);
             btnAcuerdoVecinos.Size = new Size(220, 46);
             btnAcuerdoVecinos.TabIndex = 7;
-            btnAcuerdoVecinos.Text = "Convivencia";
+            btnAcuerdoVecinos.Text = "Normas de Convivencia";
             btnAcuerdoVecinos.TextAlign = ContentAlignment.MiddleLeft;
             btnAcuerdoVecinos.UseVisualStyleBackColor = true;
             btnAcuerdoVecinos.Click += btnAcuerdoVecinos_Click;
@@ -126,7 +126,7 @@
             btnComunicados.Padding = new Padding(38, 0, 0, 0);
             btnComunicados.Size = new Size(220, 45);
             btnComunicados.TabIndex = 4;
-            btnComunicados.Text = "Comunicados";
+            btnComunicados.Text = "Ver comunicados";
             btnComunicados.TextAlign = ContentAlignment.MiddleLeft;
             btnComunicados.UseVisualStyleBackColor = true;
             btnComunicados.Click += btnComunicados_Click;
@@ -141,7 +141,7 @@
             btnExpensas.Padding = new Padding(38, 0, 0, 0);
             btnExpensas.Size = new Size(220, 45);
             btnExpensas.TabIndex = 3;
-            btnExpensas.Text = "Expensas";
+            btnExpensas.Text = "Ver expensas";
             btnExpensas.TextAlign = ContentAlignment.MiddleLeft;
             btnExpensas.UseVisualStyleBackColor = true;
             btnExpensas.Click += btnExpensas_Click;
