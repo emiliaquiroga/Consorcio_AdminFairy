@@ -54,7 +54,7 @@
             pnlMenu.Dock = DockStyle.Left;
             pnlMenu.Location = new Point(0, 0);
             pnlMenu.Name = "pnlMenu";
-            pnlMenu.Size = new Size(220, 747);
+            pnlMenu.Size = new Size(220, 694);
             pnlMenu.TabIndex = 0;
             // 
             // pnlSubMenu
@@ -176,7 +176,7 @@
             label1.AutoSize = true;
             label1.Location = new Point(12, 9);
             label1.Name = "label1";
-            label1.Size = new Size(160, 56);
+            label1.Size = new Size(111, 38);
             label1.TabIndex = 1;
             label1.Text = "(insertar icono \r\nde \"AdminFairy\")";
             // 
@@ -184,16 +184,16 @@
             // 
             pnlPrincipal.BackgroundImage = (Image)resources.GetObject("pnlPrincipal.BackgroundImage");
             pnlPrincipal.BorderStyle = BorderStyle.Fixed3D;
-            pnlPrincipal.Location = new Point(257, 12);
+            pnlPrincipal.Location = new Point(259, 0);
             pnlPrincipal.Name = "pnlPrincipal";
-            pnlPrincipal.Size = new Size(820, 735);
+            pnlPrincipal.Size = new Size(838, 694);
             pnlPrincipal.TabIndex = 1;
             // 
             // InicioVecino
             // 
-            AutoScaleDimensions = new SizeF(11F, 28F);
+            AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1389, 747);
+            ClientSize = new Size(1135, 694);
             Controls.Add(pnlPrincipal);
             Controls.Add(pnlMenu);
             Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);

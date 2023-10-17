@@ -81,7 +81,7 @@ namespace Administracion_Consorcio_AdminFairy
             string dni = this.txtDni.Text;
             string clave = this.txtClave.Text;
 
-            if (dni == "38500278" && clave == "admin")
+            if (dni == "12345678" && clave == "admin")
             {
                 InicioAdmin inicioAdmin = new InicioAdmin();
                 inicioAdmin.Show();

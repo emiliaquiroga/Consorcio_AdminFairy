@@ -52,8 +52,9 @@
             pnlMenu.Controls.Add(pnlLogo);
             pnlMenu.Dock = DockStyle.Left;
             pnlMenu.Location = new Point(0, 0);
+            pnlMenu.Margin = new Padding(2);
             pnlMenu.Name = "pnlMenu";
-            pnlMenu.Size = new Size(220, 640);
+            pnlMenu.Size = new Size(220, 422);
             pnlMenu.TabIndex = 2;
             // 
             // pnlSubMenu
@@ -65,20 +66,22 @@
             pnlSubMenu.Controls.Add(btnComunicados);
             pnlSubMenu.Controls.Add(btnVerVecinos);
             pnlSubMenu.Dock = DockStyle.Top;
-            pnlSubMenu.Location = new Point(0, 218);
+            pnlSubMenu.Location = new Point(0, 209);
+            pnlSubMenu.Margin = new Padding(2);
             pnlSubMenu.Name = "pnlSubMenu";
-            pnlSubMenu.Size = new Size(220, 225);
+            pnlSubMenu.Size = new Size(220, 135);
             pnlSubMenu.TabIndex = 2;
             // 
             // btnAcuerdoVecinos
             // 
-            btnAcuerdoVecinos.Dock = DockStyle.Top;
+            btnAcuerdoVecinos.Dock = DockStyle.Bottom;
             btnAcuerdoVecinos.FlatAppearance.BorderSize = 0;
             btnAcuerdoVecinos.FlatStyle = FlatStyle.Flat;
-            btnAcuerdoVecinos.Location = new Point(0, 135);
+            btnAcuerdoVecinos.Location = new Point(0, 76);
+            btnAcuerdoVecinos.Margin = new Padding(2);
             btnAcuerdoVecinos.Name = "btnAcuerdoVecinos";
-            btnAcuerdoVecinos.Padding = new Padding(38, 0, 0, 0);
-            btnAcuerdoVecinos.Size = new Size(220, 46);
+            btnAcuerdoVecinos.Padding = new Padding(27, 0, 0, 0);
+            btnAcuerdoVecinos.Size = new Size(220, 30);
             btnAcuerdoVecinos.TabIndex = 7;
             btnAcuerdoVecinos.Text = "Convivencia";
             btnAcuerdoVecinos.TextAlign = ContentAlignment.MiddleLeft;
@@ -89,10 +92,11 @@
             btnNrosUtiles.Dock = DockStyle.Top;
             btnNrosUtiles.FlatAppearance.BorderSize = 0;
             btnNrosUtiles.FlatStyle = FlatStyle.Flat;
-            btnNrosUtiles.Location = new Point(0, 90);
+            btnNrosUtiles.Location = new Point(0, 52);
+            btnNrosUtiles.Margin = new Padding(2);
             btnNrosUtiles.Name = "btnNrosUtiles";
-            btnNrosUtiles.Padding = new Padding(38, 0, 0, 0);
-            btnNrosUtiles.Size = new Size(220, 45);
+            btnNrosUtiles.Padding = new Padding(27, 0, 0, 0);
+            btnNrosUtiles.Size = new Size(220, 27);
             btnNrosUtiles.TabIndex = 6;
             btnNrosUtiles.Text = "Números Útiles";
             btnNrosUtiles.TextAlign = ContentAlignment.MiddleLeft;
@@ -103,10 +107,11 @@
             btnReclamo.Dock = DockStyle.Bottom;
             btnReclamo.FlatAppearance.BorderSize = 0;
             btnReclamo.FlatStyle = FlatStyle.Flat;
-            btnReclamo.Location = new Point(0, 180);
+            btnReclamo.Location = new Point(0, 106);
+            btnReclamo.Margin = new Padding(2);
             btnReclamo.Name = "btnReclamo";
-            btnReclamo.Padding = new Padding(38, 0, 0, 0);
-            btnReclamo.Size = new Size(220, 45);
+            btnReclamo.Padding = new Padding(27, 0, 0, 0);
+            btnReclamo.Size = new Size(220, 29);
             btnReclamo.TabIndex = 5;
             btnReclamo.Text = "Iniciar Reclamo";
             btnReclamo.TextAlign = ContentAlignment.MiddleLeft;
@@ -117,10 +122,11 @@
             btnComunicados.Dock = DockStyle.Top;
             btnComunicados.FlatAppearance.BorderSize = 0;
             btnComunicados.FlatStyle = FlatStyle.Flat;
-            btnComunicados.Location = new Point(0, 45);
+            btnComunicados.Location = new Point(0, 23);
+            btnComunicados.Margin = new Padding(2);
             btnComunicados.Name = "btnComunicados";
-            btnComunicados.Padding = new Padding(38, 0, 0, 0);
-            btnComunicados.Size = new Size(220, 45);
+            btnComunicados.Padding = new Padding(27, 0, 0, 0);
+            btnComunicados.Size = new Size(220, 29);
             btnComunicados.TabIndex = 4;
             btnComunicados.Text = "Comunicados";
             btnComunicados.TextAlign = ContentAlignment.MiddleLeft;
@@ -133,9 +139,10 @@
             btnVerVecinos.FlatAppearance.BorderSize = 0;
             btnVerVecinos.FlatStyle = FlatStyle.Flat;
             btnVerVecinos.Location = new Point(0, 0);
+            btnVerVecinos.Margin = new Padding(2);
             btnVerVecinos.Name = "btnVerVecinos";
-            btnVerVecinos.Padding = new Padding(38, 0, 0, 0);
-            btnVerVecinos.Size = new Size(220, 45);
+            btnVerVecinos.Padding = new Padding(27, 0, 0, 0);
+            btnVerVecinos.Size = new Size(220, 23);
             btnVerVecinos.TabIndex = 3;
             btnVerVecinos.Text = "Listado Vecinos";
             btnVerVecinos.TextAlign = ContentAlignment.MiddleLeft;
@@ -148,10 +155,11 @@
             btnMenu.FlatAppearance.BorderSize = 0;
             btnMenu.FlatStyle = FlatStyle.Flat;
             btnMenu.Font = new Font("Century Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnMenu.Location = new Point(0, 168);
+            btnMenu.Location = new Point(0, 164);
+            btnMenu.Margin = new Padding(2);
             btnMenu.Name = "btnMenu";
-            btnMenu.Padding = new Padding(11, 0, 0, 0);
-            btnMenu.Size = new Size(220, 50);
+            btnMenu.Padding = new Padding(8, 0, 0, 0);
+            btnMenu.Size = new Size(220, 45);
             btnMenu.TabIndex = 1;
             btnMenu.Text = "Menú";
             btnMenu.TextAlign = ContentAlignment.MiddleLeft;
@@ -162,27 +170,31 @@
             pnlLogo.Controls.Add(label1);
             pnlLogo.Dock = DockStyle.Top;
             pnlLogo.Location = new Point(0, 0);
+            pnlLogo.Margin = new Padding(2);
             pnlLogo.Name = "pnlLogo";
-            pnlLogo.Size = new Size(220, 168);
+            pnlLogo.Size = new Size(220, 164);
             pnlLogo.TabIndex = 0;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(12, 9);
+            label1.Location = new Point(8, 5);
+            label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(145, 50);
+            label1.Size = new Size(98, 30);
             label1.TabIndex = 1;
             label1.Text = "(insertar icono \r\nde \"AdminFairy\")";
             // 
             // InicioAdmin
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1147, 640);
+            ClientSize = new Size(1310, 422);
             Controls.Add(pnlMenu);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
             IsMdiContainer = true;
+            Margin = new Padding(2);
             Name = "InicioAdmin";
             Text = "InicioAdmin";
             Load += InicioAdmin_Load;

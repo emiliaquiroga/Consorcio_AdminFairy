@@ -38,11 +38,12 @@
             // dtgUsuariosRegistrados
             // 
             dtgUsuariosRegistrados.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dtgUsuariosRegistrados.Location = new Point(47, 12);
+            dtgUsuariosRegistrados.Location = new Point(20, 34);
+            dtgUsuariosRegistrados.Margin = new Padding(2);
             dtgUsuariosRegistrados.Name = "dtgUsuariosRegistrados";
             dtgUsuariosRegistrados.RowHeadersWidth = 62;
             dtgUsuariosRegistrados.RowTemplate.Height = 33;
-            dtgUsuariosRegistrados.Size = new Size(1179, 532);
+            dtgUsuariosRegistrados.Size = new Size(1061, 336);
             dtgUsuariosRegistrados.TabIndex = 0;
             dtgUsuariosRegistrados.CellContentClick += dtgUsuariosRegistrados_CellContentClick;
             // 
@@ -52,13 +53,16 @@
             // 
             // FrmListadoUsuarios
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1266, 573);
+            BackColor = Color.FromArgb(168, 183, 204);
+            ClientSize = new Size(1110, 414);
             Controls.Add(dtgUsuariosRegistrados);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(2);
             Name = "FrmListadoUsuarios";
             Text = "ListadoUsuarios";
+            Load += FrmListadoUsuarios_Load;
             ((System.ComponentModel.ISupportInitialize)dtgUsuariosRegistrados).EndInit();
             ((System.ComponentModel.ISupportInitialize)serializadoraBindingSource).EndInit();
             ResumeLayout(false);
