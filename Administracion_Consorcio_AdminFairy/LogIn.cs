@@ -85,6 +85,10 @@ namespace Administracion_Consorcio_AdminFairy
             {
                 InicioAdmin inicioAdmin = new InicioAdmin();
                 inicioAdmin.Show();
+                this.Hide();
+                txtDni.Clear();
+                txtClave.Clear();
+
 
             }
 
@@ -94,6 +98,8 @@ namespace Administracion_Consorcio_AdminFairy
                 MessageBox.Show("Ingreso Exitoso!", "Bienvenida/o!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 InicioVecino inicio = new InicioVecino();
                 inicio.Show();
+                txtDni.Clear();
+                txtClave.Clear();
                 this.Hide();
             }
 

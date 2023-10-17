@@ -13,12 +13,7 @@ namespace Administracion_Consorcio_AdminFairy
             ApplicationConfiguration.Initialize();
             Application.Run(new FrmLogin());
 
-            string ruta = Environment.GetFolderPath(Environment.SpecialFolder.Desktop); // donde va a estar ubicado
-            string nombre = @"\UsuariosRegistrados.xml"; // nombre del archivo
-            string path = ruta + nombre;
 
-            // Crear un administrador 
-            //Administrador admin = new Administrador("Jazmin", "Mereles", "41958704", "claveAdmin");
             
             
         }

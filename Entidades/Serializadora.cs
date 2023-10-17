@@ -8,10 +8,12 @@ using Newtonsoft.Json;
 using System.Xml;
 
 
+
 namespace Entidades
 {
     public class Serializadora
     {
+      
         /*    
          Tuve que cambiar los tipos Usuario por tipo Vecino, por la razón de que, en los métodos queríamos instanciar listas de tipo Usuario, y me tiraba excepciones, ya que 
         como Usuario es una clase de tipo Abstracta, esta no se puede instanciar. En fin, YA NOS PODEMOS REGISTRAR EXITOSAMENTE!!!
@@ -99,10 +101,12 @@ namespace Entidades
         public static List<Vecino> LeerJson(string path)
         {
             List<Vecino> lista = new List<Vecino>();
+
             try
             {
                 string json = File.ReadAllText(path);
                 lista = JsonConvert.DeserializeObject<List<Vecino>>(json);
+                
             }
             catch (Exception e)
             {
