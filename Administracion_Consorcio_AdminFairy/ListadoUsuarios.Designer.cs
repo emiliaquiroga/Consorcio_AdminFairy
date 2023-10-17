@@ -57,7 +57,7 @@
             dataGridViewCellStyle1.SelectionForeColor = Color.Black;
             dtgUsuariosRegistrados.RowsDefaultCellStyle = dataGridViewCellStyle1;
             dtgUsuariosRegistrados.RowTemplate.Height = 33;
-            dtgUsuariosRegistrados.Size = new Size(1266, 573);
+            dtgUsuariosRegistrados.Size = new Size(1179, 532);
             dtgUsuariosRegistrados.TabIndex = 0;
             // 
             // serializadoraBindingSource
@@ -66,11 +66,13 @@
             // 
             // FrmListadoUsuarios
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1266, 573);
+            BackColor = Color.FromArgb(168, 183, 204);
+            ClientSize = new Size(1110, 414);
             Controls.Add(dtgUsuariosRegistrados);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(2);
             Name = "FrmListadoUsuarios";
             Text = "ListadoUsuarios";
             Load += FrmListadoUsuarios_Load;

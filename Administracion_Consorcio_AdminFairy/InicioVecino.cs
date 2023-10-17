@@ -45,15 +45,19 @@ namespace Administracion_Consorcio_AdminFairy
 
         private void btnExpensas_Click(object sender, EventArgs e)
         {
-            //Muestro expensas
+            this.pnlPrincipal.Visible = false;
+            FrmExpensas fe = new FrmExpensas();
+            fe.MdiParent = this;
+            fe.Show();
+            fe.rtbExpensas.ReadOnly = false;
+            
 
         }
 
         private void btnComunicados_Click(object sender, EventArgs e)
         {
-            FrmComunicados comunicados = new FrmComunicados();
-            comunicados.MdiParent = this;
-            comunicados.Show();
+            //Muestro comunicados
+            
         }
 
         private void btnReclamo_Click(object sender, EventArgs e)
@@ -65,10 +69,8 @@ namespace Administracion_Consorcio_AdminFairy
 
         private void btnNrosUtiles_Click(object sender, EventArgs e)
         {
-            NumerosUtiles numeros = new NumerosUtiles();
-            numeros.MdiParent = this;
-            numeros.Show();
-
+            //Muestro Numeros de Plomero, Cerrajero, Urgencias Ascensor
+            
         }
 
         private void btnAcuerdoVecinos_Click(object sender, EventArgs e)

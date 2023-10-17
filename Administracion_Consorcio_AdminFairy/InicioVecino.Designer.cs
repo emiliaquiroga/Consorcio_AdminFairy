@@ -53,7 +53,7 @@
             pnlMenu.Dock = DockStyle.Left;
             pnlMenu.Location = new Point(0, 0);
             pnlMenu.Name = "pnlMenu";
-            pnlMenu.Size = new Size(220, 645);
+            pnlMenu.Size = new Size(220, 694);
             pnlMenu.TabIndex = 0;
             // 
             // pnlSubMenu
@@ -80,7 +80,7 @@
             btnAcuerdoVecinos.Padding = new Padding(38, 0, 0, 0);
             btnAcuerdoVecinos.Size = new Size(220, 46);
             btnAcuerdoVecinos.TabIndex = 7;
-            btnAcuerdoVecinos.Text = "Convivencia";
+            btnAcuerdoVecinos.Text = "Normas de Convivencia";
             btnAcuerdoVecinos.TextAlign = ContentAlignment.MiddleLeft;
             btnAcuerdoVecinos.UseVisualStyleBackColor = true;
             btnAcuerdoVecinos.Click += btnAcuerdoVecinos_Click;
@@ -125,7 +125,7 @@
             btnComunicados.Padding = new Padding(38, 0, 0, 0);
             btnComunicados.Size = new Size(220, 45);
             btnComunicados.TabIndex = 4;
-            btnComunicados.Text = "Comunicados";
+            btnComunicados.Text = "Ver comunicados";
             btnComunicados.TextAlign = ContentAlignment.MiddleLeft;
             btnComunicados.UseVisualStyleBackColor = true;
             btnComunicados.Click += btnComunicados_Click;
@@ -140,7 +140,7 @@
             btnExpensas.Padding = new Padding(38, 0, 0, 0);
             btnExpensas.Size = new Size(220, 45);
             btnExpensas.TabIndex = 3;
-            btnExpensas.Text = "Expensas";
+            btnExpensas.Text = "Ver expensas";
             btnExpensas.TextAlign = ContentAlignment.MiddleLeft;
             btnExpensas.UseVisualStyleBackColor = true;
             btnExpensas.Click += btnExpensas_Click;
@@ -175,18 +175,25 @@
             label1.AutoSize = true;
             label1.Location = new Point(12, 9);
             label1.Name = "label1";
-            label1.Size = new Size(160, 56);
+            label1.Size = new Size(111, 38);
             label1.TabIndex = 1;
             label1.Text = "(insertar icono \r\nde \"AdminFairy\")";
             // 
+            // pnlPrincipal
+            // 
+            pnlPrincipal.BackgroundImage = (Image)resources.GetObject("pnlPrincipal.BackgroundImage");
+            pnlPrincipal.BorderStyle = BorderStyle.Fixed3D;
+            pnlPrincipal.Location = new Point(257, 12);
+            pnlPrincipal.Name = "pnlPrincipal";
+            pnlPrincipal.Size = new Size(820, 735);
+            pnlPrincipal.TabIndex = 1;
+            // 
             // InicioVecino
             // 
-            AutoScaleDimensions = new SizeF(11F, 28F);
+            AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.White;
-            BackgroundImage = Properties.Resources.desk;
-            BackgroundImageLayout = ImageLayout.Center;
-            ClientSize = new Size(1374, 645);
+            ClientSize = new Size(1389, 747);
+            Controls.Add(pnlPrincipal);
             Controls.Add(pnlMenu);
             Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
             ForeColor = SystemColors.ActiveCaptionText;

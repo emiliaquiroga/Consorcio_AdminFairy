@@ -14,10 +14,6 @@ namespace Administracion_Consorcio_AdminFairy
 {
     public partial class InicioAdmin : Form
     {
-
-        //
-
-
         public string nombre;
         public string path;
         public string ruta;
