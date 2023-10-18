@@ -17,7 +17,10 @@ namespace Administracion_Consorcio_AdminFairy
         public string nombre;
         public string path;
         public string ruta;
-        
+        private FrmListadoUsuarios listausuarios;
+        private FrmComunicados com;
+        private NumerosUtiles numeros;
+
 
         public InicioAdmin()
         {
@@ -28,28 +31,48 @@ namespace Administracion_Consorcio_AdminFairy
         {
 
         }
-
         private void btnVerVecinos_Click(object sender, EventArgs e)
         {
+            if (listausuarios == null || listausuarios.IsDisposed)
+            {
+                listausuarios = new FrmListadoUsuarios();
+                listausuarios.MdiParent = this;
+                listausuarios.Show();
+            }
+            else
+            {
+                listausuarios.BringToFront();
 
-            FrmListadoUsuarios listausuarios = new FrmListadoUsuarios();
-            listausuarios.MdiParent = this;
-            listausuarios.Show();
+            }
         }
 
         private void btnComunicados_Click(object sender, EventArgs e)
         {
-            FrmComunicados com = new FrmComunicados();
-            com.MdiParent = this;
-            com.Show();
-            
+            if (com == null || com.IsDisposed)
+            {
+                com = new FrmComunicados();
+                com.MdiParent = this;
+                com.Show();
+            }
+            else
+            {
+                com.BringToFront();
+            }
         }
 
         private void btnNrosUtiles_Click(object sender, EventArgs e)
         {
-            NumerosUtiles numeros = new NumerosUtiles();
-            numeros.MdiParent = this;
-            numeros.Show();
+            if (numeros == null || numeros.IsDisposed)
+            {
+                numeros = new NumerosUtiles();
+                numeros.MdiParent = this;
+                numeros.Show();
+            }
+            else
+            {
+                numeros.BringToFront();
+            }
         }
+
     }
 }

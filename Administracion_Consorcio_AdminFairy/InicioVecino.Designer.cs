@@ -181,19 +181,14 @@
             // 
             // pnlPrincipal
             // 
-            pnlPrincipal.BackgroundImage = (Image)resources.GetObject("pnlPrincipal.BackgroundImage");
-            pnlPrincipal.BorderStyle = BorderStyle.Fixed3D;
-            pnlPrincipal.Location = new Point(257, 12);
-            pnlPrincipal.Name = "pnlPrincipal";
-            pnlPrincipal.Size = new Size(820, 735);
-            pnlPrincipal.TabIndex = 1;
+
             // 
             // InicioVecino
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1389, 747);
-            Controls.Add(pnlPrincipal);
+            
             Controls.Add(pnlMenu);
             Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
             ForeColor = SystemColors.ActiveCaptionText;
@@ -221,6 +216,6 @@
         private Button btnExpensas;
         private Button btnAcuerdoVecinos;
         private Label label1;
-        private Panel pnlPrincipal;
+        //private Panel pnlPrincipal;
     }
 }

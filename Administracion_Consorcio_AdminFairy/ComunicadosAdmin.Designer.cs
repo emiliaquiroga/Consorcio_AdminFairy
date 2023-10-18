@@ -96,9 +96,10 @@
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoSize = true;
             BackgroundImage = Properties.Resources.Fondo_app;
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(956, 515);
+            ClientSize = new Size(1586, 690);
             Controls.Add(btnAdmin);
             Controls.Add(lblAdmin);
             Controls.Add(lblComunicados);

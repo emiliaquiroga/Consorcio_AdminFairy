@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Entidades;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,19 +13,37 @@ namespace Administracion_Consorcio_AdminFairy
 {
     public partial class ComunicadosVecinos : Form
     {
+        string ruta;
+        string path;
+        List<string> comunicadosCreados;
         public ComunicadosVecinos()
         {
             InitializeComponent();
+            this.ruta = Environment.GetFolderPath(Environment.SpecialFolder.Desktop); // donde va a estar ubicado
+            this.path = ruta + @"\Comunicados.json";
+            comunicadosCreados = new List<string>();
+            rchtxtComunicado.ReadOnly = true;
         }
 
         private void ComunicadosVecinos_Load(object sender, EventArgs e)
         {
-
+            comunicadosCreados = Serializadora.LeerJsonComunicado(path);
         }
 
         private void rchtxtComunicado_TextChanged(object sender, EventArgs e)
         {
-            rchtxtComunicado.Text = "";
+            OpenFileDialog abrir = new OpenFileDialog();
+            abrir.Filter = "Documento de texto|*.txt";
+            abrir.Title = "Guardar RichTextBox";
+            abrir.FileName = "Sin Titulo 1";
+            var resultado = abrir.ShowDialog();
+            if (resultado == DialogResult.OK)
+            {
+                StreamReader leer = new StreamReader(abrir.FileName);
+                rchtxtComunicado.Text = leer.ReadToEnd();
+                leer.Close();
+
+            }
         }
     }
 }

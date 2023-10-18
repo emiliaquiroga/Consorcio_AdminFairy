@@ -32,6 +32,7 @@
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             dtgUsuariosRegistrados = new DataGridView();
             serializadoraBindingSource = new BindingSource(components);
+            cmbxEstadoVecino = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)dtgUsuariosRegistrados).BeginInit();
             ((System.ComponentModel.ISupportInitialize)serializadoraBindingSource).BeginInit();
             SuspendLayout();
@@ -42,9 +43,9 @@
             dtgUsuariosRegistrados.BackgroundColor = Color.FromArgb(255, 200, 221);
             dtgUsuariosRegistrados.CellBorderStyle = DataGridViewCellBorderStyle.Raised;
             dtgUsuariosRegistrados.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dtgUsuariosRegistrados.Dock = DockStyle.Fill;
             dtgUsuariosRegistrados.GridColor = Color.FromArgb(255, 192, 192);
-            dtgUsuariosRegistrados.Location = new Point(0, 0);
+            dtgUsuariosRegistrados.Location = new Point(4, 1);
+            dtgUsuariosRegistrados.Margin = new Padding(4, 5, 4, 5);
             dtgUsuariosRegistrados.Name = "dtgUsuariosRegistrados";
             dtgUsuariosRegistrados.ReadOnly = true;
             dtgUsuariosRegistrados.RowHeadersWidth = 62;
@@ -57,23 +58,34 @@
             dataGridViewCellStyle1.SelectionForeColor = Color.Black;
             dtgUsuariosRegistrados.RowsDefaultCellStyle = dataGridViewCellStyle1;
             dtgUsuariosRegistrados.RowTemplate.Height = 33;
-            dtgUsuariosRegistrados.Size = new Size(1179, 532);
+            dtgUsuariosRegistrados.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dtgUsuariosRegistrados.Size = new Size(1049, 578);
             dtgUsuariosRegistrados.TabIndex = 0;
             // 
             // serializadoraBindingSource
             // 
             serializadoraBindingSource.DataSource = typeof(Entidades.Serializadora);
             // 
+            // cmbxEstadoVecino
+            // 
+            cmbxEstadoVecino.FormattingEnabled = true;
+            cmbxEstadoVecino.Location = new Point(1234, 105);
+            cmbxEstadoVecino.Name = "cmbxEstadoVecino";
+            cmbxEstadoVecino.Size = new Size(299, 33);
+            cmbxEstadoVecino.TabIndex = 1;
+            cmbxEstadoVecino.SelectedIndexChanged += cmbxEstadoVecino_SelectedIndexChanged_1;
+            // 
             // FrmListadoUsuarios
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(168, 183, 204);
-            ClientSize = new Size(1110, 414);
+            ClientSize = new Size(1586, 690);
+            Controls.Add(cmbxEstadoVecino);
             Controls.Add(dtgUsuariosRegistrados);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(2);
             Name = "FrmListadoUsuarios";
+            StartPosition = FormStartPosition.CenterParent;
             Text = "ListadoUsuarios";
             Load += FrmListadoUsuarios_Load;
             ((System.ComponentModel.ISupportInitialize)dtgUsuariosRegistrados).EndInit();
@@ -85,5 +97,6 @@
 
         private DataGridView dtgUsuariosRegistrados;
         private BindingSource serializadoraBindingSource;
+        private ComboBox cmbxEstadoVecino;
     }
 }

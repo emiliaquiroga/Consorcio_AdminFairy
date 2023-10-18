@@ -18,11 +18,13 @@ namespace Administracion_Consorcio_AdminFairy
         public FrmExpensas(Vecino vecino)
         {
             InitializeComponent();
+            rtbExpensas.ReadOnly = true;
             this.vecino = vecino;
         }
 
         private void FrmVerExpensas_Load(object sender, EventArgs e)
         {
+            rtbExpensas.Text = $"Sus expensas de mes son de ${vecino.Expensas}";
             ActualizarLabelSegunHora();
 
         }

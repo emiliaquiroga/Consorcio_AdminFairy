@@ -47,7 +47,7 @@ namespace Administracion_Consorcio_AdminFairy
 
         private void btnExpensas_Click(object sender, EventArgs e)
         {
-            this.pnlPrincipal.Visible = false;
+
             FrmExpensas fe = new FrmExpensas(vecino);
             fe.MdiParent = this;
             fe.Show();
@@ -58,8 +58,11 @@ namespace Administracion_Consorcio_AdminFairy
 
         private void btnComunicados_Click(object sender, EventArgs e)
         {
-            //Muestro comunicados
-            
+            ComunicadosVecinos com = new ComunicadosVecinos();
+            com.MdiParent = this;
+            com.Show();
+
+
         }
 
         private void btnReclamo_Click(object sender, EventArgs e)

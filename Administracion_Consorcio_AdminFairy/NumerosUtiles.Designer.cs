@@ -39,8 +39,10 @@
             // lblTitulo
             // 
             lblTitulo.AutoSize = true;
+            lblTitulo.BackColor = Color.Transparent;
             lblTitulo.Font = new Font("Century Gothic", 15F, FontStyle.Bold, GraphicsUnit.Point);
-            lblTitulo.Location = new Point(297, 39);
+            lblTitulo.Location = new Point(576, 75);
+            lblTitulo.Margin = new Padding(4, 0, 4, 0);
             lblTitulo.Name = "lblTitulo";
             lblTitulo.Size = new Size(233, 37);
             lblTitulo.TabIndex = 0;
@@ -51,9 +53,10 @@
             btnAscensor.BackColor = Color.FromArgb(255, 175, 204);
             btnAscensor.FlatStyle = FlatStyle.Popup;
             btnAscensor.Font = new Font("Century Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnAscensor.Location = new Point(65, 127);
+            btnAscensor.Location = new Point(93, 212);
+            btnAscensor.Margin = new Padding(4, 5, 4, 5);
             btnAscensor.Name = "btnAscensor";
-            btnAscensor.Size = new Size(181, 53);
+            btnAscensor.Size = new Size(259, 88);
             btnAscensor.TabIndex = 1;
             btnAscensor.Text = "Tecnico Ascensor";
             btnAscensor.UseVisualStyleBackColor = false;
@@ -64,9 +67,10 @@
             btnPlomero.BackColor = Color.FromArgb(255, 175, 204);
             btnPlomero.FlatStyle = FlatStyle.Popup;
             btnPlomero.Font = new Font("Century Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnPlomero.Location = new Point(65, 218);
+            btnPlomero.Location = new Point(93, 363);
+            btnPlomero.Margin = new Padding(4, 5, 4, 5);
             btnPlomero.Name = "btnPlomero";
-            btnPlomero.Size = new Size(181, 53);
+            btnPlomero.Size = new Size(259, 88);
             btnPlomero.TabIndex = 2;
             btnPlomero.Text = "Plomero";
             btnPlomero.UseVisualStyleBackColor = false;
@@ -77,9 +81,10 @@
             btnCerrajero.BackColor = Color.FromArgb(255, 175, 204);
             btnCerrajero.FlatStyle = FlatStyle.Popup;
             btnCerrajero.Font = new Font("Century Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnCerrajero.Location = new Point(65, 313);
+            btnCerrajero.Location = new Point(93, 522);
+            btnCerrajero.Margin = new Padding(4, 5, 4, 5);
             btnCerrajero.Name = "btnCerrajero";
-            btnCerrajero.Size = new Size(181, 53);
+            btnCerrajero.Size = new Size(259, 88);
             btnCerrajero.TabIndex = 3;
             btnCerrajero.Text = "Cerrajero";
             btnCerrajero.UseVisualStyleBackColor = false;
@@ -89,10 +94,11 @@
             // 
             rchtxtTelefonos.BackColor = Color.FromArgb(255, 175, 204);
             rchtxtTelefonos.Font = new Font("Century Gothic", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            rchtxtTelefonos.Location = new Point(297, 127);
+            rchtxtTelefonos.Location = new Point(424, 212);
+            rchtxtTelefonos.Margin = new Padding(4, 5, 4, 5);
             rchtxtTelefonos.Name = "rchtxtTelefonos";
             rchtxtTelefonos.ReadOnly = true;
-            rchtxtTelefonos.Size = new Size(422, 239);
+            rchtxtTelefonos.Size = new Size(601, 396);
             rchtxtTelefonos.TabIndex = 4;
             rchtxtTelefonos.Text = "";
             // 
@@ -100,8 +106,10 @@
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(255, 200, 221);
-            ClientSize = new Size(831, 475);
+            AutoSize = true;
+            BackgroundImage = Properties.Resources.Fondo_app;
+            BackgroundImageLayout = ImageLayout.Stretch;
+            ClientSize = new Size(1586, 690);
             Controls.Add(rchtxtTelefonos);
             Controls.Add(btnCerrajero);
             Controls.Add(btnPlomero);
@@ -110,6 +118,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "NumerosUtiles";
+            StartPosition = FormStartPosition.CenterParent;
             Text = "NumerosUtiles";
             Load += NumerosUtiles_Load;
             ResumeLayout(false);

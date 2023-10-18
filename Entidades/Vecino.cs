@@ -15,7 +15,7 @@ namespace Entidades
         private string ciudad;
         private string _unidadVivienda;
         private string _pisoVivienda;
-        private EstadoExpensas expensas;
+        private int expensas;
         private EstadoVecino estadoVecino;
 
 
@@ -37,7 +37,7 @@ namespace Entidades
         public string Ciudad { get => ciudad; set => ciudad = value; }
         public string UnidadVivienda { get => _unidadVivienda; set => _unidadVivienda = value; }
         public string PisoVivienda { get => _pisoVivienda; set => _pisoVivienda = value; }
-        public EstadoExpensas Expensas { get => expensas; set => expensas = value; }
+        public int Expensas { get => expensas; set => expensas = value; }
         public EstadoVecino EstadoVecino { get => estadoVecino; set => estadoVecino = value; }
         #endregion
         

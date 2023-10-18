@@ -11,6 +11,7 @@ using System.Xml;
 
 namespace Entidades
 {
+    
     public class Serializadora
     {
       
@@ -47,6 +48,58 @@ namespace Entidades
             }
 
         }
+        public static void EscribirJsonComunicado(string comunicado)
+        {
+            string ruta = Environment.GetFolderPath(Environment.SpecialFolder.Desktop); // donde va a estar ubicado
+            string path = ruta + @"\Comunicados.json";
+            
+            try
+            {
+                List<string> listaComunicados;
+
+                if (File.Exists(path))
+                {
+                    listaComunicados = LeerJsonComunicado(path);
+                }
+                else
+                {
+                    listaComunicados = new List<string>();
+                }
+
+                listaComunicados.Add(comunicado);
+                string json = JsonConvert.SerializeObject(listaComunicados, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, json);
+            }
+            catch (IOException ex)
+            {
+                Console.WriteLine($"Error de E/S al leer/escribir el archivo JSON: {ex.ToString()}");
+                
+
+            }
+
+        }
+        public static List<string> LeerJsonComunicado(string path)
+        {
+            List<string> lista = new List<string>();
+            string json = File.ReadAllText(path);
+
+            try
+            {
+
+                lista = JsonConvert.DeserializeObject<List<string>>(json);
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error while parsing JSON:");
+                Console.WriteLine(e.ToString());
+                Console.WriteLine("JSON Content:");
+                Console.WriteLine(json); // Add this line to log the JSON content causing the issue.
+            }
+            return lista;
+
+        }
+
 
         public static List<Vecino> LeerXML(string path)
         {

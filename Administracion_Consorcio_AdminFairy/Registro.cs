@@ -90,6 +90,11 @@ namespace Administracion_Consorcio_AdminFairy
         private void AsignarRegistro(string pathXML, string pathJson)//crea un nuevo vecino y le asigna los datos ingresados en el registro
         {
 
+            int min = 10000;
+            int max = 90000;
+
+            Random rnd = new Random();
+
             Vecino vecinoNuevo = new Vecino();
             vecinoNuevo.Nombre = txtNombre.Text;
             vecinoNuevo.Apellido = txtApellido.Text;
@@ -100,7 +105,7 @@ namespace Administracion_Consorcio_AdminFairy
             vecinoNuevo.Ciudad = lstCiudad.Text;
             vecinoNuevo.PisoVivienda = dmUpDownPiso.Text;
             vecinoNuevo.UnidadVivienda = dmUpDownUnidad.Text;
-
+            vecinoNuevo.Expensas = rnd.Next(min, max + 1);
 
             try
             {

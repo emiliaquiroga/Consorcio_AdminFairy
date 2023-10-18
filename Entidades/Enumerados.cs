@@ -6,11 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    public enum EstadoExpensas
-    {
-        AlDia,
-        Deudor,
-    }
+
     public enum EstadoVecino
     {
         Activo,

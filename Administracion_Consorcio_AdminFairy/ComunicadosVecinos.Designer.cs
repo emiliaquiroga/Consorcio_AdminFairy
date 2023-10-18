@@ -59,9 +59,10 @@
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoSize = true;
             BackgroundImage = Properties.Resources.Fondo_app;
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(966, 539);
+            ClientSize = new Size(1586, 690);
             Controls.Add(rchtxtComunicado);
             Controls.Add(lblComunicados);
             FormBorderStyle = FormBorderStyle.None;
