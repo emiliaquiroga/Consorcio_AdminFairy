@@ -107,14 +107,23 @@ namespace Administracion_Consorcio_AdminFairy
             vecinoNuevo.UnidadVivienda = dmUpDownUnidad.Text;
             vecinoNuevo.Expensas = rnd.Next(min, max + 1);
 
+            List<Vecino> usuarios;
+
             try
             {
                 Serializadora.EscribirArchivos(pathJson, pathXML, vecinoNuevo);
+                usuarios = Serializadora.LeerJson(login.pathJson);
+                if(usuarios.Any(u=>u.Dni == vecinoNuevo.Dni))
+                {
+                    MessageBox.Show("Ya existe un usuario con este DNI\nPor favor, ingresa un dni diferente.", "ERROR EN REGISTRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    MessageBox.Show("Te has Registrado exitosamente!", "REGISTRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    this.Close();
+                    login.Show();
+                }
 
-
-                MessageBox.Show("Te has Registrado exitosamente!", "REGISTRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                this.Close();
-                login.Show();
             }
             catch (Exception ex)
             {

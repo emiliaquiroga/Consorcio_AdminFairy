@@ -48,6 +48,7 @@ namespace Administracion_Consorcio_AdminFairy
             dtgUsuariosRegistrados.CellEndEdit += DtUsuariosRegistrados_CellEndEdit;
         }
 
+        //este metodo no funciona del todo bien, porque creo que estan mal los getters y setters en vecino
         private void DtUsuariosRegistrados_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             // Obtiene la fila y la celda editada
@@ -64,8 +65,9 @@ namespace Administracion_Consorcio_AdminFairy
                 Vecino vecino = (Vecino)row.DataBoundItem;
                 vecino.EstadoVecino = estadoSeleccionado;
 
-                // Guarda los cambios en el JSON
-                Serializadora.EscribirArchivos(path, listaVecinos);
+                // Llama al método para actualizar el JSON
+                Serializadora.ActualizarVecinoEnJson(path, vecino);
+                dtgUsuariosRegistrados.Refresh();
             }
         }
     }

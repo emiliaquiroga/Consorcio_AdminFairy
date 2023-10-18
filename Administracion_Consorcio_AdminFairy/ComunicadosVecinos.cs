@@ -32,17 +32,13 @@ namespace Administracion_Consorcio_AdminFairy
 
         private void rchtxtComunicado_TextChanged(object sender, EventArgs e)
         {
-            OpenFileDialog abrir = new OpenFileDialog();
-            abrir.Filter = "Documento de texto|*.txt";
-            abrir.Title = "Guardar RichTextBox";
-            abrir.FileName = "Sin Titulo 1";
-            var resultado = abrir.ShowDialog();
-            if (resultado == DialogResult.OK)
-            {
-                StreamReader leer = new StreamReader(abrir.FileName);
-                rchtxtComunicado.Text = leer.ReadToEnd();
-                leer.Close();
+            string comunicado = rchtxtComunicado.Text;
+            Serializadora.EscribirJsonComunicado(comunicado);
+            comunicadosCreados = Serializadora.LeerJsonComunicado(this.path);
 
+            foreach (string elemento in comunicadosCreados)
+            {
+                rchtxtComunicado.Text = $"{elemento}\n";
             }
         }
     }

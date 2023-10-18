@@ -13,7 +13,9 @@ namespace Administracion_Consorcio_AdminFairy
 {
     public partial class InicioVecino : Form
     {
-
+        private FrmExpensas fe;
+        private ComunicadosVecinos com;
+        private NumerosUtiles numeros;
         Vecino vecino;
         public InicioVecino(Vecino vecino)
         {
@@ -38,7 +40,10 @@ namespace Administracion_Consorcio_AdminFairy
         #endregion
 
 
+        private void InicioVecino_Load(object sender, EventArgs e)
+        {
 
+        }
         private void btnMenu_Click(object sender, EventArgs e)
         {
             MostrarSubMenu(pnlSubMenu);
@@ -47,22 +52,34 @@ namespace Administracion_Consorcio_AdminFairy
 
         private void btnExpensas_Click(object sender, EventArgs e)
         {
+            if (fe == null || fe.IsDisposed)
+            {
+                fe = new FrmExpensas(vecino);
+                fe.MdiParent = this;
+                fe.Show();
+                //fe.rtbExpensas.ReadOnly = false;
+            }
+            else
+            {
+                fe.BringToFront();
+            }
 
-            FrmExpensas fe = new FrmExpensas(vecino);
-            fe.MdiParent = this;
-            fe.Show();
-            //fe.rtbExpensas.ReadOnly = false;
-            
+
 
         }
 
         private void btnComunicados_Click(object sender, EventArgs e)
         {
-            ComunicadosVecinos com = new ComunicadosVecinos();
-            com.MdiParent = this;
-            com.Show();
-
-
+            if (com == null || com.IsDisposed)
+            {
+                com = new ComunicadosVecinos();
+                com.MdiParent = this;
+                com.Show();
+            }
+            else
+            {
+                com.BringToFront();
+            }
         }
 
         private void btnReclamo_Click(object sender, EventArgs e)
@@ -74,8 +91,17 @@ namespace Administracion_Consorcio_AdminFairy
 
         private void btnNrosUtiles_Click(object sender, EventArgs e)
         {
-            //Muestro Numeros de Plomero, Cerrajero, Urgencias Ascensor
-            
+            if (numeros == null || numeros.IsDisposed)
+            {
+                numeros = new NumerosUtiles();
+                numeros.MdiParent = this;
+                numeros.Show();
+            }
+            else
+            {
+                numeros.BringToFront();
+            }
+
         }
 
         private void btnAcuerdoVecinos_Click(object sender, EventArgs e)

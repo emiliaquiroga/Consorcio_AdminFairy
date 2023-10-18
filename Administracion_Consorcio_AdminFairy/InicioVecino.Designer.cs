@@ -53,7 +53,7 @@
             pnlMenu.Dock = DockStyle.Left;
             pnlMenu.Location = new Point(0, 0);
             pnlMenu.Name = "pnlMenu";
-            pnlMenu.Size = new Size(220, 694);
+            pnlMenu.Size = new Size(220, 747);
             pnlMenu.TabIndex = 0;
             // 
             // pnlSubMenu
@@ -175,20 +175,15 @@
             label1.AutoSize = true;
             label1.Location = new Point(12, 9);
             label1.Name = "label1";
-            label1.Size = new Size(111, 38);
+            label1.Size = new Size(160, 56);
             label1.TabIndex = 1;
             label1.Text = "(insertar icono \r\nde \"AdminFairy\")";
             // 
-            // pnlPrincipal
-            // 
-
-            // 
             // InicioVecino
             // 
-            AutoScaleDimensions = new SizeF(7F, 17F);
+            AutoScaleDimensions = new SizeF(11F, 28F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1389, 747);
-            
             Controls.Add(pnlMenu);
             Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
             ForeColor = SystemColors.ActiveCaptionText;
@@ -197,6 +192,7 @@
             IsMdiContainer = true;
             Name = "InicioVecino";
             Text = "AdminFairy - Inicio ";
+            Load += InicioVecino_Load;
             pnlMenu.ResumeLayout(false);
             pnlSubMenu.ResumeLayout(false);
             pnlLogo.ResumeLayout(false);

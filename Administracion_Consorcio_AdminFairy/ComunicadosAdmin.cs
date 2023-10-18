@@ -48,12 +48,12 @@ namespace Administracion_Consorcio_AdminFairy
             string comunicado = rchtxtAdmi.Text;
             Serializadora.EscribirJsonComunicado(comunicado);
             comunicadosCreados = Serializadora.LeerJsonComunicado(this.path);
-            
-            foreach(string elemento in comunicadosCreados)
+
+            foreach (string elemento in comunicadosCreados)
             {
                 rchtxtComunicado.Text = $"{elemento}\n";
             }
-            
+
         }
 
         private void rchtxtComunicado_TextChanged(object sender, EventArgs e)

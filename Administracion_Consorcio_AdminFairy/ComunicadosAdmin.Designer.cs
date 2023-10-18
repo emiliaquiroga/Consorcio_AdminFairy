@@ -107,6 +107,7 @@
             Controls.Add(rchtxtAdmi);
             FormBorderStyle = FormBorderStyle.None;
             Name = "FrmComunicados";
+            StartPosition = FormStartPosition.CenterParent;
             Text = "Comunicados";
             Load += FrmComunicados_Load;
             ResumeLayout(false);

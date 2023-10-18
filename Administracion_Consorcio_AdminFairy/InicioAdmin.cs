@@ -14,9 +14,7 @@ namespace Administracion_Consorcio_AdminFairy
 {
     public partial class InicioAdmin : Form
     {
-        public string nombre;
-        public string path;
-        public string ruta;
+
         private FrmListadoUsuarios listausuarios;
         private FrmComunicados com;
         private NumerosUtiles numeros;
@@ -42,7 +40,6 @@ namespace Administracion_Consorcio_AdminFairy
             else
             {
                 listausuarios.BringToFront();
-
             }
         }
 

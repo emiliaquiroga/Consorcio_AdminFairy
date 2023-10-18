@@ -171,6 +171,39 @@ namespace Entidades
             }
             return lista;
         }
+        public static void ActualizarVecinoEnJson(string pathJson, Vecino vecino)
+        {
+            try
+            {
+                List<Vecino> lista = LeerJson(pathJson);
+
+                // Busca el vecino que se va a actualizar
+                Vecino vecinoExistente = lista.FirstOrDefault(v => v.Dni == vecino.Dni);
+
+                if (vecinoExistente != null)
+                {
+                    // Actualiza la propiedad EstadoVecino
+                    vecinoExistente.EstadoVecino = vecino.EstadoVecino;
+
+                    // Guarda la lista actualizada en el archivo JSON
+                    string json = JsonConvert.SerializeObject(lista, Newtonsoft.Json.Formatting.Indented);
+                    File.WriteAllText(pathJson, json);
+                    
+                }
+            }
+            catch (IOException ex)
+            {
+                Console.WriteLine($"Error de E/S al leer/escribir el archivo JSON: {ex.ToString()}");
+            }
+            catch (JsonException ex)
+            {
+                Console.WriteLine($"Error al deserializar/serializar JSON: {ex.ToString()}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error inesperado: {ex.ToString()}");
+            }
+        }
 
     }
 

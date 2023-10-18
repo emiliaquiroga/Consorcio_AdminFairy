@@ -59,7 +59,7 @@
             dtgUsuariosRegistrados.RowsDefaultCellStyle = dataGridViewCellStyle1;
             dtgUsuariosRegistrados.RowTemplate.Height = 33;
             dtgUsuariosRegistrados.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dtgUsuariosRegistrados.Size = new Size(1049, 578);
+            dtgUsuariosRegistrados.Size = new Size(1100, 589);
             dtgUsuariosRegistrados.TabIndex = 0;
             // 
             // serializadoraBindingSource
@@ -69,11 +69,10 @@
             // cmbxEstadoVecino
             // 
             cmbxEstadoVecino.FormattingEnabled = true;
-            cmbxEstadoVecino.Location = new Point(1234, 105);
+            cmbxEstadoVecino.Location = new Point(1111, 58);
             cmbxEstadoVecino.Name = "cmbxEstadoVecino";
             cmbxEstadoVecino.Size = new Size(299, 33);
             cmbxEstadoVecino.TabIndex = 1;
-            cmbxEstadoVecino.SelectedIndexChanged += cmbxEstadoVecino_SelectedIndexChanged_1;
             // 
             // FrmListadoUsuarios
             // 
