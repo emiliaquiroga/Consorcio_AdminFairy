@@ -10,11 +10,21 @@ using System.Windows.Forms;
 
 namespace Administracion_Consorcio_AdminFairy
 {
-    public partial class FrmComunicados : Form
+    public partial class ComunicadosVecinos : Form
     {
-        public FrmComunicados()
+        public ComunicadosVecinos()
         {
             InitializeComponent();
+        }
+
+        private void ComunicadosVecinos_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rchtxtComunicado_TextChanged(object sender, EventArgs e)
+        {
+            rchtxtComunicado.Text = "";
         }
     }
 }

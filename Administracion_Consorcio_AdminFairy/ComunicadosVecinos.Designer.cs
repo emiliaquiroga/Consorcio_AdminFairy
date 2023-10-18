@@ -1,6 +1,6 @@
 ﻿namespace Administracion_Consorcio_AdminFairy
 {
-    partial class FrmComunicados
+    partial class ComunicadosVecinos
     {
         /// <summary>
         /// Required designer variable.
@@ -28,44 +28,52 @@
         /// </summary>
         private void InitializeComponent()
         {
-            rchtxtAdmi = new RichTextBox();
+            lblComunicados = new Label();
             rchtxtComunicado = new RichTextBox();
             SuspendLayout();
             // 
-            // rchtxtAdmi
+            // lblComunicados
             // 
-            rchtxtAdmi.Location = new Point(12, 219);
-            rchtxtAdmi.Name = "rchtxtAdmi";
-            rchtxtAdmi.Size = new Size(352, 284);
-            rchtxtAdmi.TabIndex = 0;
-            rchtxtAdmi.Text = "";
+            lblComunicados.AutoSize = true;
+            lblComunicados.BackColor = Color.Transparent;
+            lblComunicados.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            lblComunicados.Location = new Point(365, 47);
+            lblComunicados.Name = "lblComunicados";
+            lblComunicados.Size = new Size(212, 30);
+            lblComunicados.TabIndex = 8;
+            lblComunicados.Text = "COMUNICADOS:";
             // 
             // rchtxtComunicado
             // 
-            rchtxtComunicado.Location = new Point(434, 55);
+            rchtxtComunicado.BorderStyle = BorderStyle.FixedSingle;
+            rchtxtComunicado.Font = new Font("Century Gothic", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            rchtxtComunicado.Location = new Point(165, 107);
             rchtxtComunicado.Name = "rchtxtComunicado";
-            rchtxtComunicado.Size = new Size(479, 425);
-            rchtxtComunicado.TabIndex = 1;
+            rchtxtComunicado.ReadOnly = true;
+            rchtxtComunicado.Size = new Size(582, 377);
+            rchtxtComunicado.TabIndex = 9;
             rchtxtComunicado.Text = "";
+            rchtxtComunicado.TextChanged += rchtxtComunicado_TextChanged;
             // 
-            // FrmComunicados
+            // ComunicadosVecinos
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = Properties.Resources.Fondo_app;
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(956, 515);
+            ClientSize = new Size(966, 539);
             Controls.Add(rchtxtComunicado);
-            Controls.Add(rchtxtAdmi);
+            Controls.Add(lblComunicados);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "FrmComunicados";
-            Text = "Comunicados";
+            Name = "ComunicadosVecinos";
+            Text = "ComunicadosVecinos";
+            Load += ComunicadosVecinos_Load;
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
-
-        private RichTextBox rchtxtAdmi;
+        private Label lblComunicados;
         private RichTextBox rchtxtComunicado;
     }
 }

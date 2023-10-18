@@ -101,18 +101,21 @@ namespace Entidades
         public static List<Vecino> LeerJson(string path)
         {
             List<Vecino> lista = new List<Vecino>();
+            string json = File.ReadAllText(path);
 
             try
             {
-                string json = File.ReadAllText(path);
+                
                 lista = JsonConvert.DeserializeObject<List<Vecino>>(json);
                 
             }
             catch (Exception e)
             {
+                Console.WriteLine("Error while parsing JSON:");
                 Console.WriteLine(e.ToString());
+                Console.WriteLine("JSON Content:");
+                Console.WriteLine(json); // Add this line to log the JSON content causing the issue.
             }
-
             return lista;
         }
 

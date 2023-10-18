@@ -23,7 +23,7 @@ namespace Administracion_Consorcio_AdminFairy
         {
             InitializeComponent();
             this.ruta = Environment.GetFolderPath(Environment.SpecialFolder.Desktop); // donde va a estar ubicado
-            this.nombre = @"\UsuariosRegistrados.xml";
+            this.nombre = @"\UsuariosRegistradosJson.json";
             this.path = ruta + nombre;
             listaVecinos = new List<Vecino>();
         }

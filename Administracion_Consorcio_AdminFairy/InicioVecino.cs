@@ -14,10 +14,12 @@ namespace Administracion_Consorcio_AdminFairy
     public partial class InicioVecino : Form
     {
 
-        public InicioVecino()
+        Vecino vecino;
+        public InicioVecino(Vecino vecino)
         {
             InitializeComponent();
             DisenioMenu();
+            this.vecino = vecino;
         }
 
         #region Diseño menu
@@ -46,10 +48,10 @@ namespace Administracion_Consorcio_AdminFairy
         private void btnExpensas_Click(object sender, EventArgs e)
         {
             this.pnlPrincipal.Visible = false;
-            FrmExpensas fe = new FrmExpensas();
+            FrmExpensas fe = new FrmExpensas(vecino);
             fe.MdiParent = this;
             fe.Show();
-            fe.rtbExpensas.ReadOnly = false;
+            //fe.rtbExpensas.ReadOnly = false;
             
 
         }

@@ -13,6 +13,7 @@ namespace Entidades
         protected string _apellido;
         protected string _dni;
         protected string _clave;
+
         #endregion
 
         #region Constructores
@@ -27,6 +28,7 @@ namespace Entidades
             this._apellido = apellido;
             this._dni = dni;
             this._clave = clave;
+
         }
         #endregion
 
@@ -34,7 +36,8 @@ namespace Entidades
         public string Nombre { get => _nombre; set => _nombre = value; }
         public string Apellido { get => _apellido; set => _apellido = value; }
         public string Dni { get => _dni; set => _dni = value; }
-        public string Clave { get => _clave; set => _clave = value; }
+        public string Clave { get => _clave; set => _clave = value;}
+
         #endregion
 
         public abstract string MostrarDatos(); // metodo abstracto para que sus herederos lo override

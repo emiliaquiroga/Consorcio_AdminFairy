@@ -17,11 +17,12 @@ namespace Administracion_Consorcio_AdminFairy
         public string nombre;
         public string path;
         public string ruta;
+        public bool soyAdmin;
 
         public InicioAdmin()
         {
             InitializeComponent();
-
+            
         }
         private void InicioAdmin_Load(object sender, EventArgs e)
         {
@@ -41,6 +42,7 @@ namespace Administracion_Consorcio_AdminFairy
             FrmComunicados com = new FrmComunicados();
             com.MdiParent = this;
             com.Show();
+            
         }
 
         private void btnNrosUtiles_Click(object sender, EventArgs e)
