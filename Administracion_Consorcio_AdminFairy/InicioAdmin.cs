@@ -17,7 +17,7 @@ namespace Administracion_Consorcio_AdminFairy
         public string nombre;
         public string path;
         public string ruta;
-        public bool soyAdmin;
+        
 
         public InicioAdmin()
         {

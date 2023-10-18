@@ -24,7 +24,10 @@ namespace Administracion_Consorcio_AdminFairy
         {
             comunicados = new List<string>();
 
-            
+            comunicados.Add();
+
+
+
         }
 
 

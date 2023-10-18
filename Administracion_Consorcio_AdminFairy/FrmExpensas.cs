@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Entidades;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,14 +13,18 @@ namespace Administracion_Consorcio_AdminFairy
 {
     public partial class FrmExpensas : Form
     {
-        public FrmExpensas()
+        Vecino vecino;
+        
+        public FrmExpensas(Vecino vecino)
         {
             InitializeComponent();
+            this.vecino = vecino;
         }
 
         private void FrmVerExpensas_Load(object sender, EventArgs e)
         {
             ActualizarLabelSegunHora();
+
         }
         private void ActualizarLabelSegunHora()
         {
