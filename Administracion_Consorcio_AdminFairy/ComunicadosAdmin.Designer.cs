@@ -90,7 +90,7 @@
             btnAdmin.TabIndex = 4;
             btnAdmin.Text = "Emitir Comunicado";
             btnAdmin.UseVisualStyleBackColor = false;
-            btnAdmin.Click += btnAdmin_Click;
+            //btnAdmin.Click += btnAdmin_Click;
             // 
             // FrmComunicados
             // 
@@ -109,7 +109,7 @@
             Name = "FrmComunicados";
             StartPosition = FormStartPosition.CenterParent;
             Text = "Comunicados";
-            Load += FrmComunicados_Load;
+            //Load += FrmComunicados_Load;
             ResumeLayout(false);
             PerformLayout();
         }

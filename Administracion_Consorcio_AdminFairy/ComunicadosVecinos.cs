@@ -27,14 +27,14 @@ namespace Administracion_Consorcio_AdminFairy
 
         private void ComunicadosVecinos_Load(object sender, EventArgs e)
         {
-            comunicadosCreados = Serializadora.LeerJsonComunicado(path);
+            //comunicadosCreados = Serializadora.LeerJsonComunicado(path);
         }
 
         private void rchtxtComunicado_TextChanged(object sender, EventArgs e)
         {
-            string comunicado = rchtxtComunicado.Text;
-            Serializadora.EscribirJsonComunicado(comunicado);
-            comunicadosCreados = Serializadora.LeerJsonComunicado(this.path);
+            //string comunicado = rchtxtComunicado.Text;
+            //Serializadora.EscribirJsonComunicado(comunicado);
+            //comunicadosCreados = Serializadora.LeerJsonComunicado(this.path);
 
             foreach (string elemento in comunicadosCreados)
             {
