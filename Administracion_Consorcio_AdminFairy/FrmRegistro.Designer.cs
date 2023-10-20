@@ -1,6 +1,6 @@
 ﻿namespace Administracion_Consorcio_AdminFairy
 {
-    partial class Registro
+    partial class FrmRegistro
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Registro));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRegistro));
             lblTitulo = new Label();
             lstCiudad = new ListBox();
             grpDepto = new GroupBox();

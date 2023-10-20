@@ -13,4 +13,6 @@ namespace Entidades
         Sancionado,
         Inactivo,
     }
+
+    ///
 }

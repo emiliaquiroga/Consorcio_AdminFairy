@@ -38,10 +38,8 @@
             btnExpensas = new Button();
             btnMenu = new Button();
             pnlLogo = new Panel();
-            label1 = new Label();
             pnlMenu.SuspendLayout();
             pnlSubMenu.SuspendLayout();
-            pnlLogo.SuspendLayout();
             SuspendLayout();
             // 
             // pnlMenu
@@ -163,21 +161,13 @@
             // 
             // pnlLogo
             // 
-            pnlLogo.Controls.Add(label1);
+            pnlLogo.BackgroundImage = Properties.Resources.WGSN_Login;
+            pnlLogo.BackgroundImageLayout = ImageLayout.Zoom;
             pnlLogo.Dock = DockStyle.Top;
             pnlLogo.Location = new Point(0, 0);
             pnlLogo.Name = "pnlLogo";
             pnlLogo.Size = new Size(220, 168);
             pnlLogo.TabIndex = 0;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(12, 9);
-            label1.Name = "label1";
-            label1.Size = new Size(160, 56);
-            label1.TabIndex = 1;
-            label1.Text = "(insertar icono \r\nde \"AdminFairy\")";
             // 
             // InicioVecino
             // 
@@ -195,8 +185,6 @@
             Load += InicioVecino_Load;
             pnlMenu.ResumeLayout(false);
             pnlSubMenu.ResumeLayout(false);
-            pnlLogo.ResumeLayout(false);
-            pnlLogo.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -211,7 +199,6 @@
         private Button btnComunicados;
         private Button btnExpensas;
         private Button btnAcuerdoVecinos;
-        private Label label1;
         //private Panel pnlPrincipal;
     }
 }

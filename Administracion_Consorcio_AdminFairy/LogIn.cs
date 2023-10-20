@@ -42,7 +42,7 @@ namespace Administracion_Consorcio_AdminFairy
         //                if(dni == usario.Dni && clave == usario.Clave)
         //                {
         //                    vecino = usario;
-                            
+
         //                    break;
         //                }
         //            }
@@ -64,7 +64,7 @@ namespace Administracion_Consorcio_AdminFairy
         //    }
 
         //    MessageBox.Show("Los datos ingresados no corresponden a un usuario registrado.\nVuelva a intentarlo", "ERROR!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            
+
         //}
 
         private void txtClave_TextChanged(object sender, EventArgs e)
@@ -90,8 +90,8 @@ namespace Administracion_Consorcio_AdminFairy
             string dni = this.txtDni.Text;
             string clave = this.txtClave.Text;
             List<Vecino> listaVecinos = Serializadora.LeerJson(this.pathJson);
-            
-            foreach(Vecino vecino in listaVecinos)
+
+            foreach (Vecino vecino in listaVecinos)
             {
                 if (dni == vecino.Dni && clave == vecino.Clave)
                 {
@@ -127,7 +127,7 @@ namespace Administracion_Consorcio_AdminFairy
 
         private void lblRegistro_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Registro registro = new Registro(this);
+            FrmRegistro registro = new FrmRegistro(this);
             registro.Show();
         }
     }

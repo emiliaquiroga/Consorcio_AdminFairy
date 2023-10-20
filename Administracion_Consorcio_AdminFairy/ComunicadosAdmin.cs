@@ -28,13 +28,13 @@ namespace Administracion_Consorcio_AdminFairy
             rchtxtComunicado.ReadOnly = false;
 
         }
-        //private void FrmComunicados_Load(object sender, EventArgs e)
-        //{
-        //    string comunicado = rchtxtAdmi.Text;
-        //    Serializadora.EscribirJsonComunicado(comunicado);
-        //    comunicadosCreados = Serializadora.LeerJsonComunicado(path);
+        private void FrmComunicados_Load(object sender, EventArgs e)
+        {
+            string comunicado = rchtxtAdmi.Text;
+            Serializadora.EscribirJsonComunicado(comunicado);
+            comunicadosCreados = Serializadora.LeerJsonComunicado(path);
 
-        //}
+        }
 
 
         private void rchtxtAdmi_TextChanged(object sender, EventArgs e)
@@ -43,22 +43,19 @@ namespace Administracion_Consorcio_AdminFairy
 
         }
 
-        //private void btnAdmin_Click(object sender, EventArgs e)
-        //{
-        //    string comunicado = rchtxtAdmi.Text;
-        //    Serializadora.EscribirJsonComunicado(comunicado);
-        //    comunicadosCreados = Serializadora.LeerJsonComunicado(this.path);
+        private void btnAdmin_Click(object sender, EventArgs e)
+        {
+            foreach (string elemento in comunicadosCreados)
+            {
+                rchtxtComunicado.Text = $"{elemento}\n";
+            }
 
-        //    foreach (string elemento in comunicadosCreados)
-        //    {
-        //        rchtxtComunicado.Text = $"{elemento}\n";
-        //    }
-
-        //}
+        }
 
         private void rchtxtComunicado_TextChanged(object sender, EventArgs e)
         {
             rchtxtComunicado.ReadOnly = true;
+            
         }
 
 

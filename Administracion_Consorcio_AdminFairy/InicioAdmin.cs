@@ -40,6 +40,11 @@ namespace Administracion_Consorcio_AdminFairy
             else
             {
                 listausuarios.BringToFront();
+                if(com.IsDisposed || numeros.IsDisposed)
+                {
+                    com.Close();
+                    numeros.Close();
+                }
             }
         }
 
@@ -54,6 +59,11 @@ namespace Administracion_Consorcio_AdminFairy
             else
             {
                 com.BringToFront();
+                if (listausuarios.IsDisposed || numeros.IsDisposed)
+                {
+                    listausuarios.Close();
+                    numeros.Close();
+                }
             }
         }
 
@@ -67,7 +77,12 @@ namespace Administracion_Consorcio_AdminFairy
             }
             else
             {
-                numeros.BringToFront();
+                numeros.BringToFront(); 
+                if (com.IsDisposed || listausuarios.IsDisposed)
+                {
+                    com.Close();
+                    listausuarios.Close();
+                }
             }
         }
 

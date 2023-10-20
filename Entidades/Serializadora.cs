@@ -12,7 +12,7 @@ using System.Xml;
 namespace Entidades
 {
     
-    public class Serializadora
+    public static class Serializadora
     {
       
         /*    
@@ -48,56 +48,56 @@ namespace Entidades
             }
 
         }
-        //public static void EscribirJsonComunicado(string comunicado)
-        //{
-        //    string ruta = Environment.GetFolderPath(Environment.SpecialFolder.Desktop); // donde va a estar ubicado
-        //    string path = ruta + @"\Comunicados.json";
-            
-        //    try
-        //    {
-        //        List<string> listaComunicados;
+        public static void EscribirJsonComunicado(string comunicado)
+        {
+            string ruta = Environment.GetFolderPath(Environment.SpecialFolder.Desktop); // donde va a estar ubicado
+            string path = ruta + @"\Comunicados.json";
 
-        //        if (File.Exists(path))
-        //        {
-        //            listaComunicados = LeerJsonComunicado(path);
-        //        }
-        //        else
-        //        {
-        //            listaComunicados = new List<string>();
-        //        }
+            try
+            {
+                List<string> listaComunicados;
 
-        //        listaComunicados.Add(comunicado);
-        //        string json = JsonConvert.SerializeObject(listaComunicados, Newtonsoft.Json.Formatting.Indented);
-        //        File.WriteAllText(path, json);
-        //    }
-        //    catch (IOException ex)
-        //    {
-        //        Console.WriteLine($"Error de E/S al leer/escribir el archivo JSON: {ex.ToString()}");
-                
-        //    }
+                if (File.Exists(path))
+                {
+                    listaComunicados = LeerJsonComunicado(path);
+                }
+                else
+                {
+                    listaComunicados = new List<string>();
+                }
 
-        //}
-        //public static List<string> LeerJsonComunicado(string path)
-        //{
-        //    List<string> lista = new List<string>();
-        //     string json = File.ReadAllText(path);
+                listaComunicados.Add(comunicado);
+                string json = JsonConvert.SerializeObject(listaComunicados, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, json);
+            }
+            catch (IOException ex)
+            {
+                Console.WriteLine($"Error de E/S al leer/escribir el archivo JSON: {ex.ToString()}");
 
-        //    try
-        //    {
-               
-        //        lista = JsonConvert.DeserializeObject<List<string>>(json);
+            }
 
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        Console.WriteLine("Error while parsing JSON:");
-        //        Console.WriteLine(e.ToString());
-        //        Console.WriteLine("JSON Content:");
-        //        Console.WriteLine(json); // Add this line to log the JSON content causing the issue.
-        //    }
-        //    return lista;
+        }
+        public static List<string> LeerJsonComunicado(string path)
+        {
+            List<string> lista = new List<string>();
+            string json = File.ReadAllText(path);
 
-        //}
+            try
+            {
+
+                lista = JsonConvert.DeserializeObject<List<string>>(json);
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error while parsing JSON:");
+                Console.WriteLine(e.ToString());
+                Console.WriteLine("JSON Content:");
+                Console.WriteLine(json); // Add this line to log the JSON content causing the issue.
+            }
+            return lista;
+
+        }
 
 
         public static List<Vecino> LeerXML(string path)
@@ -112,7 +112,7 @@ namespace Entidades
             return lista;
         }
 
-        public static void EscribirArchivos(string pathJson, string pathXML, Vecino usuario) 
+        public static void EscribirJson(string pathJson, Vecino usuario) 
             /* EscribirJson pasó a ser llamado así, ya que, incluimos el método EscribirXml, lo cual hace que se creen los dos archivos
              *aparentemente "al mismo tiempo" */
         {
@@ -132,8 +132,6 @@ namespace Entidades
                 lista.Add(usuario);
                 string json = JsonConvert.SerializeObject(lista, Newtonsoft.Json.Formatting.Indented);
                 File.WriteAllText(pathJson, json);
-
-                EscribirXML(pathXML, usuario);
             }
             catch (IOException ex)
             {
@@ -153,11 +151,11 @@ namespace Entidades
         public static List<Vecino> LeerJson(string path)
         {
             List<Vecino> lista = new List<Vecino>();
-            string json = File.ReadAllText(path);
+            string json = "";
 
             try
             {
-                
+                json = File.ReadAllText(path);
                 lista = JsonConvert.DeserializeObject<List<Vecino>>(json);
                 
             }

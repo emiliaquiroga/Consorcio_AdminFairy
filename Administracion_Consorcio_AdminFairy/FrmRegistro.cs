@@ -14,10 +14,11 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace Administracion_Consorcio_AdminFairy
 {
-    public partial class Registro : Form
+    public partial class FrmRegistro : Form
     {
         public FrmLogin login;
 
+        
         // Define un diccionario que relaciona ciudades con sus barrios.
         private Dictionary<string, List<string>> torresAdministradas = new Dictionary<string, List<string>> // INTENTAR METER EN UN ARCHIVO
         {
@@ -28,7 +29,7 @@ namespace Administracion_Consorcio_AdminFairy
 
         };
 
-        public Registro(FrmLogin login)
+        public FrmRegistro(FrmLogin login)
         {
             InitializeComponent();
             this.login = login;
@@ -111,7 +112,6 @@ namespace Administracion_Consorcio_AdminFairy
 
             try
             {
-                Serializadora.EscribirArchivos(pathJson, pathXML, vecinoNuevo);
                 usuarios = Serializadora.LeerJson(login.pathJson);
                 if(usuarios.Any(u=>u.Dni == vecinoNuevo.Dni))
                 {
@@ -119,6 +119,7 @@ namespace Administracion_Consorcio_AdminFairy
                 }
                 else
                 {
+                    Serializadora.EscribirJson(pathJson, vecinoNuevo);
                     MessageBox.Show("Te has Registrado exitosamente!", "REGISTRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     this.Close();
                     login.Show();
@@ -146,7 +147,7 @@ namespace Administracion_Consorcio_AdminFairy
             return null; // Devuelve null si ningún CheckBox está marcado
         }
 
-
+        
         private bool EsDireccionCorreoValida(string email) // valida correo electronico ingresado
         {
             // regEx para validar una dirección de correo electrónico
@@ -168,6 +169,9 @@ namespace Administracion_Consorcio_AdminFairy
         #region Eventos
         private void Registro_Load(object sender, EventArgs e)
         {
+            //cargamos metodos
+            
+
             lblError.Visible = false;
 
             // Agrega las ciudades al lstCiudades
