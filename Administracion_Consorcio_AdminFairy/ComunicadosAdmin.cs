@@ -54,8 +54,12 @@ namespace Administracion_Consorcio_AdminFairy
 
         private void rchtxtComunicado_TextChanged(object sender, EventArgs e)
         {
+<<<<<<< HEAD
             rchtxtComunicado.ReadOnly = true;
             
+=======
+            rchtxtComunicadoAdmin.ReadOnly = true;
+>>>>>>> 09f060e (Ajuste de MDI, adicion de forms y arreglos de estética)
         }
 
 
