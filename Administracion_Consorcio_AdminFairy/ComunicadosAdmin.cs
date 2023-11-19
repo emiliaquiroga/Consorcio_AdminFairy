@@ -30,7 +30,7 @@ namespace Administracion_Consorcio_AdminFairy
         }
         private void FrmComunicados_Load(object sender, EventArgs e)
         {
-            string comunicado = rchtxtAdmi.Text;
+            string comunicado = rchtxtComunicadoAdmin.Text;
             Serializadora.EscribirJsonComunicado(comunicado);
             comunicadosCreados = Serializadora.LeerJsonComunicado(path);
 
@@ -47,19 +47,16 @@ namespace Administracion_Consorcio_AdminFairy
         {
             foreach (string elemento in comunicadosCreados)
             {
-                rchtxtComunicado.Text = $"{elemento}\n";
+                rchtxtComunicadoAdmin.Text = $"{elemento}\n";
             }
 
         }
 
         private void rchtxtComunicado_TextChanged(object sender, EventArgs e)
         {
-<<<<<<< HEAD
-            rchtxtComunicado.ReadOnly = true;
-            
-=======
+
             rchtxtComunicadoAdmin.ReadOnly = true;
->>>>>>> 09f060e (Ajuste de MDI, adicion de forms y arreglos de estética)
+
         }
 
 
