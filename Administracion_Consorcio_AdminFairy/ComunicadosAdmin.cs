@@ -1,4 +1,4 @@
-﻿using Entidades;
+﻿using Entidades.Serializadores;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

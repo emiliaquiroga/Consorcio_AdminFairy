@@ -7,14 +7,12 @@ using System.Xml.Serialization;
 using Newtonsoft.Json;
 using System.Xml;
 
-
-
-namespace Entidades
+namespace Entidades.Serializadores
 {
-    
+
     public static class Serializadora
     {
-      
+
         /*    
          Tuve que cambiar los tipos Usuario por tipo Vecino, por la razón de que, en los métodos queríamos instanciar listas de tipo Usuario, y me tiraba excepciones, ya que 
         como Usuario es una clase de tipo Abstracta, esta no se puede instanciar. En fin, YA NOS PODEMOS REGISTRAR EXITOSAMENTE!!!
@@ -112,19 +110,17 @@ namespace Entidades
             return lista;
         }
 
-        public static void EscribirJson(string pathJson, Vecino usuario) 
-            /* EscribirJson pasó a ser llamado así, ya que, incluimos el método EscribirXml, lo cual hace que se creen los dos archivos
-             *aparentemente "al mismo tiempo" */
+        public static void EscribirJson(string pathJson, Vecino usuario)
         {
             try
             {
-                List<Vecino> lista; 
+                List<Vecino> lista;
 
                 if (File.Exists(pathJson))
                 {
                     lista = LeerJson(pathJson);
                 }
-                else 
+                else
                 {
                     lista = new List<Vecino>();
                 }
@@ -141,9 +137,9 @@ namespace Entidades
             {
                 Console.WriteLine($"Error al deserializar/serializar JSON: {ex.ToString()}");
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
-                Console.WriteLine($"Error inesperado! : { ex.ToString()}");
+                Console.WriteLine($"Error inesperado! : {ex.ToString()}");
             }
 
         }
@@ -157,7 +153,7 @@ namespace Entidades
             {
                 json = File.ReadAllText(path);
                 lista = JsonConvert.DeserializeObject<List<Vecino>>(json);
-                
+
             }
             catch (Exception e)
             {
@@ -185,7 +181,7 @@ namespace Entidades
                     // Guarda la lista actualizada en el archivo JSON
                     string json = JsonConvert.SerializeObject(lista, Newtonsoft.Json.Formatting.Indented);
                     File.WriteAllText(pathJson, json);
-                    
+
                 }
             }
             catch (IOException ex)

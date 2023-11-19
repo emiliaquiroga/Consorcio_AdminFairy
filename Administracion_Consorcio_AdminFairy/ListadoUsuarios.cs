@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Entidades;
+using Entidades.Serializadores;
 
 namespace Administracion_Consorcio_AdminFairy
 {

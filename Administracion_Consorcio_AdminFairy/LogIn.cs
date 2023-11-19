@@ -1,6 +1,7 @@
 using Entidades;
 using System.Runtime.CompilerServices;
 using Newtonsoft.Json;
+using Entidades.Serializadores;
 
 namespace Administracion_Consorcio_AdminFairy
 {
@@ -129,6 +130,11 @@ namespace Administracion_Consorcio_AdminFairy
         {
             FrmRegistro registro = new FrmRegistro(this);
             registro.Show();
+        }
+
+        private void FrmLogin_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

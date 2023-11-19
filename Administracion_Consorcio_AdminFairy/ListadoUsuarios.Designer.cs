@@ -1,4 +1,6 @@
-﻿namespace Administracion_Consorcio_AdminFairy
+﻿using Entidades.Serializadores;
+
+namespace Administracion_Consorcio_AdminFairy
 {
     partial class FrmListadoUsuarios
     {
@@ -64,7 +66,7 @@
             // 
             // serializadoraBindingSource
             // 
-            serializadoraBindingSource.DataSource = typeof(Entidades.Serializadora);
+            serializadoraBindingSource.DataSource = typeof(Serializadora);
             // 
             // cmbxEstadoVecino
             // 
