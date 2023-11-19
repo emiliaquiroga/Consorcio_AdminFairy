@@ -43,6 +43,7 @@ namespace Administracion_Consorcio_AdminFairy
 
         private void InicioVecino_Load(object sender, EventArgs e)
         {
+            // tenemos un problema con el reloj: cuando lo des-comento NO CARGA el form de InicioVecino. 
             //Reloj reloj = new Reloj();
             //reloj.SegundoCambiado += MostrarCambioTiempo;
             //reloj.Ejecutar();

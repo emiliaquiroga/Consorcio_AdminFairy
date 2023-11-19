@@ -18,7 +18,7 @@ namespace Entidades
 
         public void Ejecutar()
         {
-            for (; ; ) // bucle infinito
+            for ( ; ; ) // bucle infinito
             {
                 Thread.Sleep(1000);
 
