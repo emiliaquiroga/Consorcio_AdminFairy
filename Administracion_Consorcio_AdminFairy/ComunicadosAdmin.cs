@@ -25,7 +25,7 @@ namespace Administracion_Consorcio_AdminFairy
             this.ruta = Environment.GetFolderPath(Environment.SpecialFolder.Desktop); // donde va a estar ubicado
             this.path = ruta + @"\Comunicados.json";
             comunicadosCreados = new List<string>();
-            rchtxtComunicado.ReadOnly = false;
+            rchtxtComunicadoAdmin.ReadOnly = false;
 
         }
         private void FrmComunicados_Load(object sender, EventArgs e)

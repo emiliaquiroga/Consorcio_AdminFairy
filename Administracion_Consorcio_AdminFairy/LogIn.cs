@@ -132,9 +132,6 @@ namespace Administracion_Consorcio_AdminFairy
             registro.Show();
         }
 
-        private void FrmLogin_Load(object sender, EventArgs e)
-        {
-
-        }
+       
     }
 }

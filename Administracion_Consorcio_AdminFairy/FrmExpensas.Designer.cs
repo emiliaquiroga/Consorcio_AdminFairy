@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmExpensas));
             lblSaludo = new Label();
             rtbExpensas = new RichTextBox();
+            btnPagar = new Button();
             SuspendLayout();
             // 
             // lblSaludo
@@ -39,7 +40,7 @@
             lblSaludo.BackColor = Color.Transparent;
             lblSaludo.Font = new Font("Century Gothic", 36F, FontStyle.Italic, GraphicsUnit.Point);
             lblSaludo.ForeColor = Color.Navy;
-            lblSaludo.Location = new Point(294, 26);
+            lblSaludo.Location = new Point(284, 135);
             lblSaludo.Name = "lblSaludo";
             lblSaludo.Size = new Size(52, 57);
             lblSaludo.TabIndex = 0;
@@ -50,23 +51,38 @@
             rtbExpensas.BackColor = Color.FromArgb(192, 192, 255);
             rtbExpensas.Font = new Font("Century Gothic", 18F, FontStyle.Regular, GraphicsUnit.Point);
             rtbExpensas.ForeColor = Color.DarkSlateBlue;
-            rtbExpensas.Location = new Point(88, 301);
+            rtbExpensas.Location = new Point(114, 298);
             rtbExpensas.Name = "rtbExpensas";
-            rtbExpensas.Size = new Size(763, 47);
+            rtbExpensas.Size = new Size(853, 47);
             rtbExpensas.TabIndex = 1;
-            rtbExpensas.Text = "Sus expensas son de este mes son de $";
+            rtbExpensas.Text = "      Sus expensas son de este mes son de $";
             // 
-            // FrmVerExpensas
+            // btnPagar
+            // 
+            btnPagar.BackColor = Color.FromArgb(192, 192, 255);
+            btnPagar.FlatStyle = FlatStyle.Popup;
+            btnPagar.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btnPagar.Location = new Point(463, 433);
+            btnPagar.Name = "btnPagar";
+            btnPagar.Size = new Size(164, 39);
+            btnPagar.TabIndex = 13;
+            btnPagar.Text = "Pagar";
+            btnPagar.UseVisualStyleBackColor = false;
+            btnPagar.Click += btnPagar_Click;
+            // 
+            // FrmExpensas
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(959, 663);
+            ClientSize = new Size(1110, 700);
+            Controls.Add(btnPagar);
             Controls.Add(rtbExpensas);
             Controls.Add(lblSaludo);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "FrmVerExpensas";
+            Name = "FrmExpensas";
+            StartPosition = FormStartPosition.CenterParent;
             Text = "FrmVerExpensas";
             Load += FrmVerExpensas_Load;
             ResumeLayout(false);
@@ -77,5 +93,6 @@
 
         private Label lblSaludo;
         private RichTextBox rtbExpensas;
+        private Button btnPagar;
     }
 }

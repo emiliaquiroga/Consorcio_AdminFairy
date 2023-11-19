@@ -28,98 +28,74 @@
         /// </summary>
         private void InitializeComponent()
         {
-            rchtxtAdmi = new RichTextBox();
-            rchtxtComunicado = new RichTextBox();
-            lblComunicados = new Label();
             lblAdmin = new Label();
-            btnAdmin = new Button();
+            btnPublicarComunicado = new Button();
+            rchtxtComunicadoAdmin = new RichTextBox();
             SuspendLayout();
-            // 
-            // rchtxtAdmi
-            // 
-            rchtxtAdmi.Font = new Font("Century Gothic", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            rchtxtAdmi.Location = new Point(21, 78);
-            rchtxtAdmi.Name = "rchtxtAdmi";
-            rchtxtAdmi.Size = new Size(352, 284);
-            rchtxtAdmi.TabIndex = 0;
-            rchtxtAdmi.Text = "";
-            rchtxtAdmi.TextChanged += rchtxtAdmi_TextChanged;
-            // 
-            // rchtxtComunicado
-            // 
-            rchtxtComunicado.Font = new Font("Century Gothic", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            rchtxtComunicado.Location = new Point(448, 78);
-            rchtxtComunicado.Name = "rchtxtComunicado";
-            rchtxtComunicado.ReadOnly = true;
-            rchtxtComunicado.Size = new Size(479, 385);
-            rchtxtComunicado.TabIndex = 1;
-            rchtxtComunicado.Text = "";
-            rchtxtComunicado.TextChanged += rchtxtComunicado_TextChanged;
-            // 
-            // lblComunicados
-            // 
-            lblComunicados.AutoSize = true;
-            lblComunicados.BackColor = Color.Transparent;
-            lblComunicados.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lblComunicados.Location = new Point(566, 27);
-            lblComunicados.Name = "lblComunicados";
-            lblComunicados.Size = new Size(212, 30);
-            lblComunicados.TabIndex = 2;
-            lblComunicados.Text = "COMUNICADOS:";
             // 
             // lblAdmin
             // 
             lblAdmin.AutoSize = true;
-            lblAdmin.BackColor = Color.Transparent;
-            lblAdmin.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lblAdmin.Location = new Point(69, 27);
+            lblAdmin.BackColor = Color.FromArgb(192, 192, 255);
+            lblAdmin.Font = new Font("Century Gothic", 18F, FontStyle.Italic, GraphicsUnit.Point);
+            lblAdmin.Location = new Point(437, 82);
+            lblAdmin.Margin = new Padding(2, 0, 2, 0);
             lblAdmin.Name = "lblAdmin";
-            lblAdmin.Size = new Size(244, 30);
+            lblAdmin.Size = new Size(245, 28);
             lblAdmin.TabIndex = 3;
             lblAdmin.Text = "Emitir Comunicado";
             // 
-            // btnAdmin
+            // btnPublicarComunicado
             // 
-            btnAdmin.BackColor = Color.Transparent;
-            btnAdmin.FlatAppearance.BorderColor = Color.FromArgb(255, 175, 204);
-            btnAdmin.FlatAppearance.BorderSize = 5;
-            btnAdmin.FlatStyle = FlatStyle.Popup;
-            btnAdmin.Location = new Point(121, 400);
-            btnAdmin.Name = "btnAdmin";
-            btnAdmin.Size = new Size(143, 63);
-            btnAdmin.TabIndex = 4;
-            btnAdmin.Text = "Emitir Comunicado";
-            btnAdmin.UseVisualStyleBackColor = false;
-            //btnAdmin.Click += btnAdmin_Click;
+            btnPublicarComunicado.BackColor = Color.FromArgb(192, 192, 255);
+            btnPublicarComunicado.FlatAppearance.BorderColor = Color.FromArgb(255, 175, 204);
+            btnPublicarComunicado.FlatAppearance.BorderSize = 5;
+            btnPublicarComunicado.FlatStyle = FlatStyle.Popup;
+            btnPublicarComunicado.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            btnPublicarComunicado.Location = new Point(832, 602);
+            btnPublicarComunicado.Margin = new Padding(2);
+            btnPublicarComunicado.Name = "btnPublicarComunicado";
+            btnPublicarComunicado.Size = new Size(186, 53);
+            btnPublicarComunicado.TabIndex = 4;
+            btnPublicarComunicado.Text = "Publicar";
+            btnPublicarComunicado.UseVisualStyleBackColor = false;
+            // 
+            // rchtxtComunicadoAdmin
+            // 
+            rchtxtComunicadoAdmin.BackColor = Color.FromArgb(233, 222, 245);
+            rchtxtComunicadoAdmin.BorderStyle = BorderStyle.FixedSingle;
+            rchtxtComunicadoAdmin.Font = new Font("Century Gothic", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            rchtxtComunicadoAdmin.Location = new Point(63, 134);
+            rchtxtComunicadoAdmin.Margin = new Padding(2);
+            rchtxtComunicadoAdmin.Name = "rchtxtComunicadoAdmin";
+            rchtxtComunicadoAdmin.ReadOnly = true;
+            rchtxtComunicadoAdmin.Size = new Size(955, 426);
+            rchtxtComunicadoAdmin.TabIndex = 10;
+            rchtxtComunicadoAdmin.Text = "";
             // 
             // FrmComunicados
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
             BackgroundImage = Properties.Resources.Fondo_app;
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(1586, 690);
-            Controls.Add(btnAdmin);
+            ClientSize = new Size(1110, 700);
+            Controls.Add(rchtxtComunicadoAdmin);
+            Controls.Add(btnPublicarComunicado);
             Controls.Add(lblAdmin);
-            Controls.Add(lblComunicados);
-            Controls.Add(rchtxtComunicado);
-            Controls.Add(rchtxtAdmi);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(2);
             Name = "FrmComunicados";
-            StartPosition = FormStartPosition.CenterParent;
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Comunicados";
-            //Load += FrmComunicados_Load;
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private RichTextBox rchtxtAdmi;
-        private RichTextBox rchtxtComunicado;
-        private Label lblComunicados;
         private Label lblAdmin;
-        private Button btnAdmin;
+        private Button btnPublicarComunicado;
+        private RichTextBox rchtxtComunicadoAdmin;
     }
 }

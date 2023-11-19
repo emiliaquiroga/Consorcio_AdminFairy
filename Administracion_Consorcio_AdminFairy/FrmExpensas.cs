@@ -14,7 +14,7 @@ namespace Administracion_Consorcio_AdminFairy
     public partial class FrmExpensas : Form
     {
         Vecino vecino;
-        
+
         public FrmExpensas(Vecino vecino)
         {
             InitializeComponent();
@@ -50,6 +50,12 @@ namespace Administracion_Consorcio_AdminFairy
             }
 
             lblSaludo.Text = mensaje;
+        }
+
+        private void btnPagar_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Su pago ha sido efectuado. " +
+                "¡Usted está al día! :) ");
         }
     }
 }

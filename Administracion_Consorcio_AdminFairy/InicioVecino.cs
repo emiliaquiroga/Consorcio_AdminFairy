@@ -16,6 +16,7 @@ namespace Administracion_Consorcio_AdminFairy
         private FrmExpensas fe;
         private ComunicadosVecinos com;
         private NumerosUtiles numeros;
+        private FrmReclamosVecino recVecinos;
         Vecino vecino;
         public InicioVecino(Vecino vecino)
         {
@@ -42,7 +43,14 @@ namespace Administracion_Consorcio_AdminFairy
 
         private void InicioVecino_Load(object sender, EventArgs e)
         {
+            //Reloj reloj = new Reloj();
+            //reloj.SegundoCambiado += MostrarCambioTiempo;
+            //reloj.Ejecutar();
+        }
 
+        public void MostrarCambioTiempo(object reloj, InfoTiempoEventArgs info)
+        {
+            lblTiempo.Text = $"{info.hora}{info.minuto}{info.segundo}";
         }
         private void btnMenu_Click(object sender, EventArgs e)
         {
@@ -57,15 +65,12 @@ namespace Administracion_Consorcio_AdminFairy
                 fe = new FrmExpensas(vecino);
                 fe.MdiParent = this;
                 fe.Show();
-                //fe.rtbExpensas.ReadOnly = false;
+                
             }
             else
             {
                 fe.BringToFront();
             }
-
-
-
         }
 
         private void btnComunicados_Click(object sender, EventArgs e)
@@ -85,7 +90,16 @@ namespace Administracion_Consorcio_AdminFairy
         private void btnReclamo_Click(object sender, EventArgs e)
         {
 
-            //Muestro reclamos
+            if (recVecinos == null || recVecinos.IsDisposed)
+            {
+                recVecinos = new FrmReclamosVecino();
+                recVecinos.MdiParent = this;
+                recVecinos.Show();
+            }
+            else
+            {
+                fe.BringToFront();
+            }
 
         }
 
@@ -106,11 +120,23 @@ namespace Administracion_Consorcio_AdminFairy
 
         private void btnAcuerdoVecinos_Click(object sender, EventArgs e)
         {
-            //Muestro un modelo de acuerdo de convivencia
+
 
 
         }
 
+        private void btnCerrarSesion_Click(object sender, EventArgs e)
+        {
 
+            DialogResult respuesta = MessageBox.Show("¿Desea cerrar sesión?", "Cerrar sesión", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if (respuesta == DialogResult.Yes)
+            {
+                FrmLogin login = new FrmLogin();
+                login.Show();
+                this.Hide();
+            }
+
+        }
     }
 }

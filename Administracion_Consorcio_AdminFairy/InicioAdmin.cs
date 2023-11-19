@@ -18,12 +18,12 @@ namespace Administracion_Consorcio_AdminFairy
         private FrmListadoUsuarios listausuarios;
         private FrmComunicados com;
         private NumerosUtiles numeros;
-
+        //private FrmReclamosAdmin verReclamos; cree un form y no se guardó xd
 
         public InicioAdmin()
         {
             InitializeComponent();
-            
+
         }
         private void InicioAdmin_Load(object sender, EventArgs e)
         {
@@ -86,5 +86,31 @@ namespace Administracion_Consorcio_AdminFairy
             }
         }
 
+        private void btnCerrarSesion_Click(object sender, EventArgs e)
+        {
+            DialogResult respuesta = MessageBox.Show("¿Desea cerrar sesión?", "Cerrar sesión", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if (respuesta == DialogResult.Yes)
+            {
+                FrmLogin login = new FrmLogin();
+                login.Show();
+                this.Hide();
+            }
+
+        }
+
+        //private void btnReclamo_Click(object sender, EventArgs e)
+        //{
+        //    if (verReclamos == null || verReclamos.IsDisposed)
+        //    {
+        //        verReclamos = new FrmReclamosAdmin();
+        //        verReclamos.MdiParent = this;
+        //        verReclamos.Show();
+        //    }
+        //    else
+        //    {
+        //        verReclamos.BringToFront();
+        //    }
+        //}
     }
 }

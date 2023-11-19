@@ -36,37 +36,42 @@
             // 
             lblComunicados.AutoSize = true;
             lblComunicados.BackColor = Color.Transparent;
-            lblComunicados.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lblComunicados.Location = new Point(365, 47);
+            lblComunicados.Font = new Font("Century Gothic", 18F, FontStyle.Italic, GraphicsUnit.Point);
+            lblComunicados.Location = new Point(88, 57);
+            lblComunicados.Margin = new Padding(2, 0, 2, 0);
             lblComunicados.Name = "lblComunicados";
-            lblComunicados.Size = new Size(212, 30);
+            lblComunicados.Size = new Size(305, 28);
             lblComunicados.TabIndex = 8;
-            lblComunicados.Text = "COMUNICADOS:";
+            lblComunicados.Text = "Muro de comunicados : ";
             // 
             // rchtxtComunicado
             // 
+            rchtxtComunicado.BackColor = Color.FromArgb(233, 222, 245);
             rchtxtComunicado.BorderStyle = BorderStyle.FixedSingle;
             rchtxtComunicado.Font = new Font("Century Gothic", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            rchtxtComunicado.Location = new Point(165, 107);
+            rchtxtComunicado.Location = new Point(88, 113);
+            rchtxtComunicado.Margin = new Padding(2);
             rchtxtComunicado.Name = "rchtxtComunicado";
             rchtxtComunicado.ReadOnly = true;
-            rchtxtComunicado.Size = new Size(582, 377);
+            rchtxtComunicado.Size = new Size(926, 426);
             rchtxtComunicado.TabIndex = 9;
             rchtxtComunicado.Text = "";
             rchtxtComunicado.TextChanged += rchtxtComunicado_TextChanged;
             // 
             // ComunicadosVecinos
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
             BackgroundImage = Properties.Resources.Fondo_app;
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(1586, 690);
+            ClientSize = new Size(1110, 624);
             Controls.Add(rchtxtComunicado);
             Controls.Add(lblComunicados);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(2);
             Name = "ComunicadosVecinos";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "ComunicadosVecinos";
             Load += ComunicadosVecinos_Load;
             ResumeLayout(false);
