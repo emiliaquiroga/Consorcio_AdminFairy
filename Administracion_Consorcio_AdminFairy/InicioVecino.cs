@@ -17,7 +17,10 @@ namespace Administracion_Consorcio_AdminFairy
         private ComunicadosVecinos com;
         private NumerosUtiles numeros;
         private FrmReclamosVecino recVecinos;
+        private FrmConvivenciaVecinos convivencia;
         Vecino vecino;
+        Reloj reloj;
+
         public InicioVecino(Vecino vecino)
         {
             InitializeComponent();
@@ -51,6 +54,7 @@ namespace Administracion_Consorcio_AdminFairy
 
         public void MostrarCambioTiempo(object reloj, InfoTiempoEventArgs info)
         {
+        
             lblTiempo.Text = $"{info.hora}{info.minuto}{info.segundo}";
         }
         private void btnMenu_Click(object sender, EventArgs e)
@@ -66,7 +70,7 @@ namespace Administracion_Consorcio_AdminFairy
                 fe = new FrmExpensas(vecino);
                 fe.MdiParent = this;
                 fe.Show();
-                
+
             }
             else
             {
@@ -119,10 +123,19 @@ namespace Administracion_Consorcio_AdminFairy
 
         }
 
-        private void btnAcuerdoVecinos_Click(object sender, EventArgs e)
+        private void btnAcuerdoVecinos_Click(object sender, EventArgs e) // PUSE EXACTAMENTE LO MISMO, PQ NO FUNCIONA
         {
 
-
+            if (convivencia == null || convivencia.IsDisposed)
+            {
+                convivencia = new FrmConvivenciaVecinos();
+                convivencia.MdiParent = this;
+                convivencia.Show();
+            }
+            else
+            {
+                convivencia.BringToFront();
+            }
 
         }
 
@@ -138,6 +151,11 @@ namespace Administracion_Consorcio_AdminFairy
                 this.Hide();
             }
 
+        }
+
+        private void InicioVecino_Activated(object sender, EventArgs e)
+        {
+            //reloj.Ejecutar();
         }
     }
 }

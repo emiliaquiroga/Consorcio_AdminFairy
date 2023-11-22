@@ -18,6 +18,7 @@ namespace Administracion_Consorcio_AdminFairy
         private FrmListadoUsuarios listausuarios;
         private FrmComunicados com;
         private NumerosUtiles numeros;
+
         //private FrmReclamosAdmin verReclamos; cree un form y no se guardó xd
 
         public InicioAdmin()

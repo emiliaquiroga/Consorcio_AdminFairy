@@ -120,8 +120,6 @@ namespace Administracion_Consorcio_AdminFairy
 
         private void btnAutocompletar_Click(object sender, EventArgs e)
         {
-            //SeleccionarUsuario su = new SeleccionarUsuario(); // Se instanció el formulario del autocompletar. 
-            //su.ShowDialog();  // no se va a cerrar a menos que se termine de interactuar con este (en este caso por ahora con el btn cancelar o cerrandolo)
             txtClave.Text = admin.Clave;
             txtDni.Text = admin.Dni;
         }
@@ -132,6 +130,9 @@ namespace Administracion_Consorcio_AdminFairy
             registro.Show();
         }
 
-       
+        private void FrmLogin_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
