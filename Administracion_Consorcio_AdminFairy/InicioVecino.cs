@@ -106,6 +106,7 @@ namespace Administracion_Consorcio_AdminFairy
 
         private void btnNrosUtiles_Click(object sender, EventArgs e)
         {
+
             if (numeros == null || numeros.IsDisposed)
             {
                 numeros = new NumerosUtiles();

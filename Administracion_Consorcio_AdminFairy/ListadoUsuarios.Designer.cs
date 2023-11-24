@@ -47,7 +47,8 @@ namespace Administracion_Consorcio_AdminFairy
             dtgUsuariosRegistrados.CellBorderStyle = DataGridViewCellBorderStyle.Raised;
             dtgUsuariosRegistrados.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dtgUsuariosRegistrados.GridColor = Color.FromArgb(255, 192, 192);
-            dtgUsuariosRegistrados.Location = new Point(38, 212);
+            dtgUsuariosRegistrados.Location = new Point(457, 353);
+            dtgUsuariosRegistrados.Margin = new Padding(4, 5, 4, 5);
             dtgUsuariosRegistrados.Name = "dtgUsuariosRegistrados";
             dtgUsuariosRegistrados.ReadOnly = true;
             dtgUsuariosRegistrados.RowHeadersWidth = 62;
@@ -61,8 +62,9 @@ namespace Administracion_Consorcio_AdminFairy
             dtgUsuariosRegistrados.RowsDefaultCellStyle = dataGridViewCellStyle1;
             dtgUsuariosRegistrados.RowTemplate.Height = 33;
             dtgUsuariosRegistrados.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dtgUsuariosRegistrados.Size = new Size(1029, 353);
+            dtgUsuariosRegistrados.Size = new Size(1067, 600);
             dtgUsuariosRegistrados.TabIndex = 0;
+            dtgUsuariosRegistrados.CellClick += dtgUsuariosRegistrados_CellClick;
             // 
             // serializadoraBindingSource
             // 
@@ -71,10 +73,9 @@ namespace Administracion_Consorcio_AdminFairy
             // cmbxEstadoVecino
             // 
             cmbxEstadoVecino.FormattingEnabled = true;
-            cmbxEstadoVecino.Location = new Point(38, 145);
-            cmbxEstadoVecino.Margin = new Padding(2);
+            cmbxEstadoVecino.Location = new Point(54, 242);
             cmbxEstadoVecino.Name = "cmbxEstadoVecino";
-            cmbxEstadoVecino.Size = new Size(303, 23);
+            cmbxEstadoVecino.Size = new Size(431, 33);
             cmbxEstadoVecino.TabIndex = 1;
             cmbxEstadoVecino.Tag = "Estado cliente";
             // 
@@ -83,25 +84,25 @@ namespace Administracion_Consorcio_AdminFairy
             label1.AutoSize = true;
             label1.BackColor = Color.FromArgb(192, 192, 255);
             label1.Font = new Font("Century Gothic", 18F, FontStyle.Italic, GraphicsUnit.Point);
-            label1.Location = new Point(422, 86);
+            label1.Location = new Point(603, 143);
+            label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(240, 28);
+            label1.Size = new Size(359, 43);
             label1.TabIndex = 2;
             label1.Text = "Listado de vecinos ";
             // 
             // FrmListadoUsuarios
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(168, 183, 204);
             BackgroundImage = Properties.Resources.Fondo_app;
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(1110, 700);
+            ClientSize = new Size(1586, 1167);
             Controls.Add(label1);
             Controls.Add(cmbxEstadoVecino);
             Controls.Add(dtgUsuariosRegistrados);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(2);
             Name = "FrmListadoUsuarios";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "ListadoUsuarios";

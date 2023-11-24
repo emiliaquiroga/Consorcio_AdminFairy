@@ -22,8 +22,6 @@ namespace Administracion_Consorcio_AdminFairy
         List<Vecino> listaVecinos;
         //Vecino selectedNeighbor; // Track the selected neighbor
 
-
-
         public FrmListadoUsuarios()
         {
             InitializeComponent();
@@ -69,6 +67,11 @@ namespace Administracion_Consorcio_AdminFairy
                 Serializadora.ActualizarVecinoEnJson(path, vecino);
                 dtgUsuariosRegistrados.Refresh();
             }
+        }
+
+        private void dtgUsuariosRegistrados_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
