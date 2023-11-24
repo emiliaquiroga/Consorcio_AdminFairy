@@ -247,6 +247,7 @@
             Name = "InicioVecino";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "AdminFairy - Inicio ";
+            Activated += InicioVecino_Activated;
             Load += InicioVecino_Load;
             pnlMenu.ResumeLayout(false);
             pnlMenu.PerformLayout();

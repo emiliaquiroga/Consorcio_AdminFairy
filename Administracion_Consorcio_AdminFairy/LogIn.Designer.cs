@@ -46,7 +46,7 @@
             txtDni.Location = new Point(103, 213);
             txtDni.Name = "txtDni";
             txtDni.PlaceholderText = "Ingrese su D.N.I";
-            txtDni.Size = new Size(296, 30);
+            txtDni.Size = new Size(296, 20);
             txtDni.TabIndex = 0;
             // 
             // txtClave
@@ -55,7 +55,7 @@
             txtClave.Location = new Point(103, 259);
             txtClave.Name = "txtClave";
             txtClave.PlaceholderText = "Ingrese su Clave";
-            txtClave.Size = new Size(296, 30);
+            txtClave.Size = new Size(296, 20);
             txtClave.TabIndex = 1;
             txtClave.UseSystemPasswordChar = true;
             txtClave.TextChanged += txtClave_TextChanged;
@@ -64,9 +64,9 @@
             // 
             lblMarca.AutoSize = true;
             lblMarca.BackColor = Color.FromArgb(168, 183, 204);
-            lblMarca.Location = new Point(56, 136);
+            lblMarca.Location = new Point(103, 137);
             lblMarca.Name = "lblMarca";
-            lblMarca.Size = new Size(391, 60);
+            lblMarca.Size = new Size(257, 42);
             lblMarca.TabIndex = 2;
             lblMarca.Text = "·AdminFairy· \r\nComplete sus datos para Iniciar";
             lblMarca.TextAlign = ContentAlignment.MiddleCenter;
@@ -78,7 +78,7 @@
             chkMostrarClave.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point);
             chkMostrarClave.Location = new Point(103, 305);
             chkMostrarClave.Name = "chkMostrarClave";
-            chkMostrarClave.Size = new Size(156, 25);
+            chkMostrarClave.Size = new Size(110, 21);
             chkMostrarClave.TabIndex = 3;
             chkMostrarClave.Text = "Mostrar clave";
             chkMostrarClave.UseVisualStyleBackColor = false;
@@ -123,7 +123,7 @@
             lblRegistro.Font = new Font("Century Gothic", 10F, FontStyle.Regular, GraphicsUnit.Point);
             lblRegistro.Location = new Point(153, 515);
             lblRegistro.Name = "lblRegistro";
-            lblRegistro.Size = new Size(204, 23);
+            lblRegistro.Size = new Size(147, 19);
             lblRegistro.TabIndex = 8;
             lblRegistro.TabStop = true;
             lblRegistro.Text = "¡Quiero Registrarme!";
@@ -131,7 +131,7 @@
             // 
             // FrmLogin
             // 
-            AutoScaleDimensions = new SizeF(14F, 30F);
+            AutoScaleDimensions = new SizeF(10F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(116, 140, 171);
             ClientSize = new Size(501, 655);
@@ -150,6 +150,7 @@
             Name = "FrmLogin";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "AdminFairy - Log In";
+            FormClosed += FrmLogin_FormClosed;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();

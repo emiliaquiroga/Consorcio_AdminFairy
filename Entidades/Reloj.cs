@@ -20,7 +20,7 @@ namespace Entidades
         {
             for ( ; ; ) // bucle infinito
             {
-                Thread.Sleep(1000);
+                Thread.Sleep(100);
 
                 DateTime dt = DateTime.Now;
 
