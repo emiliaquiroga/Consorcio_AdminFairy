@@ -65,77 +65,121 @@ namespace Administracion_Consorcio_AdminFairy
 
         private void btnExpensas_Click(object sender, EventArgs e)
         {
-            if (fe == null || fe.IsDisposed)
+            try
             {
-                fe = new FrmExpensas(vecino);
-                fe.MdiParent = this;
-                fe.Show();
+                if (fe == null || fe.IsDisposed)
+                {
+                    fe = new FrmExpensas(vecino);
+                    fe.MdiParent = this;
+                    fe.Show();
+
+                }
+                else
+                {
+                    fe.BringToFront();
+                }
 
             }
-            else
+            catch (Exception)
             {
-                fe.BringToFront();
+                // PONER EN ARCHIVO TXT
+                Console.WriteLine("Excepcion en Expensas");
+
             }
+  
         }
 
         private void btnComunicados_Click(object sender, EventArgs e)
         {
-            if (com == null || com.IsDisposed)
+            try
             {
-                com = new ComunicadosVecinos();
-                com.MdiParent = this;
-                com.Show();
+                if (com == null || com.IsDisposed)
+                {
+                    com = new ComunicadosVecinos();
+                    com.MdiParent = this;
+                    com.Show();
+                }
+                else
+                {
+                    com.BringToFront();
+                }
             }
-            else
+            catch (Exception)
             {
-                com.BringToFront();
+                //PONER EN ARCHIVO TXT
+                Console.WriteLine("Excepcion en sector Comunicados");
             }
+
         }
 
         private void btnReclamo_Click(object sender, EventArgs e)
         {
-
-            if (recVecinos == null || recVecinos.IsDisposed)
+            try
             {
-                recVecinos = new FrmReclamosVecino();
-                recVecinos.MdiParent = this;
-                recVecinos.Show();
+                if (recVecinos == null || recVecinos.IsDisposed)
+                {
+                    recVecinos = new FrmReclamosVecino();
+                    recVecinos.MdiParent = this;
+                    recVecinos.Show();
+                }
+                else
+                {
+                    fe.BringToFront();
+                }
             }
-            else
+            catch (Exception)
             {
-                fe.BringToFront();
+                // ESTO PONER EN UN ARCHIVO TXT
+                Console.WriteLine( "Excepcion en sector Reclamo");
             }
+            
 
         }
 
         private void btnNrosUtiles_Click(object sender, EventArgs e)
         {
+            try
+            {
 
-            if (numeros == null || numeros.IsDisposed)
-            {
-                numeros = new NumerosUtiles();
-                numeros.MdiParent = this;
-                numeros.Show();
+                if (numeros == null || numeros.IsDisposed)
+                {
+                    numeros = new NumerosUtiles();
+                    numeros.MdiParent = this;
+                    numeros.Show();
+                }
+                else
+                {
+                    numeros.BringToFront();
+                }
             }
-            else
+            catch (Exception ex)
             {
-                numeros.BringToFront();
+                // ESTO EN ARCHIVO TXT
+                Console.WriteLine("Excepcion en sección 'Telefonos Utiles' ");
             }
 
         }
 
         private void btnAcuerdoVecinos_Click(object sender, EventArgs e) // PUSE EXACTAMENTE LO MISMO, PQ NO FUNCIONA
         {
+            try
+            {
+                if (convivencia == null || convivencia.IsDisposed)
+                {
+                    convivencia = new FrmConvivenciaVecinos();
+                    convivencia.MdiParent = this;
+                    convivencia.Show();
+                }
+                else
+                {
+                    convivencia.BringToFront();
+                }
 
-            if (convivencia == null || convivencia.IsDisposed)
-            {
-                convivencia = new FrmConvivenciaVecinos();
-                convivencia.MdiParent = this;
-                convivencia.Show();
             }
-            else
+            catch (Exception)
             {
-                convivencia.BringToFront();
+                //ESTE CATCH EN ARCHIVO TXT
+                Console.WriteLine("Excepccion en el sector AcuerdoVecinos");
             }
 
         }

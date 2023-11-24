@@ -113,14 +113,16 @@ namespace Administracion_Consorcio_AdminFairy
 
             try
             {
-                usuarios = Serializadora.LeerJson(login.pathJson);
+                usuarios = SerializadorJSON.Deserializar();
+                //usuarios = Serializadora.LeerJson(login.pathJson);
                 if(usuarios.Any(u=>u.Dni == vecinoNuevo.Dni))
                 {
                     MessageBox.Show("Ya existe un usuario con este DNI\nPor favor, ingresa un dni diferente.", "ERROR EN REGISTRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
-                    Serializadora.EscribirJson(pathJson, vecinoNuevo);
+                    SerializadorJSON.Serializar(vecinoNuevo);
+                    //Serializadora.EscribirJson(pathJson, vecinoNuevo);
                     MessageBox.Show("Te has Registrado exitosamente!", "REGISTRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     this.Close();
                     login.Show();
