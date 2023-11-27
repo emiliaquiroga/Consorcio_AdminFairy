@@ -20,6 +20,17 @@ namespace Entidades.Serializadores
             Path = path;
         }
 
+
+        bool ISerializable<T>.Serializar(T datos)
+        {
+            throw new NotImplementedException();
+        }
+
+        List<T> ISerializable<T>.Deserializar()
+        {
+            throw new NotImplementedException();
+        }
+
         //public bool VerificaArchivo(string path)
         //{
         //    try
@@ -46,15 +57,5 @@ namespace Entidades.Serializadores
 
         //    }
         //}
-
-        bool ISerializable<T>.Serializar(T datos)
-        {
-            throw new NotImplementedException();
-        }
-
-        List<T> ISerializable<T>.Deserializar()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

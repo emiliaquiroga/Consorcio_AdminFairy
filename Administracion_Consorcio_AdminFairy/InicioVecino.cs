@@ -1,4 +1,5 @@
 ﻿using Entidades;
+using Entidades.Serializadores;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -80,10 +81,10 @@ namespace Administracion_Consorcio_AdminFairy
                 }
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                // PONER EN ARCHIVO TXT
-                Console.WriteLine("Excepcion en Expensas");
+                SerializadorTXT<Errores> serializador = new SerializadorTXT<Errores>();
+                serializador.RegistrarError(ex.Message, ex.GetType().ToString(), "InicioVeicno > btnExpensas_Click");
 
             }
   
@@ -104,10 +105,10 @@ namespace Administracion_Consorcio_AdminFairy
                     com.BringToFront();
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                //PONER EN ARCHIVO TXT
-                Console.WriteLine("Excepcion en sector Comunicados");
+                SerializadorTXT<Errores> serializador = new SerializadorTXT<Errores>();
+                serializador.RegistrarError(ex.Message, ex.GetType().ToString(), "InicioVecino > btnComunicadosClick");
             }
 
         }
@@ -127,10 +128,10 @@ namespace Administracion_Consorcio_AdminFairy
                     fe.BringToFront();
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                // ESTO PONER EN UN ARCHIVO TXT
-                Console.WriteLine( "Excepcion en sector Reclamo");
+                SerializadorTXT<Errores> serializador = new SerializadorTXT<Errores>();
+                serializador.RegistrarError(ex.Message, ex.GetType().ToString(), "InicioVecino > btnReclamo_Click");
             }
             
 
@@ -154,8 +155,10 @@ namespace Administracion_Consorcio_AdminFairy
             }
             catch (Exception ex)
             {
-                // ESTO EN ARCHIVO TXT
-                Console.WriteLine("Excepcion en sección 'Telefonos Utiles' ");
+
+                SerializadorTXT<Errores> serializador = new SerializadorTXT<Errores>();
+                serializador.RegistrarError(ex.Message, ex.GetType().ToString(), "InicioVecino > btnNrosUtiles_Click");
+                
             }
 
         }
@@ -176,25 +179,36 @@ namespace Administracion_Consorcio_AdminFairy
                 }
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                //ESTE CATCH EN ARCHIVO TXT
-                Console.WriteLine("Excepccion en el sector AcuerdoVecinos");
+                SerializadorTXT<Errores> serializador = new SerializadorTXT<Errores>();
+                serializador.RegistrarError(ex.Message, ex.GetType().ToString(), "InicioVecino > btnAcuerdoVecinos_Click");
+                throw;
             }
 
         }
 
         private void btnCerrarSesion_Click(object sender, EventArgs e)
         {
-
-            DialogResult respuesta = MessageBox.Show("¿Desea cerrar sesión?", "Cerrar sesión", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-
-            if (respuesta == DialogResult.Yes)
+            try
             {
-                FrmLogin login = new FrmLogin();
-                login.Show();
-                this.Hide();
+                DialogResult respuesta = MessageBox.Show("¿Desea cerrar sesión?", "Cerrar sesión", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (respuesta == DialogResult.Yes)
+                {
+                    FrmLogin login = new FrmLogin();
+                    login.Show();
+                    this.Hide();
+                }
+
             }
+            catch (Exception ex)
+            {
+
+                SerializadorTXT<Errores> serializador = new SerializadorTXT<Errores>();
+                serializador.RegistrarError(ex.Message, ex.GetType().ToString(), "InicioVecino > btnCerrarSesion_Click");
+            }
+
 
         }
 

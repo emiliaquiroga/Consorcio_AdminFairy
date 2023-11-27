@@ -11,20 +11,23 @@ using System.Xml.Serialization;
 
 namespace Entidades.Serializadores
 {
-    public class SerializadorJSON<T> : Serializador<T> where T : class
+    public class SerializadorJSON<T> : Serializador<T> 
     {
         string ruta;
         string nombre;
-        string path;
+       
 
-
+        public SerializadorJSON()
+        {
+                
+        }
 
         public SerializadorJSON(string path) : base(path)
         {
             ruta = Environment.GetFolderPath(Environment.SpecialFolder.Desktop); // donde va a estar ubicado
             nombre = @"\ArchivoJSON.json";
-            path = ruta + nombre;
-            
+            Path = System.IO.Path.Combine(ruta, nombre);
+
         }
 
 
@@ -32,13 +35,13 @@ namespace Entidades.Serializadores
         {
             try
             {
-                using (var stream = new StreamWriter(this.path))
+                using (var stream = new StreamWriter(this.Path))
                 {
                     var options = new JsonSerializerOptions();
                     options.WriteIndented = true;
 
                     var json = JsonConvert.SerializeObject(datos, Newtonsoft.Json.Formatting.Indented);
-                    File.WriteAllText(this.path,json);
+                    File.WriteAllText(this.Path,json);
 
                 }
                 return true;
@@ -66,7 +69,7 @@ namespace Entidades.Serializadores
             
             try
             {
-                var json = File.ReadAllText(this.path);
+                var json = File.ReadAllText(this.Path);
                 lista = JsonConvert.DeserializeObject<List<T>>(json);
             }
             catch (Exception ex)

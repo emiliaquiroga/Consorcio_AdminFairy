@@ -11,7 +11,8 @@ namespace Administracion_Consorcio_AdminFairy
         static void Main()
         {
             ApplicationConfiguration.Initialize();
-            Application.Run(new FrmLogin());
+            FrmLogin login = new FrmLogin();
+            Application.Run(login);
             
 
             

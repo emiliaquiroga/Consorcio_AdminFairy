@@ -11,7 +11,8 @@ namespace Entidades
         private string contenido;
         private DateTime fecha;
 
-        public Comunicados() {
+        public Comunicados() 
+        {
         }
         public Comunicados(string contenido, DateTime fecha)
         {
@@ -25,5 +26,6 @@ namespace Entidades
         {
             return $"Vecinos:\n{Fecha.ToString("yyyy-MM-dd HH:mm")}\n{Contenido}";
         }
+        
     }
 }

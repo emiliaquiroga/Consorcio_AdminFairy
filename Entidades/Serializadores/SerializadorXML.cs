@@ -14,19 +14,20 @@ namespace Entidades.Serializadores
     {
         string ruta;
         string nombre;
-        string path;
+        
 
     public SerializadorXML(string path) : base(path)
     {
             ruta = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
             nombre = @"\ArchivoXML.xml";
-            path = ruta + nombre;
+            Path = System.IO.Path.Combine(ruta, nombre);
+
         }
     public bool Serializar(T datos)
     {
         try // Intentamos ejecutar el siguiente código: 
         {
-            using (StreamWriter sw = new StreamWriter(this.path))
+            using (StreamWriter sw = new StreamWriter(this.Path))
             {
                 XmlSerializer ser = new XmlSerializer(typeof(T));
                 ser.Serialize(sw, datos);
@@ -46,7 +47,7 @@ namespace Entidades.Serializadores
         var lista = new List<T>();
         try
         {
-            using (var stream = new StreamReader(this.path))
+            using (var stream = new StreamReader(this.Path))
             {
                 var des = new XmlSerializer(typeof(List<T>));
 

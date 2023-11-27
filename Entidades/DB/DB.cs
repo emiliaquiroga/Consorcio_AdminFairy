@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using Entidades.Serializadores;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -71,9 +72,11 @@ namespace Entidades.DB
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw;
+
+                SerializadorTXT<Errores> serializador = new SerializadorTXT<Errores>();
+                serializador.RegistrarError(ex.Message, ex.GetType().ToString(), "DB > Select");
             }
             finally
             {
@@ -87,5 +90,5 @@ namespace Entidades.DB
         }
     }
 }
-    
+
 

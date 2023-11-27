@@ -89,7 +89,7 @@ namespace Administracion_Consorcio_AdminFairy
         }
 
 
-        private void AsignarRegistro(string pathXML, string pathJson)//crea un nuevo vecino y le asigna los datos ingresados en el registro
+        private void AsignarRegistro()//crea un nuevo vecino y le asigna los datos ingresados en el registro
         {
 
             int min = 10000;
@@ -113,7 +113,8 @@ namespace Administracion_Consorcio_AdminFairy
 
             try
             {
-                usuarios = SerializadorJSON.Deserializar();
+                var serializador = new SerializadorJSON<Vecino>();
+                usuarios = serializador.Deserializar();
                 //usuarios = Serializadora.LeerJson(login.pathJson);
                 if(usuarios.Any(u=>u.Dni == vecinoNuevo.Dni))
                 {
@@ -121,7 +122,7 @@ namespace Administracion_Consorcio_AdminFairy
                 }
                 else
                 {
-                    SerializadorJSON.Serializar(vecinoNuevo);
+                    serializador.Serializar(vecinoNuevo);
                     //Serializadora.EscribirJson(pathJson, vecinoNuevo);
                     MessageBox.Show("Te has Registrado exitosamente!", "REGISTRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     this.Close();
@@ -131,7 +132,9 @@ namespace Administracion_Consorcio_AdminFairy
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.ToString());
+               
+                SerializadorTXT<Errores> serializador = new SerializadorTXT<Errores>();
+                serializador.RegistrarError(ex.Message, ex.GetType().ToString(), "FrmRegisto > AsignarRegistro");
             }
 
 
@@ -206,7 +209,7 @@ namespace Administracion_Consorcio_AdminFairy
 
             if (ValidarDatos(nombre, apellido, email, dniText, unidad, piso, clave, claveConfirm))
             {
-                AsignarRegistro(this.login.pathXml, this.login.pathJson);
+                AsignarRegistro();
                 this.Close();
                 login.Show();
             }
