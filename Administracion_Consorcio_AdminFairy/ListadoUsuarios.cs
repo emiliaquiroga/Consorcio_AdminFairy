@@ -10,68 +10,161 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Entidades.Serializadores;
+using MySql.Data.MySqlClient;
+using Entidades.DB;
 
 namespace Administracion_Consorcio_AdminFairy
 {
     public partial class FrmListadoUsuarios : Form
     {
-        string ruta;
-        string nombre;
-        string path;
-        EstadoVecino estadoVecino;
-        List<Vecino> listaVecinos;
-        //Vecino selectedNeighbor; // Track the selected neighbor
+
+
+        string consulta = "SELECT * FROM vecinos";
+        int indexRow;
 
         public FrmListadoUsuarios()
         {
             InitializeComponent();
-            this.ruta = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-            this.nombre = @"\UsuariosRegistradosJson.json";
-            this.path = ruta + nombre;
-            listaVecinos = new List<Vecino>();
 
+            CargarUsuarios();
         }
+
+        private void CargarUsuarios()
+        {
+            using (MySqlConnection connection = new MySqlConnection("Server=localhost;Database=listadovecinos;Uid=root;Pwd=;"))
+            {
+                try
+                {
+                    connection.Open();
+                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(consulta, connection))
+                    {
+                        DataTable tabla = new DataTable();
+                        adapter.Fill(tabla);
+                        dtgUsuariosRegistrados.DataSource = tabla;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error al conectar a la base de datos: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
         private void FrmListadoUsuarios_Load(object sender, EventArgs e)
         {
-            cmbxEstadoVecino.DataSource = Enum.GetValues(typeof(EstadoVecino));
-            listaVecinos = Serializadora.LeerJson(path);
-
-            // Enlaza la lista de vecinos al DataGridView
-            dtgUsuariosRegistrados.DataSource = listaVecinos;
-
-            // Habilita la edición de celdas en el DataGridView
             dtgUsuariosRegistrados.ReadOnly = false;
-
-            // Maneja el evento CellEndEdit para guardar los cambios en el JSON
             dtgUsuariosRegistrados.CellEndEdit += DtUsuariosRegistrados_CellEndEdit;
         }
 
-        //este metodo no funciona del todo bien, porque creo que estan mal los getters y setters en vecino
         private void DtUsuariosRegistrados_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-            // Obtiene la fila y la celda editada
-            DataGridViewRow row = dtgUsuariosRegistrados.Rows[e.RowIndex];
-            DataGridViewCell cell = row.Cells[e.ColumnIndex];
+            DataGridViewRow dgvRow = dtgUsuariosRegistrados.Rows[e.RowIndex];
+            DataGridViewCell cell = dgvRow.Cells[e.ColumnIndex];
 
-            // Verifica si la celda editada es la columna EstadoVecino
-            if (cell.OwningColumn.DataPropertyName == "EstadoVecino")
+            if (cell.OwningColumn.DataPropertyName == "Estado")
             {
-                // Obtiene el valor seleccionado en el ComboBox
-                EstadoVecino estadoSeleccionado = (EstadoVecino)cell.Value;
+                DataRowView dataRowView = (DataRowView)dgvRow.DataBoundItem;
+                DataRow dataRow = dataRowView.Row;
 
-                // Actualiza el valor en el objeto Vecino correspondiente en la lista
-                Vecino vecino = (Vecino)row.DataBoundItem;
-                vecino.EstadoVecino = estadoSeleccionado;
+                dataRow["Estado"] = cell.Value;
 
-                // Llama al método para actualizar el JSON
-                Serializadora.ActualizarVecinoEnJson(path, vecino);
-                dtgUsuariosRegistrados.Refresh();
+                // Asegúrate de actualizar el campo correcto en tu base de datos
+                ActualizarBaseDeDatos(dataRow);
             }
         }
 
         private void dtgUsuariosRegistrados_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            indexRow = e.RowIndex;
+            
+            DataGridViewRow fila = dtgUsuariosRegistrados.Rows[indexRow];
+
+            // Asegúrate de utilizar nombres de columnas o índices constantes
+            txtEstado.Text = fila.Cells["Estado"].Value.ToString();
+            txtExpensas.Text = fila.Cells["situacion_expensa"].Value.ToString();
 
         }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DataGridViewRow nuevaFila = dtgUsuariosRegistrados.Rows[indexRow];
+                if (nuevaFila.DataBoundItem is DataRowView dataFilaView)
+                {
+                    DataRow dataFila = dataFilaView.Row;
+                    dataFila["Estado"] = txtEstado.Text;
+                    dataFila["situacion_expensa"] = txtExpensas.Text;
+
+                    
+                    ActualizarBaseDeDatos(dataFila);
+
+                    
+                    CargarUsuarios();
+                }
+                else
+                {
+                    MessageBox.Show("Error: DataBoundItem is null or not a DataRowView.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
+
+        private void ActualizarBaseDeDatos(DataRow row)
+        {
+            try
+            {
+
+                DataGridViewRow fila = dtgUsuariosRegistrados.Rows[indexRow];
+                int dni = (int)fila.Cells["DNI"].Value;
+
+                using (MySqlConnection connection = new MySqlConnection("Server=localhost;Database=listadovecinos;Uid=root;Pwd=;"))
+                {
+                    connection.Open();
+
+                    // Debugging statements
+                    Console.WriteLine($"Estado: {row["Estado"]}");
+                    Console.WriteLine($"Expensa: {row["situacion_expensa"]}");
+                    Console.WriteLine($"DNI: {dni}");
+
+                    // Construye la sentencia UPDATE con parámetros
+                    string updateQuery = "UPDATE vecinos SET Estado = @estado, situacion_expensa = @expensa WHERE DNI = @dni";
+                    MySqlCommand update = new MySqlCommand(updateQuery, connection);
+
+                    // Agrega parámetros con sus valores
+                    update.Parameters.AddWithValue("@estado", row["Estado"]);
+                    update.Parameters.AddWithValue("@expensa", row["situacion_expensa"]);
+                    update.Parameters.AddWithValue("@dni", dni);
+
+                    update.ExecuteNonQuery();
+
+                    // Use the existing adapter to update the DataTable
+                    if (dtgUsuariosRegistrados.DataSource is DataTable dataTable)
+                    {
+                        using (MySqlDataAdapter adapter = new MySqlDataAdapter(consulta, connection))
+                        {
+                            MySqlCommandBuilder builder = new MySqlCommandBuilder(adapter);
+                            adapter.UpdateCommand = builder.GetUpdateCommand();
+                            adapter.Update(dataTable);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Manejar errores y mostrar un mensaje de error
+                SerializadorTXT<Errores> serializador = new SerializadorTXT<Errores>();
+                serializador.RegistrarError(ex.Message, ex.GetType().ToString(), "ListadoUsuarios > ActualizarBaseDeDatos");
+            }
+        }
+
+
+
     }
+
 }

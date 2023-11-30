@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace Entidades.DB
 {
-    internal class ICRUDOperaciones
+    public interface ICRUDOperaciones<T>
     {
+
+        string Update();
+
+        void Insert();
+        List<T> Select();
     }
 }

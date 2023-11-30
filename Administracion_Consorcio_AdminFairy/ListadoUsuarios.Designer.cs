@@ -34,8 +34,13 @@ namespace Administracion_Consorcio_AdminFairy
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             dtgUsuariosRegistrados = new DataGridView();
             serializadoraBindingSource = new BindingSource(components);
-            cmbxEstadoVecino = new ComboBox();
             label1 = new Label();
+            txtEstado = new TextBox();
+            txtExpensas = new TextBox();
+            lblEstado = new Label();
+            label3 = new Label();
+            lblExpensas = new Label();
+            btnGuardar = new Button();
             ((System.ComponentModel.ISupportInitialize)dtgUsuariosRegistrados).BeginInit();
             ((System.ComponentModel.ISupportInitialize)serializadoraBindingSource).BeginInit();
             SuspendLayout();
@@ -70,15 +75,6 @@ namespace Administracion_Consorcio_AdminFairy
             // 
             serializadoraBindingSource.DataSource = typeof(Serializadora);
             // 
-            // cmbxEstadoVecino
-            // 
-            cmbxEstadoVecino.FormattingEnabled = true;
-            cmbxEstadoVecino.Location = new Point(54, 242);
-            cmbxEstadoVecino.Name = "cmbxEstadoVecino";
-            cmbxEstadoVecino.Size = new Size(431, 33);
-            cmbxEstadoVecino.TabIndex = 1;
-            cmbxEstadoVecino.Tag = "Estado cliente";
-            // 
             // label1
             // 
             label1.AutoSize = true;
@@ -91,6 +87,56 @@ namespace Administracion_Consorcio_AdminFairy
             label1.TabIndex = 2;
             label1.Text = "Listado de vecinos ";
             // 
+            // txtEstado
+            // 
+            txtEstado.Location = new Point(71, 579);
+            txtEstado.Name = "txtEstado";
+            txtEstado.Size = new Size(241, 31);
+            txtEstado.TabIndex = 3;
+            // 
+            // txtExpensas
+            // 
+            txtExpensas.Location = new Point(71, 690);
+            txtExpensas.Name = "txtExpensas";
+            txtExpensas.Size = new Size(241, 31);
+            txtExpensas.TabIndex = 4;
+            // 
+            // lblEstado
+            // 
+            lblEstado.AutoSize = true;
+            lblEstado.Location = new Point(71, 523);
+            lblEstado.Name = "lblEstado";
+            lblEstado.Size = new Size(78, 25);
+            lblEstado.TabIndex = 6;
+            lblEstado.Text = "ESTADO";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(71, 340);
+            label3.Name = "label3";
+            label3.Size = new Size(0, 25);
+            label3.TabIndex = 7;
+            // 
+            // lblExpensas
+            // 
+            lblExpensas.AutoSize = true;
+            lblExpensas.Location = new Point(71, 642);
+            lblExpensas.Name = "lblExpensas";
+            lblExpensas.Size = new Size(182, 25);
+            lblExpensas.TabIndex = 8;
+            lblExpensas.Text = "SITUACION DE PAGO";
+            // 
+            // btnGuardar
+            // 
+            btnGuardar.Location = new Point(71, 747);
+            btnGuardar.Name = "btnGuardar";
+            btnGuardar.Size = new Size(147, 53);
+            btnGuardar.TabIndex = 9;
+            btnGuardar.Text = "GUARDAR";
+            btnGuardar.UseVisualStyleBackColor = true;
+            btnGuardar.Click += btnGuardar_Click;
+            // 
             // FrmListadoUsuarios
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -99,8 +145,13 @@ namespace Administracion_Consorcio_AdminFairy
             BackgroundImage = Properties.Resources.Fondo_app;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1586, 1167);
+            Controls.Add(btnGuardar);
+            Controls.Add(lblExpensas);
+            Controls.Add(label3);
+            Controls.Add(lblEstado);
+            Controls.Add(txtExpensas);
+            Controls.Add(txtEstado);
             Controls.Add(label1);
-            Controls.Add(cmbxEstadoVecino);
             Controls.Add(dtgUsuariosRegistrados);
             FormBorderStyle = FormBorderStyle.None;
             Name = "FrmListadoUsuarios";
@@ -117,7 +168,12 @@ namespace Administracion_Consorcio_AdminFairy
 
         private DataGridView dtgUsuariosRegistrados;
         private BindingSource serializadoraBindingSource;
-        private ComboBox cmbxEstadoVecino;
         private Label label1;
+        private TextBox txtEstado;
+        private TextBox txtExpensas;
+        private Label lblEstado;
+        private Label label3;
+        private Label lblExpensas;
+        private Button btnGuardar;
     }
 }

@@ -19,18 +19,20 @@ namespace Entidades
         private string _pisoVivienda;
         private int expensas;
         private EstadoVecino estadoVecino;
+        private string _duenioInquilino;
 
 
         public Vecino()
         {
             
         }
-        public Vecino(string nombre, string apellido, string dni, string clave, string email, string unidadVivienda, string pisoVivienda):base(nombre,apellido,dni,clave)
+        public Vecino(string nombre, string apellido, string dni, string clave, string email, string unidadVivienda, string pisoVivienda, string duenioInquilino):base(nombre,apellido,dni,clave)
         {
             
             _email = email;
             _unidadVivienda = unidadVivienda;
             _pisoVivienda = pisoVivienda;
+            _duenioInquilino = duenioInquilino;
         }
 
         #region Getters y Setters
@@ -41,6 +43,8 @@ namespace Entidades
         public string PisoVivienda { get => _pisoVivienda; set => _pisoVivienda = value; }
         public int Expensas { get => expensas; set => expensas = value; }
         public EstadoVecino EstadoVecino { get => estadoVecino; set => estadoVecino = value; }
+
+        public string DuenioInquilino { get => _duenioInquilino; set => _duenioInquilino = value; }
         #endregion
         
         public override string MostrarDatos()

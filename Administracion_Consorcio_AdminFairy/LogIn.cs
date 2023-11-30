@@ -2,6 +2,7 @@ using Entidades;
 using System.Runtime.CompilerServices;
 using Newtonsoft.Json;
 using Entidades.Serializadores;
+using Entidades.DB;
 
 namespace Administracion_Consorcio_AdminFairy
 {
@@ -9,64 +10,16 @@ namespace Administracion_Consorcio_AdminFairy
     {
         string dni;
         string claveIngresado;
-        string ruta;
-        string nombreXml;
-        string nombreJson;
-        public string pathJson;
-        public string pathXml;
         Administrador admin;
         Vecino vecino;
 
         public FrmLogin()
         {
             InitializeComponent();
-            this.ruta = Environment.GetFolderPath(Environment.SpecialFolder.Desktop); // donde va a estar ubicado
-            this.nombreXml = @"\UsuariosRegistrados.xml"; // nombre del archivo
-            this.nombreJson = @"\UsuariosRegistradosJson.json";
-            this.pathJson = ruta + nombreJson;
-            this.pathXml = ruta + nombreXml;
             admin = new Administrador("Admin", "AdminFairy", "87654321", "admin");
-
         }
 
-        //public Vecino VerificarUsuario(string dni, string clave) //verifica que vecino este dentro de los registrados en el json
-        //{
-        //    Vecino vecino = new Vecino(); 
-        //    try
-        //    {
-        //        List<Vecino> usuarios = Serializadora.LeerJson(this.pathJson);
 
-        //        if (usuarios != null)
-        //        {
-        //            foreach (Vecino usario in usuarios)
-        //            {
-        //                if(dni == usario.Dni && clave == usario.Clave)
-        //                {
-        //                    vecino = usario;
-
-        //                    break;
-        //                }
-        //            }
-        //            return vecino;
-
-        //        }
-        //    }
-        //    catch (FileNotFoundException ex)
-        //    {
-        //        Console.WriteLine("El archivo JSON no se encontró: " + ex.Message);
-        //    }
-        //    catch (JsonException ex)
-        //    {
-        //        Console.WriteLine("Error en la deserialización JSON: " + ex.Message);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        Console.WriteLine("Error desconocido al validar credenciales: " + ex.Message);
-        //    }
-
-        //    MessageBox.Show("Los datos ingresados no corresponden a un usuario registrado.\nVuelva a intentarlo", "ERROR!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-        //}
 
         private void txtClave_TextChanged(object sender, EventArgs e)
         {
@@ -90,33 +43,46 @@ namespace Administracion_Consorcio_AdminFairy
         {
             string dni = this.txtDni.Text;
             string clave = this.txtClave.Text;
-            List<Vecino> listaVecinos = Serializadora.LeerJson(this.pathJson);
 
-            foreach (Vecino vecino in listaVecinos)
+            try
             {
-                if (dni == vecino.Dni && clave == vecino.Clave)
-                {
 
-                    MessageBox.Show("Ingreso Exitoso!", "Bienvenida/o!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    InicioVecino inicio = new InicioVecino(vecino);
-                    inicio.Show();
+                Vecino vecino = DB.AutenticarVecino(dni, clave);
+
+                if (dni == admin.Dni && clave == admin.Clave)
+                {
+                    InicioAdmin inicioAdmin = new InicioAdmin();
+                    inicioAdmin.Show();
+                    this.Hide();
                     txtDni.Clear();
                     txtClave.Clear();
-                    this.Hide();
-                    break;
                 }
+                else
+                {
+                    if (vecino != null)
+                    {
+                        MessageBox.Show("Ingreso Exitoso!", "Bienvenida/o!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        InicioVecino inicio = new InicioVecino(vecino);
+                        inicio.Show();
+                        txtDni.Clear();
+                        txtClave.Clear();
+                        this.Hide();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Datos incorrectos. Por favor, inténtelo de nuevo.", "Error de inicio de sesión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+  
+                
             }
-
-            if (dni == admin.Dni && clave == admin.Clave)
+            catch (Exception ex)
             {
-                InicioAdmin inicioAdmin = new InicioAdmin();
-                inicioAdmin.Show();
-                this.Hide();
-                txtDni.Clear();
-                txtClave.Clear();
+                // Manejar errores y registrarlos según sea necesario
+                MessageBox.Show($"Error al intentar iniciar sesión: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
         }
+
 
         private void btnAutocompletar_Click(object sender, EventArgs e)
         {

@@ -58,7 +58,7 @@ namespace Entidades.Serializadores
         catch (Exception ex)
         {
 
-            Console.WriteLine(ex.ToString());  // Nos mostrará su mensaje.
+            Console.WriteLine(ex.ToString());  
 
         }
 

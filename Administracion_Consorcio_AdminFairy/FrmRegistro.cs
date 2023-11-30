@@ -1,5 +1,7 @@
 ﻿using Entidades;
+using Entidades.DB;
 using Entidades.Serializadores;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -20,6 +22,11 @@ namespace Administracion_Consorcio_AdminFairy
         public FrmLogin login;
 
         
+        // ACA NO SE ESTAN GUARDANDO TODOS LOS DATOS EN LA DATABASE PERO SI LA LEE. PORQUE NO ME DEJA REGISTRAR MAS DE UN USUARIOO QUE YA ESTE REGISTRADO
+        // EL PROBLEMA ES INTENTAR QUE SE MODIFIQUE CUANDO CLICKEO EN REGISTRAR
+        // O SEA, LEE LA DB PERO NO PUEDE MODIFICARLA. 
+
+
         // Define un diccionario que relaciona ciudades con sus barrios.
         private Dictionary<string, List<string>> torresAdministradas = new Dictionary<string, List<string>> // INTENTAR METER EN UN ARCHIVO
         {
@@ -35,6 +42,11 @@ namespace Administracion_Consorcio_AdminFairy
             InitializeComponent();
             this.login = login;
             login.Hide();
+            DB.connectionMysql = new MySqlConnection("Server=localhost;Database=listadovecinos;Uid=root;Pwd=;");
+            DB.commandMySql = new MySqlCommand();
+            DB.commandMySql.CommandType = System.Data.CommandType.Text;
+            DB.commandMySql.Connection = DB.connectionMysql;
+
         }
 
 
@@ -89,15 +101,14 @@ namespace Administracion_Consorcio_AdminFairy
         }
 
 
-        private void AsignarRegistro()//crea un nuevo vecino y le asigna los datos ingresados en el registro
+        private void AsignarRegistro()
         {
-
             int min = 10000;
             int max = 90000;
-
             Random rnd = new Random();
 
             Vecino vecinoNuevo = new Vecino();
+            vecinoNuevo.DuenioInquilino = ObtenerSituacion();
             vecinoNuevo.Nombre = txtNombre.Text;
             vecinoNuevo.Apellido = txtApellido.Text;
             vecinoNuevo.Email = txtEmail.Text;
@@ -109,45 +120,43 @@ namespace Administracion_Consorcio_AdminFairy
             vecinoNuevo.UnidadVivienda = dmUpDownUnidad.Text;
             vecinoNuevo.Expensas = rnd.Next(min, max + 1);
 
-            List<Vecino> usuarios;
-
             try
             {
-                var serializador = new SerializadorJSON<Vecino>();
-                usuarios = serializador.Deserializar();
-                //usuarios = Serializadora.LeerJson(login.pathJson);
-                if(usuarios.Any(u=>u.Dni == vecinoNuevo.Dni))
+                // Verificar si ya existe un usuario con el mismo DNI en la base de datos
+                bool usuarioExistente = DB.UsuarioExiste(vecinoNuevo.Dni);
+
+                if (usuarioExistente)
                 {
-                    MessageBox.Show("Ya existe un usuario con este DNI\nPor favor, ingresa un dni diferente.", "ERROR EN REGISTRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Ya existe un usuario con este DNI\nPor favor, ingresa un DNI diferente.", "ERROR EN REGISTRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
-                    serializador.Serializar(vecinoNuevo);
-                    //Serializadora.EscribirJson(pathJson, vecinoNuevo);
-                    MessageBox.Show("Te has Registrado exitosamente!", "REGISTRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    // Agregar los nuevos datos en la base de datos
+                    DB.InsertarVecino(vecinoNuevo);
+                    MessageBox.Show("Te has registrado exitosamente!", "REGISTRO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     this.Close();
                     login.Show();
                 }
-
             }
             catch (Exception ex)
             {
-               
+                // Manejar errores y registrarlos según sea necesario
                 SerializadorTXT<Errores> serializador = new SerializadorTXT<Errores>();
-                serializador.RegistrarError(ex.Message, ex.GetType().ToString(), "FrmRegisto > AsignarRegistro");
+                serializador.RegistrarError(ex.Message, ex.GetType().ToString(), "FrmRegistro > AsignarRegistro");
             }
-
-
         }
+
 
         private string ObtenerSituacion() // Ahora se obtiene la situación del RadioButton seleccionado
         {
 
             foreach (Control opcion in grpSituacion.Controls)
             {
+                string duenioInquilino;
                 if (opcion is RadioButton radioButton && radioButton.Checked)
                 {
-                    return radioButton.Text;
+                    duenioInquilino = radioButton.Text;
+                    return duenioInquilino;
                 }
             }
             return null; // Devuelve null si ningún CheckBox está marcado
