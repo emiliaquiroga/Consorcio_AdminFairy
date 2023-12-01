@@ -43,7 +43,7 @@
             // txtDni
             // 
             txtDni.BorderStyle = BorderStyle.None;
-            txtDni.Location = new Point(103, 213);
+            txtDni.Location = new Point(71, 213);
             txtDni.Name = "txtDni";
             txtDni.PlaceholderText = "Ingrese su D.N.I";
             txtDni.Size = new Size(296, 20);
@@ -52,7 +52,7 @@
             // txtClave
             // 
             txtClave.BorderStyle = BorderStyle.None;
-            txtClave.Location = new Point(103, 259);
+            txtClave.Location = new Point(71, 259);
             txtClave.Name = "txtClave";
             txtClave.PlaceholderText = "Ingrese su Clave";
             txtClave.Size = new Size(296, 20);
@@ -64,7 +64,7 @@
             // 
             lblMarca.AutoSize = true;
             lblMarca.BackColor = Color.FromArgb(168, 183, 204);
-            lblMarca.Location = new Point(103, 137);
+            lblMarca.Location = new Point(85, 135);
             lblMarca.Name = "lblMarca";
             lblMarca.Size = new Size(257, 42);
             lblMarca.TabIndex = 2;
@@ -76,7 +76,7 @@
             chkMostrarClave.AutoSize = true;
             chkMostrarClave.BackColor = Color.FromArgb(168, 183, 204);
             chkMostrarClave.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            chkMostrarClave.Location = new Point(103, 305);
+            chkMostrarClave.Location = new Point(71, 295);
             chkMostrarClave.Name = "chkMostrarClave";
             chkMostrarClave.Size = new Size(110, 21);
             chkMostrarClave.TabIndex = 3;
@@ -86,7 +86,7 @@
             // 
             // btnIniciarSesion
             // 
-            btnIniciarSesion.Location = new Point(124, 422);
+            btnIniciarSesion.Location = new Point(85, 440);
             btnIniciarSesion.Name = "btnIniciarSesion";
             btnIniciarSesion.Size = new Size(257, 58);
             btnIniciarSesion.TabIndex = 5;
@@ -99,7 +99,7 @@
             btnAutocompletar.BackColor = Color.FromArgb(168, 183, 204);
             btnAutocompletar.FlatStyle = FlatStyle.Popup;
             btnAutocompletar.Font = new Font("Century Gothic", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            btnAutocompletar.Location = new Point(153, 336);
+            btnAutocompletar.Location = new Point(132, 332);
             btnAutocompletar.Name = "btnAutocompletar";
             btnAutocompletar.Size = new Size(171, 45);
             btnAutocompletar.TabIndex = 6;
@@ -110,7 +110,7 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(-25, 12);
+            pictureBox1.Location = new Point(-57, 12);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(554, 449);
             pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
@@ -121,7 +121,7 @@
             // 
             lblRegistro.AutoSize = true;
             lblRegistro.Font = new Font("Century Gothic", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            lblRegistro.Location = new Point(153, 515);
+            lblRegistro.Location = new Point(132, 523);
             lblRegistro.Name = "lblRegistro";
             lblRegistro.Size = new Size(147, 19);
             lblRegistro.TabIndex = 8;
@@ -134,7 +134,7 @@
             AutoScaleDimensions = new SizeF(10F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(116, 140, 171);
-            ClientSize = new Size(501, 655);
+            ClientSize = new Size(434, 593);
             Controls.Add(lblRegistro);
             Controls.Add(btnAutocompletar);
             Controls.Add(btnIniciarSesion);

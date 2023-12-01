@@ -70,16 +70,16 @@ namespace Administracion_Consorcio_AdminFairy
                     }
                     else
                     {
-                        MessageBox.Show("Datos incorrectos. Por favor, inténtelo de nuevo.", "Error de inicio de sesión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Datos incorrectos. Por favor, inténtelo de nuevo.", "Error de inicio de sesión", MessageBoxButtons.OK, MessageBoxIcon.Error); // tirar excepcion propia
                     }
                 }
-  
-                
+
+
             }
             catch (Exception ex)
             {
                 // Manejar errores y registrarlos según sea necesario
-                MessageBox.Show($"Error al intentar iniciar sesión: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error al intentar iniciar sesión: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); // tirar una excepcion propia
             }
         }
 

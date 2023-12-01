@@ -52,10 +52,6 @@ namespace Entidades
            return $"VECINO:\tNombre: {this.Nombre},\nApellido: {this.Apellido},\nDNI: {this.Dni},\nClave: {this.Clave},\nCorreo Electrónico: {this.Email}," +
                 $"\nCiudad: {this.Ciudad},\nTorre: {this.Edificio},\nDepto.: {this.PisoVivienda}{this.UnidadVivienda},\nEstado de Expensas: {this.Expensas},\nEstado del vecino:{this.EstadoVecino}";
         }
-        /*
-        ver expensas
-        hacer un reclamo
-        ver contacto support 
-         */
+      
     }
 }

@@ -47,16 +47,26 @@ namespace Administracion_Consorcio_AdminFairy
 
         private void InicioVecino_Load(object sender, EventArgs e)
         {
-            // tenemos un problema con el reloj: cuando lo des-comento NO CARGA el form de InicioVecino. 
-            //Reloj reloj = new Reloj();
-            //reloj.SegundoCambiado += MostrarCambioTiempo;
-            //reloj.Ejecutar();
+            Reloj reloj = new Reloj();
+            reloj.SegundoCambiado += MostrarCambioTiempo; // Asociamos el evento con su respectivo manejador
+            reloj.Ejecutar();
         }
 
-        public void MostrarCambioTiempo(object reloj, InfoTiempoEventArgs info)
+        public void MostrarCambioTiempo(Reloj reloj) // Método manejador, que es el que va a reaccionar cuando disparemos el evento
         {
-        
-            lblTiempo.Text = $"{info.hora}{info.minuto}{info.segundo}";
+            if (lblTiempo.InvokeRequired)
+            //Reinvocar el evento, debido a que queremos modificar un elemento que es parte del hilo principal, el label
+            {
+                Action<Reloj> delegado = MostrarCambioTiempo; // Declaro el delegado
+
+                lblTiempo.Invoke(delegado, reloj); // Al label le paso el invoke con el delegado y los parametros del reloj
+            }
+            else
+            {
+                lblTiempo.Text = reloj.ToString(); // una vez hecho lo anterior se puede modificar el label           
+            }
+
+
         }
         private void btnMenu_Click(object sender, EventArgs e)
         {
@@ -84,10 +94,10 @@ namespace Administracion_Consorcio_AdminFairy
             catch (Exception ex)
             {
                 SerializadorTXT<Errores> serializador = new SerializadorTXT<Errores>();
-                serializador.RegistrarError(ex.Message, ex.GetType().ToString(), "InicioVeicno > btnExpensas_Click");
+                serializador.RegistrarError(ex.Message, ex.GetType().ToString(), "InicioVecino > btnExpensas_Click");
 
             }
-  
+
         }
 
         private void btnComunicados_Click(object sender, EventArgs e)
@@ -133,7 +143,7 @@ namespace Administracion_Consorcio_AdminFairy
                 SerializadorTXT<Errores> serializador = new SerializadorTXT<Errores>();
                 serializador.RegistrarError(ex.Message, ex.GetType().ToString(), "InicioVecino > btnReclamo_Click");
             }
-            
+
 
         }
 
@@ -158,7 +168,7 @@ namespace Administracion_Consorcio_AdminFairy
 
                 SerializadorTXT<Errores> serializador = new SerializadorTXT<Errores>();
                 serializador.RegistrarError(ex.Message, ex.GetType().ToString(), "InicioVecino > btnNrosUtiles_Click");
-                
+
             }
 
         }
@@ -212,9 +222,5 @@ namespace Administracion_Consorcio_AdminFairy
 
         }
 
-        private void InicioVecino_Activated(object sender, EventArgs e)
-        {
-            //reloj.Ejecutar();
-        }
     }
 }

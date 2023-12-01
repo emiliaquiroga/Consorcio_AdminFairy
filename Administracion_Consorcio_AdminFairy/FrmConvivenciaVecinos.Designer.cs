@@ -89,7 +89,7 @@
             Controls.Add(lblConvivenciaVecinos);
             FormBorderStyle = FormBorderStyle.None;
             Name = "FrmConvivenciaVecinos";
-            StartPosition = FormStartPosition.CenterParent;
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FrmConvivenciaVecinos";
             ResumeLayout(false);
             PerformLayout();

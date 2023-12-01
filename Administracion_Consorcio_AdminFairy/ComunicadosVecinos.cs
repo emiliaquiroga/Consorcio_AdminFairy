@@ -1,4 +1,5 @@
-﻿using Entidades;
+﻿using Entidades.Serializadores;
+using Entidades;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,30 +17,47 @@ namespace Administracion_Consorcio_AdminFairy
         string ruta;
         string path;
         List<string> comunicadosCreados;
+        FrmComunicados comunicadosEscritos;
+
+
         public ComunicadosVecinos()
         {
             InitializeComponent();
             this.ruta = Environment.GetFolderPath(Environment.SpecialFolder.Desktop); // donde va a estar ubicado
             this.path = ruta + @"\Comunicados.json";
             comunicadosCreados = new List<string>();
-            rchtxtComunicado.ReadOnly = true;
+            rtbComunicado.ReadOnly = true;
+
+            comunicadosEscritos = new FrmComunicados();
+            comunicadosEscritos.ComunicadoEnviado += MostrarComunicado;
         }
 
-        private void ComunicadosVecinos_Load(object sender, EventArgs e)
+        private async void ComunicadosVecinos_Load(object sender, EventArgs e)
         {
-            //comunicadosCreados = Serializadora.LeerJsonComunicado(path);
+            try
+            {
+                // Si los comunicados son demasiados, podría llegar a realentizar/congelar la carga del form, por eso lo hacemos asincronico
+                comunicadosCreados = await Task.Run(() => Serializadora.LeerJsonComunicado(path));
+            }
+            catch
+            {
+                throw new SinContenidoException("¡Nada que ver por aquí, todavía no hay comunicados!");
+            }
+
         }
 
         private void rchtxtComunicado_TextChanged(object sender, EventArgs e)
         {
             //string comunicado = rchtxtComunicado.Text;
             //Serializadora.EscribirJsonComunicado(comunicado);
-            //comunicadosCreados = Serializadora.LeerJsonComunicado(this.path);
+            comunicadosCreados = Serializadora.LeerJsonComunicado(this.path);
+            rtbComunicado.Text = string.Join("\n", comunicadosCreados);
 
-            foreach (string elemento in comunicadosCreados)
-            {
-                rchtxtComunicado.Text = $"{elemento}\n";
-            }
+        }
+
+        private void MostrarComunicado(string comunicado)
+        {
+            rtbComunicado.Text = comunicado;
         }
     }
 }

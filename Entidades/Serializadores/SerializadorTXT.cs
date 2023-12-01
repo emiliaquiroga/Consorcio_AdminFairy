@@ -49,7 +49,7 @@ namespace Entidades.Serializadores
             try
             {
                 // Abre o crea el archivo de log
-                using (StreamWriter sw = File.AppendText(Path))
+                using (StreamWriter sw = File.AppendText(this.Path))
                 {
                     // Escribe los datos en el archivo
                     sw.WriteLine($"{datos.FechaHora} - {datos.Descripcion} - {datos.Clase} - {datos.Metodo}");

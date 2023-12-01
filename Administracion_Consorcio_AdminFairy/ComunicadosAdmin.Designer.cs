@@ -30,7 +30,7 @@
         {
             lblAdmin = new Label();
             btnPublicarComunicado = new Button();
-            rchtxtComunicadoAdmin = new RichTextBox();
+            rtbComunicadoAdmin = new RichTextBox();
             SuspendLayout();
             // 
             // lblAdmin
@@ -59,19 +59,20 @@
             btnPublicarComunicado.TabIndex = 4;
             btnPublicarComunicado.Text = "Publicar";
             btnPublicarComunicado.UseVisualStyleBackColor = false;
+            btnPublicarComunicado.Click += btnPublicarComunicado_Click;
             // 
-            // rchtxtComunicadoAdmin
+            // rtbComunicadoAdmin
             // 
-            rchtxtComunicadoAdmin.BackColor = Color.FromArgb(233, 222, 245);
-            rchtxtComunicadoAdmin.BorderStyle = BorderStyle.FixedSingle;
-            rchtxtComunicadoAdmin.Font = new Font("Century Gothic", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            rchtxtComunicadoAdmin.Location = new Point(63, 134);
-            rchtxtComunicadoAdmin.Margin = new Padding(2);
-            rchtxtComunicadoAdmin.Name = "rchtxtComunicadoAdmin";
-            rchtxtComunicadoAdmin.ReadOnly = true;
-            rchtxtComunicadoAdmin.Size = new Size(955, 426);
-            rchtxtComunicadoAdmin.TabIndex = 10;
-            rchtxtComunicadoAdmin.Text = "";
+            rtbComunicadoAdmin.BackColor = Color.FromArgb(233, 222, 245);
+            rtbComunicadoAdmin.BorderStyle = BorderStyle.FixedSingle;
+            rtbComunicadoAdmin.Font = new Font("Century Gothic", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            rtbComunicadoAdmin.Location = new Point(63, 134);
+            rtbComunicadoAdmin.Margin = new Padding(2);
+            rtbComunicadoAdmin.Name = "rtbComunicadoAdmin";
+            rtbComunicadoAdmin.ReadOnly = true;
+            rtbComunicadoAdmin.Size = new Size(955, 426);
+            rtbComunicadoAdmin.TabIndex = 10;
+            rtbComunicadoAdmin.Text = "";
             // 
             // FrmComunicados
             // 
@@ -81,7 +82,7 @@
             BackgroundImage = Properties.Resources.Fondo_app;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1110, 700);
-            Controls.Add(rchtxtComunicadoAdmin);
+            Controls.Add(rtbComunicadoAdmin);
             Controls.Add(btnPublicarComunicado);
             Controls.Add(lblAdmin);
             FormBorderStyle = FormBorderStyle.None;
@@ -89,6 +90,7 @@
             Name = "FrmComunicados";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Comunicados";
+            Load += FrmComunicados_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -96,6 +98,6 @@
         #endregion
         private Label lblAdmin;
         private Button btnPublicarComunicado;
-        private RichTextBox rchtxtComunicadoAdmin;
+        private RichTextBox rtbComunicadoAdmin;
     }
 }

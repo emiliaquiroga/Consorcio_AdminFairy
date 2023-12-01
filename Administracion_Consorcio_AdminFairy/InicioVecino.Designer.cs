@@ -65,11 +65,11 @@
             // lblTiempo
             // 
             lblTiempo.AutoSize = true;
-            lblTiempo.Font = new Font("Century Gothic", 14.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            lblTiempo.Font = new Font("Century Schoolbook", 18F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
             lblTiempo.ForeColor = Color.DarkViolet;
-            lblTiempo.Location = new Point(12, 555);
+            lblTiempo.Location = new Point(29, 512);
             lblTiempo.Name = "lblTiempo";
-            lblTiempo.Size = new Size(78, 23);
+            lblTiempo.Size = new Size(103, 28);
             lblTiempo.TabIndex = 4;
             lblTiempo.Text = "Tiempo";
             // 
@@ -247,7 +247,6 @@
             Name = "InicioVecino";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "AdminFairy - Inicio ";
-            Activated += InicioVecino_Activated;
             Load += InicioVecino_Load;
             pnlMenu.ResumeLayout(false);
             pnlMenu.PerformLayout();

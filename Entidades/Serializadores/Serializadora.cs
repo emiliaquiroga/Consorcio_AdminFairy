@@ -78,11 +78,10 @@ namespace Entidades.Serializadores
         public static List<string> LeerJsonComunicado(string path)
         {
             List<string> lista = new List<string>();
-            string json = File.ReadAllText(path);
+            string json =  File.ReadAllText(path);
 
             try
             {
-
                 lista = JsonConvert.DeserializeObject<List<string>>(json);
 
             }

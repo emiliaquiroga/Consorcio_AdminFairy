@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             lblComunicados = new Label();
-            rchtxtComunicado = new RichTextBox();
+            rtbComunicado = new RichTextBox();
             SuspendLayout();
             // 
             // lblComunicados
@@ -44,19 +44,19 @@
             lblComunicados.TabIndex = 8;
             lblComunicados.Text = "Muro de comunicados : ";
             // 
-            // rchtxtComunicado
+            // rtbComunicado
             // 
-            rchtxtComunicado.BackColor = Color.FromArgb(233, 222, 245);
-            rchtxtComunicado.BorderStyle = BorderStyle.FixedSingle;
-            rchtxtComunicado.Font = new Font("Century Gothic", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            rchtxtComunicado.Location = new Point(88, 113);
-            rchtxtComunicado.Margin = new Padding(2);
-            rchtxtComunicado.Name = "rchtxtComunicado";
-            rchtxtComunicado.ReadOnly = true;
-            rchtxtComunicado.Size = new Size(926, 426);
-            rchtxtComunicado.TabIndex = 9;
-            rchtxtComunicado.Text = "";
-            rchtxtComunicado.TextChanged += rchtxtComunicado_TextChanged;
+            rtbComunicado.BackColor = Color.FromArgb(233, 222, 245);
+            rtbComunicado.BorderStyle = BorderStyle.FixedSingle;
+            rtbComunicado.Font = new Font("Century Gothic", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            rtbComunicado.Location = new Point(88, 113);
+            rtbComunicado.Margin = new Padding(2);
+            rtbComunicado.Name = "rtbComunicado";
+            rtbComunicado.ReadOnly = true;
+            rtbComunicado.Size = new Size(926, 426);
+            rtbComunicado.TabIndex = 9;
+            rtbComunicado.Text = "";
+            rtbComunicado.TextChanged += rchtxtComunicado_TextChanged;
             // 
             // ComunicadosVecinos
             // 
@@ -66,7 +66,7 @@
             BackgroundImage = Properties.Resources.Fondo_app;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1110, 624);
-            Controls.Add(rchtxtComunicado);
+            Controls.Add(rtbComunicado);
             Controls.Add(lblComunicados);
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(2);
@@ -80,6 +80,6 @@
 
         #endregion
         private Label lblComunicados;
-        private RichTextBox rchtxtComunicado;
+        private RichTextBox rtbComunicado;
     }
 }

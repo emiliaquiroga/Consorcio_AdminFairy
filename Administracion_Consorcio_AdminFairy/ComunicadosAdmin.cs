@@ -1,4 +1,5 @@
 ﻿using Entidades.Serializadores;
+using Entidades;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,6 +12,8 @@ using System.Windows.Forms;
 
 namespace Administracion_Consorcio_AdminFairy
 {
+    public delegate void ComunicadoEnviadoEventhandler(string comunicado);
+
     public partial class FrmComunicados : Form
     {
         string ruta;
@@ -19,46 +22,37 @@ namespace Administracion_Consorcio_AdminFairy
 
         List<string> comunicadosCreados;
 
+        
+        public event ComunicadoEnviadoEventhandler ComunicadoEnviado;
+
         public FrmComunicados()
         {
             InitializeComponent();
             this.ruta = Environment.GetFolderPath(Environment.SpecialFolder.Desktop); // donde va a estar ubicado
             this.path = ruta + @"\Comunicados.json";
             comunicadosCreados = new List<string>();
-            rchtxtComunicadoAdmin.ReadOnly = false;
+            rtbComunicadoAdmin.ReadOnly = false;
 
         }
+
         private void FrmComunicados_Load(object sender, EventArgs e)
         {
-            string comunicado = rchtxtComunicadoAdmin.Text;
-            Serializadora.EscribirJsonComunicado(comunicado);
+            comunicado = rtbComunicadoAdmin.Text;
             comunicadosCreados = Serializadora.LeerJsonComunicado(path);
 
         }
 
 
-        private void rchtxtAdmi_TextChanged(object sender, EventArgs e)
+        private void btnPublicarComunicado_Click(object sender, EventArgs e) // Efectivamente se ven en el json (creado manualmente), pero no se ven en el otro form
         {
-
-
+            EnviarComunicado();
+            Serializadora.EscribirJsonComunicado(rtbComunicadoAdmin.Text);
         }
 
-        private void btnAdmin_Click(object sender, EventArgs e)
+        private void EnviarComunicado()
         {
-            foreach (string elemento in comunicadosCreados)
-            {
-                rchtxtComunicadoAdmin.Text = $"{elemento}\n";
-            }
-
+            comunicado = rtbComunicadoAdmin.Text;
+            ComunicadoEnviado?.Invoke(comunicado);
         }
-
-        private void rchtxtComunicado_TextChanged(object sender, EventArgs e)
-        {
-
-            rchtxtComunicadoAdmin.ReadOnly = true;
-
-        }
-
-
     }
 }

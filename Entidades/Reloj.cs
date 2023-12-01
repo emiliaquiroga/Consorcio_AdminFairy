@@ -8,7 +8,8 @@ namespace Entidades
 {
     public class Reloj
     {
-        public delegate void NotificadorCambioTiempo(object reloj, InfoTiempoEventArgs infoTiempo);
+        public delegate void NotificadorCambioTiempo(Reloj reloj);
+        // El delegado es el que encapsula ese metodo manejador que se va a ejecutar cuando se dispare el evento
 
         public event NotificadorCambioTiempo SegundoCambiado;
 
@@ -17,30 +18,39 @@ namespace Entidades
         public int segundo;
 
         public void Ejecutar()
-        {
-            for ( ; ; ) // bucle infinito
-            {
-                Thread.Sleep(100);
-
-                DateTime dt = DateTime.Now;
-
-                if(dt.Second != segundo)
+        { 
+            Task.Run(() =>  // Hilo secundario
+            { 
+                while (true) // Bucle infinito
                 {
-                    InfoTiempoEventArgs infoTiempo = new InfoTiempoEventArgs(dt.Hour, dt.Minute, dt.Second);
+              
+                    DateTime dt = DateTime.Now;
+                    Thread.Sleep(10); // 100 veces por segundo 
 
-                    if (SegundoCambiado is not null)
-                    {
-                        SegundoCambiado.Invoke(this, infoTiempo);
+                    if(dt.Second != segundo) // Compruebo que mi atributo segundo, sea distinto al del sistema
+                    { 
+                        if (SegundoCambiado != null) // Comprobamos que este evento tenga un manejador asociado
+                        {
+                            SegundoCambiado.Invoke(this); // Si lo tiene, disparamos el evento
+                        }               
+                    
                     }
+
+                    // Actualizo los atributos
+                    this.segundo = dt.Second;
+                    this.minuto = dt.Minute;
+                    this.hora = dt.Hour;
                 }
-
-                this.segundo = dt.Second;
-                this.minuto = dt.Minute;
-                this.hora = dt.Hour;
-
-
-            }
+                
+            });
+        
         }
+
+        public override string ToString()
+        {
+            return $"{hora:D2} : {minuto:D2} : {segundo:D2}";
+        }
+
 
     }
 }
